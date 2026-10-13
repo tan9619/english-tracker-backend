@@ -1,0 +1,9 @@
+Flask==3.0.3
+Flask-SQLAlchemy==3.1.1
+SQLAlchemy==2.0.36
+PyMySQL==1.1.1
+# MySQL 8 / TDSQL-C 默认用 caching_sha2_password，PyMySQL 需要它
+cryptography==43.0.3
+requests==2.32.3
+cos-python-sdk-v5==1.9.29
+gunicorn==23.0.0
