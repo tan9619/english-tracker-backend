@@ -99,22 +99,33 @@ class Diary(db.Model):
 
     id = db.Column(BigIntPK, primary_key=True, autoincrement=True)
     openid = db.Column(String(64), nullable=False)
-    date = db.Column(Date, nullable=False)
-    content = db.Column(Text, nullable=False)
+    title = db.Column(String(128), nullable=False, default='')
+    date = db.Column(Date, nullable=False)          # 日记归属日期，用户可以改
+    content = db.Column(Text, nullable=False)       # 英文正文
+    note = db.Column(Text, nullable=True)           # 中文备注
     word_count = db.Column(Integer, nullable=False, default=0)
     char_count = db.Column(Integer, nullable=False, default=0)
     created_at = db.Column(DateTime, nullable=False, default=now_local)
     updated_at = db.Column(DateTime, nullable=False, default=now_local, onupdate=now_local)
 
-    __table_args__ = (UniqueConstraint('openid', 'date', name='uq_diaries_openid_date'), MYSQL_OPTS)
+    # 一天可以写多篇，所以 (openid, date) 不再唯一。列表按 date DESC, id DESC 排，
+    # 同一天多篇时用 id 兜底，否则顺序不确定。
+    __table_args__ = (
+        Index('ix_diaries_openid_date', 'openid', 'date'),
+        Index('ix_diaries_openid_created', 'openid', 'created_at'),
+        MYSQL_OPTS,
+    )
 
     def to_dict(self):
         return {
             '_id': str(self.id),
+            'title': self.title or '',
             'date': fmt(self.date),
             'content': self.content,
+            'note': self.note or '',
             'word_count': self.word_count,
             'char_count': self.char_count,
+            'created_at': self.created_at.strftime('%Y-%m-%dT%H:%M:%S') if self.created_at else '',
             'updated_at': self.updated_at.strftime('%Y-%m-%dT%H:%M:%S') if self.updated_at else '',
         }
 

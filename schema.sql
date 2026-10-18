@@ -32,16 +32,20 @@ CREATE TABLE IF NOT EXISTS checkins (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 CREATE TABLE IF NOT EXISTS diaries (
-  id         BIGINT      NOT NULL AUTO_INCREMENT,
-  openid     VARCHAR(64) NOT NULL,
-  date       DATE        NOT NULL,
-  content    TEXT        NOT NULL,
-  word_count INT         NOT NULL DEFAULT 0,
-  char_count INT         NOT NULL DEFAULT 0,
-  created_at DATETIME    NOT NULL,
-  updated_at DATETIME    NOT NULL,
+  id         BIGINT       NOT NULL AUTO_INCREMENT,
+  openid     VARCHAR(64)  NOT NULL,
+  title      VARCHAR(128) NOT NULL DEFAULT '',
+  date       DATE         NOT NULL,
+  content    TEXT         NOT NULL,
+  note       TEXT         NULL,
+  word_count INT          NOT NULL DEFAULT 0,
+  char_count INT          NOT NULL DEFAULT 0,
+  created_at DATETIME     NOT NULL,
+  updated_at DATETIME     NOT NULL,
   PRIMARY KEY (id),
-  UNIQUE KEY uq_diaries_openid_date (openid, date)
+  -- 一天可以写多篇，所以 (openid, date) 不是唯一索引
+  KEY ix_diaries_openid_date (openid, date),
+  KEY ix_diaries_openid_created (openid, created_at)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 CREATE TABLE IF NOT EXISTS chunks (

@@ -114,27 +114,74 @@ def main():
     check('按月查询（1-based）', d in r.get('checkedDates', []), r)
 
     print('\n--- diary ---')
-    r = c.post('/api/diary', headers=H, json={'content': 'hello world today'}).get_json()
-    check('日记新建', r.get('success') is True and r.get('isUpdate') is False, r)
-    check('新建 message=Saved', r.get('message') == 'Saved', r)
+    # 词数规则：缩写算一个，纯数字和中文不计，连字符拆成两个词
+    # "I'm fine, don't worry. 123 你好 hello-world" -> I'm/fine/don't/worry/hello/world = 6
+    r = c.post('/api/diary', headers=H, json={
+        'title': 'A day', 'date': d,
+        'content': "I'm fine, don't worry. 123 你好 hello-world",
+        'note': '中文备注',
+    }).get_json()
+    check('日记新建', r.get('success') is True, r)
+    check('词数规则：缩写算1、数字和中文不计',
+          r['diary']['word_count'] == 6, r['diary'])
+    first_id = r['diary']['_id']
 
-    r = c.post('/api/diary', headers=H, json={'content': 'edited content here'}).get_json()
-    check('日记覆盖 isUpdate', r.get('isUpdate') is True, r)
+    # 同一天写第二篇 —— 旧模型会覆盖第一篇，新模型应该并存
+    r = c.post('/api/diary', headers=H, json={
+        'title': '', 'date': d, 'content': 'second entry today',
+    }).get_json()
+    check('同一天可以写第二篇', r.get('success') is True, r)
+    check('标题可以为空', r['diary']['title'] == '', r['diary'])
+    second_id = r['diary']['_id']
 
     r = c.post('/api/diary', headers=H, json={'content': '   '}).get_json()
-    check('空内容被拒', r.get('success') is False, r)
-
-    r = c.get('/api/diary/today', headers=H).get_json()
-    check('getToday 返回当天', r['diary'] and r['diary']['word_count'] == 3, r)
+    check('空正文被拒', r.get('success') is False, r)
 
     r = c.get('/api/diary?limit=10', headers=H).get_json()
-    check('日记列表', len(r.get('list', [])) == 1, r)
+    check('同一天两篇都在', len(r.get('list', [])) == 2, r)
+    check('列表按 id 倒序兜底', r['list'][0]['_id'] == second_id, r['list'])
 
-    r = c.get('/api/diary/monthly-words', headers=H).get_json()
-    check('月词数', r.get('monthlyWords') == 3, r)
+    r = c.get('/api/diary?date=%s' % d, headers=H).get_json()
+    check('按日期筛选', len(r.get('list', [])) == 2, r)
+
+    r = c.get('/api/diary?date=2020-01-01', headers=H).get_json()
+    check('无记录日期返回空列表', r.get('list') == [], r)
+
+    r = c.get('/api/diary?q=second', headers=H).get_json()
+    check('关键词搜正文', len(r.get('list', [])) == 1, r)
+
+    r = c.get('/api/diary?q=A%20day', headers=H).get_json()
+    check('关键词搜标题', len(r.get('list', [])) == 1, r)
+
+    r = c.get('/api/diary?q=zzz_no_match', headers=H).get_json()
+    check('无匹配返回空列表', r.get('list') == [], r)
+
+    r = c.get('/api/diary/detail?id=%s' % first_id, headers=H).get_json()
+    check('详情按 id 取', r.get('success') is True and r['diary']['_id'] == first_id, r)
+    check('详情带中文备注', r['diary']['note'] == '中文备注', r['diary'])
+
+    r = c.get('/api/diary/detail?id=999999', headers=H).get_json()
+    check('不存在的 id 返回失败', r.get('success') is False, r)
+
+    r = c.post('/api/diary/update', headers=H, json={
+        'id': first_id, 'title': 'Updated', 'note': '',
+        'content': 'totally different words here',
+    }).get_json()
+    check('更新成功', r.get('success') is True, r)
+    check('更新后词数重算', r['diary']['word_count'] == 4, r['diary'])
+    check('更新后标题变化', r['diary']['title'] == 'Updated', r['diary'])
 
     r = c.get('/api/diary/stats', headers=H).get_json()
-    check('日记统计', r.get('totalCount') == 1 and r.get('monthlyWords') == 3, r)
+    check('统计：篇数=2', r.get('totalCount') == 2, r)
+    check('统计：累计词数=7', r.get('totalWords') == 7, r)
+    check('统计：本月篇数=2', r.get('monthCount') == 2, r)
+
+    r = c.post('/api/diary/delete', headers=H, json={'id': second_id}).get_json()
+    check('删除成功', r.get('success') is True, r)
+    r = c.get('/api/diary?date=%s' % d, headers=H).get_json()
+    check('删除后列表只剩一篇', len(r.get('list', [])) == 1, r)
+    r = c.get('/api/diary/stats', headers=H).get_json()
+    check('删除后统计同步', r.get('totalCount') == 1 and r.get('totalWords') == 4, r)
 
     print('\n--- chunks ---')
     r = c.post('/api/chunks', headers=H,
@@ -227,6 +274,15 @@ def main():
     check('另一个用户没有打卡记录', len(r.get('checkedDates', [])) == 0, r)
     r = c.post('/api/chunks/delete', headers=H2, json={'id': cid}).get_json()
     check('不能删别人的语块', r.get('success') is False, r)
+    r = c.get('/api/diary?limit=10', headers=H2).get_json()
+    check('看不到别人的日记', r.get('list') == [], r)
+    r = c.get('/api/diary/detail?id=%s' % first_id, headers=H2).get_json()
+    check('不能看别人的日记详情', r.get('success') is False, r)
+    r = c.post('/api/diary/update', headers=H2,
+               json={'id': first_id, 'content': 'hacked'}).get_json()
+    check('不能改别人的日记', r.get('success') is False, r)
+    r = c.post('/api/diary/delete', headers=H2, json={'id': first_id}).get_json()
+    check('不能删别人的日记', r.get('success') is False, r)
     r = c.post('/api/recordings/delete', headers=H2, json={'id': rid}).get_json()
     check('不能删别人的录音', r.get('success') is False, r)
     r = c.get('/api/user/profile', headers=H2).get_json()

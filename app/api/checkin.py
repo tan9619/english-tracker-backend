@@ -1,5 +1,7 @@
 """每日打卡。"""
 
+from datetime import datetime, timedelta
+
 from flask import Blueprint, g, jsonify, request
 from sqlalchemy import func
 from sqlalchemy.exc import IntegrityError
@@ -71,10 +73,13 @@ def day_detail():
     """某一天的打卡状态 + 当天学习行为汇总。
 
     统计口径（四类都只算「当天」）：
-      diary      diaries 表按 (openid,date) 唯一，所以只能是 0 或 1
-      chunks     当天创建的语块条数
-      review     当天评过分的复习卡片数（last_review = 当天）
-      recording  当天录音条数 + 累计时长（秒）
+      diary     当天「创建」的日记篇数（按 created_at，不是日记日期）
+      chunks    当天创建的语块条数
+      review    当天评过分数的复习卡片数（last_review = 当天）
+      recording 当天录音条数 + 累计时长（秒）
+
+    日记按创建时间而不是日记日期统计：用户今天补录一篇 9 月的日记，
+    应该算作「今天写了日记」，否则打卡页今天会显示 0。
     """
     raw = request.args.get('date')
     try:
@@ -85,7 +90,12 @@ def day_detail():
     checked = (db.session.query(Checkin)
                .filter_by(openid=g.openid, date=d).one_or_none()) is not None
 
-    diary_count = db.session.query(Diary).filter_by(openid=g.openid, date=d).count()
+    day_start = datetime.combine(d, datetime.min.time())
+    day_end = day_start + timedelta(days=1)
+    diary_count = (db.session.query(Diary)
+                   .filter(Diary.openid == g.openid,
+                           Diary.created_at >= day_start,
+                           Diary.created_at < day_end).count())
     chunk_count = db.session.query(Chunk).filter_by(openid=g.openid, date=d).count()
     review_count = (db.session.query(ReviewCard)
                     .filter(ReviewCard.openid == g.openid,

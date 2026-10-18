@@ -65,6 +65,7 @@ def create_app(config_object=Config):
             try:
                 db.create_all()
                 _ensure_columns(app)
+                _ensure_diary_schema(app)
             except Exception as e:
                 # 起不来就看不到日志了，所以这里只记不抛 —— 容器照样启动，
                 # /health 会如实报告 db 不通
@@ -88,3 +89,62 @@ def _ensure_columns(app):
             "ALTER TABLE users ADD COLUMN animal VARCHAR(16) NOT NULL DEFAULT ''"))
         db.session.commit()
         app.logger.info('schema: users.animal 列已补齐')
+
+
+def _ensure_diary_schema(app):
+    """日记从「一天一篇」改成「一天多篇」所需的迁移。
+
+    db.create_all() 只建缺失的表，不会加列、也不会删约束，所以这些都得手写。
+    改动是不可逆的（唯一索引删了回不去），部署前请确认有备份。
+    """
+    insp = inspect(db.engine)
+    if 'diaries' not in insp.get_table_names():
+        return
+
+    # 1) 补列
+    cols = {c['name'] for c in insp.get_columns('diaries')}
+    try:
+        if 'title' not in cols:
+            db.session.execute(text(
+                "ALTER TABLE diaries ADD COLUMN title VARCHAR(128) NOT NULL DEFAULT ''"))
+            app.logger.info('schema: diaries.title 已补齐')
+        if 'note' not in cols:
+            db.session.execute(text('ALTER TABLE diaries ADD COLUMN note TEXT NULL'))
+            app.logger.info('schema: diaries.note 已补齐')
+        db.session.commit()
+    except Exception as e:
+        db.session.rollback()
+        app.logger.error('schema: 日记字段迁移失败 %s', e)
+
+    # 2) 删掉 (openid, date) 的唯一约束，允许一天多篇
+    insp = inspect(db.engine)
+    idx = {i['name'] for i in insp.get_indexes('diaries')}
+    if 'uq_diaries_openid_date' in idx:
+        if db.engine.dialect.name == 'mysql':
+            try:
+                db.session.execute(text(
+                    'ALTER TABLE diaries DROP INDEX uq_diaries_openid_date'))
+                db.session.commit()
+                app.logger.info('schema: 已删除唯一索引 uq_diaries_openid_date')
+            except Exception as e:
+                db.session.rollback()
+                app.logger.error('schema: 删除唯一索引失败 %s', e)
+        else:
+            app.logger.warning(
+                'schema: SQLite 无法用 ALTER 删除表级唯一约束（uq_diaries_openid_date）。'
+                '本地开发请删除 dev.db 重建；生产 MySQL 会自动处理。')
+
+    # 3) 补建非唯一索引（create_all 不会给已存在的表建索引）
+    try:
+        insp = inspect(db.engine)
+        have = {i['name'] for i in insp.get_indexes('diaries')}
+        if 'ix_diaries_openid_date' not in have:
+            db.session.execute(text(
+                'CREATE INDEX ix_diaries_openid_date ON diaries (openid, date)'))
+        if 'ix_diaries_openid_created' not in have:
+            db.session.execute(text(
+                'CREATE INDEX ix_diaries_openid_created ON diaries (openid, created_at)'))
+        db.session.commit()
+    except Exception as e:
+        db.session.rollback()
+        app.logger.error('schema: 日记索引创建失败 %s', e)
