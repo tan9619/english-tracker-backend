@@ -8,7 +8,7 @@ from sqlalchemy.exc import IntegrityError
 
 from ..dates import calc_streak, fmt, month_range, parse_date, today
 from ..extensions import db
-from ..models import Checkin, Chunk, Diary, Recording, ReviewCard
+from ..models import Checkin, Chunk, Diary, Recording, ReviewRecord
 
 bp = Blueprint('checkin', __name__)
 
@@ -75,7 +75,7 @@ def day_detail():
     统计口径（四类都只算「当天」）：
       diary     当天「创建」的日记篇数（按 created_at，不是日记日期）
       chunks    当天创建的语块条数
-      review    当天评过分数的复习卡片数（last_review = 当天）
+      review    当天复习过的不同语块数（按 review_records 去重）
       recording 当天录音条数 + 累计时长（秒）
 
     日记按创建时间而不是日记日期统计：用户今天补录一篇 9 月的日记，
@@ -97,9 +97,10 @@ def day_detail():
                            Diary.created_at >= day_start,
                            Diary.created_at < day_end).count())
     chunk_count = db.session.query(Chunk).filter_by(openid=g.openid, date=d).count()
-    review_count = (db.session.query(ReviewCard)
-                    .filter(ReviewCard.openid == g.openid,
-                            ReviewCard.last_review == d).count())
+    # 按「不同语块」去重：同一语块当天复习多次只算一个
+    review_count = (db.session.query(func.count(func.distinct(ReviewRecord.chunk_id)))
+                    .filter(ReviewRecord.openid == g.openid,
+                            ReviewRecord.review_date == d).scalar() or 0)
 
     rec_count, rec_duration = (db.session.query(
         func.count(Recording.id), func.coalesce(func.sum(Recording.duration), 0))

@@ -130,6 +130,12 @@ class Diary(db.Model):
         }
 
 
+# 掌握状态只存在 chunks 上，是唯一事实来源。复习流程负责更新它，
+# 复习卡不再单独存一份，避免两边不一致。
+MASTERY_LEARNING = 'learning'
+MASTERY_MASTERED = 'mastered'
+
+
 class Chunk(db.Model):
     __tablename__ = 'chunks'
 
@@ -137,15 +143,21 @@ class Chunk(db.Model):
     openid = db.Column(String(64), nullable=False)
     phrase = db.Column(String(255), nullable=False)
     meaning = db.Column(String(512), nullable=False, default='')
+    scenario = db.Column(String(128), nullable=False, default='')   # 使用场景
+    example_sentence = db.Column(Text, nullable=True)               # 示例句
+    note = db.Column(Text, nullable=True)                           # 个人备注
     source = db.Column(String(255), nullable=False, default='')
     tag = db.Column(String(16), nullable=False, default='phrasal')
+    mastery_status = db.Column(String(16), nullable=False, default=MASTERY_LEARNING)
     date = db.Column(Date, nullable=False)
     created_at = db.Column(DateTime, nullable=False, default=now_local)
+    updated_at = db.Column(DateTime, nullable=True)
 
     __table_args__ = (
         Index('ix_chunks_openid_created', 'openid', 'created_at'),
         Index('ix_chunks_openid_date', 'openid', 'date'),
         Index('ix_chunks_openid_tag', 'openid', 'tag'),
+        Index('ix_chunks_openid_mastery', 'openid', 'mastery_status'),
         MYSQL_OPTS,
     )
 
@@ -154,9 +166,45 @@ class Chunk(db.Model):
             '_id': str(self.id),
             'phrase': self.phrase,
             'meaning': self.meaning or '',
+            'scenario': self.scenario or '',
+            'example_sentence': self.example_sentence or '',
+            'note': self.note or '',
             'source': self.source or '',
             'tag': self.tag,
+            'mastery_status': self.mastery_status or MASTERY_LEARNING,
             'date': fmt(self.date),
+            'created_at': self.created_at.strftime('%Y-%m-%dT%H:%M:%S') if self.created_at else '',
+            'updated_at': self.updated_at.strftime('%Y-%m-%dT%H:%M:%S') if self.updated_at else '',
+        }
+
+
+class ReviewRecord(db.Model):
+    """复习行为流水。每次提交结果写一条，不覆盖历史。
+
+    统计「今日已复习」时按不同 chunk_id 去重，但历史记录保留每一次。
+    """
+    __tablename__ = 'review_records'
+
+    id = db.Column(BigIntPK, primary_key=True, autoincrement=True)
+    openid = db.Column(String(64), nullable=False)
+    chunk_id = db.Column(BigIntPK, ForeignKey('chunks.id', ondelete='CASCADE'), nullable=False)
+    review_date = db.Column(Date, nullable=False)
+    result = db.Column(String(16), nullable=False)   # again | mastered
+    created_at = db.Column(DateTime, nullable=False, default=now_local)
+
+    __table_args__ = (
+        Index('ix_records_openid_date', 'openid', 'review_date'),
+        Index('ix_records_openid_chunk', 'openid', 'chunk_id'),
+        MYSQL_OPTS,
+    )
+
+    def to_dict(self):
+        return {
+            '_id': str(self.id),
+            'chunk_id': str(self.chunk_id),
+            'review_date': fmt(self.review_date),
+            'result': self.result,
+            'created_at': self.created_at.strftime('%Y-%m-%dT%H:%M:%S') if self.created_at else '',
         }
 
 

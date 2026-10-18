@@ -49,18 +49,25 @@ CREATE TABLE IF NOT EXISTS diaries (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 CREATE TABLE IF NOT EXISTS chunks (
-  id         BIGINT       NOT NULL AUTO_INCREMENT,
-  openid     VARCHAR(64)  NOT NULL,
-  phrase     VARCHAR(255) NOT NULL,
-  meaning    VARCHAR(512) NOT NULL DEFAULT '',
-  source     VARCHAR(255) NOT NULL DEFAULT '',
-  tag        VARCHAR(16)  NOT NULL DEFAULT 'phrasal',
-  date       DATE         NOT NULL,
-  created_at DATETIME     NOT NULL,
+  id               BIGINT       NOT NULL AUTO_INCREMENT,
+  openid           VARCHAR(64)  NOT NULL,
+  phrase           VARCHAR(255) NOT NULL,
+  meaning          VARCHAR(512) NOT NULL DEFAULT '',
+  scenario         VARCHAR(128) NOT NULL DEFAULT '',
+  example_sentence TEXT         NULL,
+  note             TEXT         NULL,
+  source           VARCHAR(255) NOT NULL DEFAULT '',
+  tag              VARCHAR(16)  NOT NULL DEFAULT 'phrasal',
+  -- 掌握状态：learning 待复习 / mastered 已掌握，由复习流程更新
+  mastery_status   VARCHAR(16)  NOT NULL DEFAULT 'learning',
+  date             DATE         NOT NULL,
+  created_at       DATETIME     NOT NULL,
+  updated_at       DATETIME     NULL,
   PRIMARY KEY (id),
   KEY ix_chunks_openid_created (openid, created_at),
   KEY ix_chunks_openid_date (openid, date),
-  KEY ix_chunks_openid_tag (openid, tag)
+  KEY ix_chunks_openid_tag (openid, tag),
+  KEY ix_chunks_openid_mastery (openid, mastery_status)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 CREATE TABLE IF NOT EXISTS review_cards (
@@ -78,6 +85,21 @@ CREATE TABLE IF NOT EXISTS review_cards (
   PRIMARY KEY (id),
   KEY ix_cards_openid_next (openid, next_review),
   CONSTRAINT fk_cards_chunk FOREIGN KEY (chunk_id) REFERENCES chunks (id) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- 复习行为流水：每次提交结果写一条，不覆盖历史。
+-- 统计「今日已复习」时按不同 chunk_id 去重。
+CREATE TABLE IF NOT EXISTS review_records (
+  id          BIGINT      NOT NULL AUTO_INCREMENT,
+  openid      VARCHAR(64) NOT NULL,
+  chunk_id    BIGINT      NOT NULL,
+  review_date DATE        NOT NULL,
+  result      VARCHAR(16) NOT NULL,        -- again | mastered
+  created_at  DATETIME    NOT NULL,
+  PRIMARY KEY (id),
+  KEY ix_records_openid_date (openid, review_date),
+  KEY ix_records_openid_chunk (openid, chunk_id),
+  CONSTRAINT fk_records_chunk FOREIGN KEY (chunk_id) REFERENCES chunks (id) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 CREATE TABLE IF NOT EXISTS recordings (

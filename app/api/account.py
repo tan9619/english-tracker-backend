@@ -13,12 +13,13 @@
 from flask import Blueprint, current_app, g, jsonify
 
 from ..extensions import db
-from ..models import Checkin, Chunk, Diary, Recording, ReviewCard, User
+from ..models import (Checkin, Chunk, Diary, Recording, ReviewCard,
+                      ReviewRecord, User)
 from ..storage import delete_cloud_files
 
 bp = Blueprint('account', __name__)
 
-BUSINESS_MODELS = [Checkin, Diary, Chunk, ReviewCard, Recording]
+BUSINESS_MODELS = [Checkin, Diary, Chunk, ReviewCard, ReviewRecord, Recording]
 
 
 def _collect_file_ids(openid, action):

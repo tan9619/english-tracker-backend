@@ -184,50 +184,101 @@ def main():
     check('删除后统计同步', r.get('totalCount') == 1 and r.get('totalWords') == 4, r)
 
     print('\n--- chunks ---')
-    r = c.post('/api/chunks', headers=H,
-               json={'phrase': 'give up', 'meaning': '放弃', 'source': 'book', 'tag': 'phrasal'}).get_json()
+    r = c.post('/api/chunks', headers=H, json={
+        'phrase': 'give up', 'meaning': '放弃', 'scenario': '日常交流',
+        'example_sentence': 'I give up.', 'note': '口语常用',
+        'source': 'book', 'tag': 'phrasal',
+    }).get_json()
     check('语块新增', r.get('success') is True, r)
+    check('新增返回 _id（原实现不返回，前端乐观条目无法寻址）',
+          (r.get('chunk') or {}).get('_id') is not None, r)
+    check('默认掌握状态 learning',
+          (r.get('chunk') or {}).get('mastery_status') == 'learning', r)
+    cid = r['chunk']['_id']
 
-    r = c.post('/api/chunks', headers=H, json={'phrase': ''}).get_json()
-    check('空 phrase 被拒', r.get('success') is False, r)
+    r = c.post('/api/chunks', headers=H, json={'phrase': '', 'meaning': '释义'}).get_json()
+    check('空表达被拒', r.get('success') is False, r)
+    r = c.post('/api/chunks', headers=H, json={'phrase': 'x', 'meaning': ''}).get_json()
+    check('空释义被拒', r.get('success') is False, r)
 
     r = c.get('/api/chunks', headers=H).get_json()
     check('语块列表', len(r.get('list', [])) == 1, r)
-    cid = r['list'][0]['_id']
-    check('语块存下了 meaning（原前端 bug 会丢）', r['list'][0]['meaning'] == '放弃', r)
+    it = r['list'][0]
+    check('新字段已落库', it['scenario'] == '日常交流'
+          and it['example_sentence'] == 'I give up.'
+          and it['note'] == '口语常用', it)
+    check('释义没丢', it['meaning'] == '放弃', it)
 
-    r = c.get('/api/chunks?tag=collocation', headers=H).get_json()
-    check('按 tag 过滤', len(r.get('list', [])) == 0, r)
+    r = c.get('/api/chunks?q=give', headers=H).get_json()
+    check('搜英文表达', len(r.get('list', [])) == 1, r)
+    r = c.get('/api/chunks?q=放弃', headers=H).get_json()
+    check('搜中文释义', len(r.get('list', [])) == 1, r)
+    r = c.get('/api/chunks?q=zzz_no_match', headers=H).get_json()
+    check('搜不到返回空', r.get('list') == [], r)
+
+    r = c.get('/api/chunks?status=mastered', headers=H).get_json()
+    check('按已掌握筛选（当前 0 条）', len(r.get('list', [])) == 0, r)
+    r = c.get('/api/chunks?status=learning', headers=H).get_json()
+    check('按待复习筛选', len(r.get('list', [])) == 1, r)
 
     r = c.get('/api/chunks/stats', headers=H).get_json()
-    check('语块统计', r.get('todayCount') == 1 and r.get('totalCount') == 1, r)
+    check('语块统计：总数/待复习/已掌握',
+          r.get('totalCount') == 1 and r.get('learningCount') == 1
+          and r.get('masteredCount') == 0, r)
+
+    r = c.get('/api/chunks/detail?id=%s' % cid, headers=H).get_json()
+    check('语块详情', r.get('success') is True and r['chunk']['_id'] == cid, r)
+    check('详情带复习卡', r.get('card') is not None, r)
+
+    r = c.post('/api/chunks/update', headers=H, json={
+        'id': cid, 'phrase': 'give in', 'meaning': '屈服',
+        'mastery_status': 'mastered',   # 客户端不该能直接改
+    }).get_json()
+    check('语块更新', r.get('success') is True, r)
+    check('客户端改不了掌握状态', r['chunk']['mastery_status'] == 'learning', r['chunk'])
 
     print('\n--- review ---')
+    r = c.get('/api/review/overview', headers=H).get_json()
+    check('待复习=1', r.get('dueCount') == 1, r)
+    check('今日已复习=0', r.get('todayReviewed') == 0, r)
+
     r = c.get('/api/review/due', headers=H).get_json()
-    check('新卡当天到期', r.get('dueCount') == 1, r)
-    check('卡片冗余 phrase', r['cards'][0]['phrase'] == 'give up', r['cards'][0])
-    card_id = r['cards'][0]['_id']
+    check('待复习列表含该语块', len(r.get('cards', [])) == 1, r)
+    check('卡片 phrase 跟着更新', r['cards'][0]['phrase'] == 'give in', r['cards'][0])
 
-    r = c.post('/api/review/rate', headers=H, json={'cardId': card_id, 'quality': 5}).get_json()
-    check('评分 5 -> rep1/intv1', r['updated']['repetition'] == 1 and r['updated']['interval'] == 1, r)
-    r = c.post('/api/review/rate', headers=H, json={'cardId': card_id, 'quality': 5}).get_json()
-    check('评分 5 第二次 -> rep2/intv6', r['updated']['repetition'] == 2 and r['updated']['interval'] == 6, r)
-    r = c.post('/api/review/rate', headers=H, json={'cardId': card_id, 'quality': 0}).get_json()
-    check('评分 0 -> 重置 rep0/intv1', r['updated']['repetition'] == 0 and r['updated']['interval'] == 1, r)
+    r = c.post('/api/review/submit', headers=H,
+               json={'chunkId': cid, 'result': 'again'}).get_json()
+    check('提交「还不熟悉」', r.get('success') is True, r)
+    check('仍为 learning', r.get('mastery_status') == 'learning', r)
 
-    r = c.get('/api/review/stats', headers=H).get_json()
-    check('复习统计', r.get('totalCards') == 1, r)
+    r = c.get('/api/review/overview', headers=H).get_json()
+    check('今日已复习=1', r.get('todayReviewed') == 1, r)
 
-    r = c.post('/api/review/skip', headers=H, json={'cardId': card_id}).get_json()
-    check('跳过', r.get('success') is True, r)
+    c.post('/api/review/submit', headers=H, json={'chunkId': cid, 'result': 'again'})
+    r = c.get('/api/review/overview', headers=H).get_json()
+    check('同一语块多次复习仍只算 1', r.get('todayReviewed') == 1, r)
 
-    r = c.post('/api/chunks/update', headers=H,
-               json={'id': cid, 'phrase': 'give in', 'meaning': '屈服', 'source': 'book', 'tag': 'phrasal'}).get_json()
-    check('语块更新', r.get('success') is True, r)
-    r = c.get('/api/review/due', headers=H).get_json()
-    r2 = c.get('/api/review/stats', headers=H).get_json()
-    check('卡片 phrase 跟着更新',
-          c.get('/api/review/due?', headers=H).get_json() is not None, '')
+    r = c.post('/api/review/submit', headers=H,
+               json={'chunkId': cid, 'result': 'mastered'}).get_json()
+    check('提交「已掌握」', r.get('success') is True, r)
+    check('状态变为 mastered', r.get('mastery_status') == 'mastered', r)
+
+    r = c.get('/api/review/overview', headers=H).get_json()
+    check('已掌握后不再待复习', r.get('dueCount') == 0, r)
+
+    r = c.get('/api/chunks/stats', headers=H).get_json()
+    check('语块统计：已掌握=1',
+          r.get('masteredCount') == 1 and r.get('learningCount') == 0, r)
+
+    r = c.post('/api/review/reset', headers=H, json={'chunkId': cid}).get_json()
+    check('重置为待复习', r.get('success') is True
+          and r.get('mastery_status') == 'learning', r)
+    r = c.get('/api/review/overview', headers=H).get_json()
+    check('重置后重新待复习', r.get('dueCount') == 1, r)
+
+    r = c.post('/api/review/submit', headers=H,
+               json={'chunkId': cid, 'result': 'whatever'}).get_json()
+    check('非法结果被拒', r.get('success') is False, r)
 
     print('\n--- recordings ---')
     r = c.post('/api/recordings', headers=H,
@@ -274,6 +325,13 @@ def main():
     check('另一个用户没有打卡记录', len(r.get('checkedDates', [])) == 0, r)
     r = c.post('/api/chunks/delete', headers=H2, json={'id': cid}).get_json()
     check('不能删别人的语块', r.get('success') is False, r)
+    r = c.get('/api/chunks/detail?id=%s' % cid, headers=H2).get_json()
+    check('不能看别人的语块详情', r.get('success') is False, r)
+    r = c.post('/api/review/submit', headers=H2,
+               json={'chunkId': cid, 'result': 'mastered'}).get_json()
+    check('不能替别人提交复习', r.get('success') is False, r)
+    r = c.post('/api/review/reset', headers=H2, json={'chunkId': cid}).get_json()
+    check('不能重置别人的语块', r.get('success') is False, r)
     r = c.get('/api/diary?limit=10', headers=H2).get_json()
     check('看不到别人的日记', r.get('list') == [], r)
     r = c.get('/api/diary/detail?id=%s' % first_id, headers=H2).get_json()
@@ -291,8 +349,12 @@ def main():
     print('\n--- 级联删除 ---')
     r = c.post('/api/chunks/delete', headers=H, json={'id': cid}).get_json()
     check('删语块', r.get('success') is True, r)
-    r = c.get('/api/review/stats', headers=H).get_json()
-    check('关联复习卡一并删除', r.get('totalCards') == 0, r)
+    r = c.get('/api/review/overview', headers=H).get_json()
+    check('关联复习卡一并删除（不再待复习）', r.get('dueCount') == 0, r)
+    r = c.get('/api/chunks/stats', headers=H).get_json()
+    check('删除后语块统计归零', r.get('totalCount') == 0, r)
+    r = c.get('/api/checkin/day?date=%s' % d, headers=H).get_json()
+    check('删除语块后当天复习记录也清掉', r['learning']['review'] == 0, r['learning'])
 
     print('\n--- account ---')
     r = c.post('/api/account/clear', headers=H, json={}).get_json()

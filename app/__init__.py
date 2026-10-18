@@ -66,6 +66,7 @@ def create_app(config_object=Config):
                 db.create_all()
                 _ensure_columns(app)
                 _ensure_diary_schema(app)
+                _ensure_chunk_schema(app)
             except Exception as e:
                 # 起不来就看不到日志了，所以这里只记不抛 —— 容器照样启动，
                 # /health 会如实报告 db 不通
@@ -148,3 +149,40 @@ def _ensure_diary_schema(app):
     except Exception as e:
         db.session.rollback()
         app.logger.error('schema: 日记索引创建失败 %s', e)
+
+
+def _ensure_chunk_schema(app):
+    """语块新增的字段。review_records 是新表，create_all 会自动建，无需 ALTER。"""
+    insp = inspect(db.engine)
+    if 'chunks' not in insp.get_table_names():
+        return
+
+    cols = {c['name'] for c in insp.get_columns('chunks')}
+    additions = [
+        ('scenario', "VARCHAR(128) NOT NULL DEFAULT ''"),
+        ('example_sentence', 'TEXT NULL'),
+        ('note', 'TEXT NULL'),
+        ('mastery_status', "VARCHAR(16) NOT NULL DEFAULT 'learning'"),
+        ('updated_at', 'DATETIME NULL'),
+    ]
+    try:
+        for name, ddl in additions:
+            if name not in cols:
+                db.session.execute(text(
+                    'ALTER TABLE chunks ADD COLUMN %s %s' % (name, ddl)))
+                app.logger.info('schema: chunks.%s 已补齐', name)
+        db.session.commit()
+    except Exception as e:
+        db.session.rollback()
+        app.logger.error('schema: 语块字段迁移失败 %s', e)
+
+    try:
+        insp = inspect(db.engine)
+        have = {i['name'] for i in insp.get_indexes('chunks')}
+        if 'ix_chunks_openid_mastery' not in have:
+            db.session.execute(text(
+                'CREATE INDEX ix_chunks_openid_mastery ON chunks (openid, mastery_status)'))
+            db.session.commit()
+    except Exception as e:
+        db.session.rollback()
+        app.logger.error('schema: 语块索引创建失败 %s', e)

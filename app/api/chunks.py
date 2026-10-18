@@ -1,18 +1,24 @@
-"""语块（短语本）。新增语块时同时建一张复习卡。"""
+"""语块（短语本）。
+
+新增语块时同时建一张复习卡，并把掌握状态初始化成 learning。
+掌握状态只存在 chunks 上，复习流程负责更新它。
+"""
 
 from datetime import timedelta
 
 from flask import Blueprint, g, jsonify, request
+from sqlalchemy import or_
 
-from ..dates import fmt, today
+from ..dates import now_local, today
 from ..extensions import db
 from ..moderation import check_text, failure
-from ..models import Chunk, ReviewCard
+from ..models import MASTERY_LEARNING, MASTERY_MASTERED, Chunk, ReviewCard, ReviewRecord
 
 bp = Blueprint('chunks', __name__)
 
 MAX_LIMIT = 200
 TAGS = {'phrasal', 'collocation', 'sentence', 'slang'}
+STATUSES = {'all', 'learning', 'mastered'}
 
 
 def _own_chunk(chunk_id):
@@ -24,71 +30,117 @@ def _own_chunk(chunk_id):
             .filter_by(id=cid, openid=g.openid).one_or_none())
 
 
-@bp.route('/api/chunks', methods=['POST'])
-def add():
-    body = request.get_json(silent=True) or {}
-    phrase = str(body.get('phrase') or '').strip()
-    meaning = str(body.get('meaning') or '').strip()
-    source = str(body.get('source') or '').strip()
-    tag = body.get('tag') or 'phrasal'
+def _own_card(chunk_id):
+    return (db.session.query(ReviewCard)
+            .filter_by(chunk_id=chunk_id, openid=g.openid).one_or_none())
+
+
+def _moderation_text(fields):
+    return '\n'.join(x for x in fields if x)
+
+
+def _apply(body, chunk):
+    """把请求体里的可编辑字段写到 chunk 上，返回错误响应或 None。"""
+    phrase = str(body.get('phrase', chunk.phrase) or '').strip()
+    meaning = str(body.get('meaning', chunk.meaning) or '').strip()
+    scenario = str(body.get('scenario', chunk.scenario) or '').strip()
+    example = str(body.get('example_sentence', chunk.example_sentence) or '')
+    note = str(body.get('note', chunk.note) or '')
+    source = str(body.get('source', chunk.source) or '').strip()
+    tag = body.get('tag', chunk.tag) or chunk.tag
 
     if not phrase:
         return jsonify(success=False, message='Phrase required')
     if len(phrase) > 255:
         return jsonify(success=False, message='Phrase too long')
+    if not meaning:
+        return jsonify(success=False, message='Meaning required')
+    if len(meaning) > 512:
+        return jsonify(success=False, message='Meaning too long')
     if tag not in TAGS:
-        tag = 'phrasal'
+        tag = chunk.tag if chunk.tag in TAGS else 'phrasal'
 
-    # 检测 phrase + meaning + source 三段 —— source 原先漏检却会被展示
-    state = check_text('\n'.join(x for x in (phrase, meaning, source) if x), g.openid)
+    state = check_text(
+        _moderation_text([phrase, meaning, scenario, example, note, source]), g.openid)
     if state != 'ok':
         return jsonify(failure(state))
 
+    chunk.phrase = phrase
+    chunk.meaning = meaning
+    chunk.scenario = scenario[:128]
+    chunk.example_sentence = example
+    chunk.note = note
+    chunk.source = source[:255]
+    chunk.tag = tag
+    return None
+
+
+@bp.route('/api/chunks', methods=['POST'])
+def add():
+    body = request.get_json(silent=True) or {}
     d = today()
-    chunk = Chunk(openid=g.openid, phrase=phrase, meaning=meaning[:512],
-                  source=source[:255], tag=tag, date=d)
+    chunk = Chunk(openid=g.openid, date=d, mastery_status=MASTERY_LEARNING,
+                  phrase='', meaning='', scenario='', source='', tag='phrasal')
+
+    err = _apply(body, chunk)
+    if err is not None:
+        return err
+
     db.session.add(chunk)
     db.session.flush()          # 拿到 chunk.id 给下面的卡用
 
     db.session.add(ReviewCard(
-        openid=g.openid, chunk_id=chunk.id, phrase=phrase, meaning=meaning[:512],
+        openid=g.openid, chunk_id=chunk.id, phrase=chunk.phrase, meaning=chunk.meaning,
         repetition=0, interval=1, easiness=2.50,
-        next_review=d,        # 当天即到期，和原实现一致
-        last_review=None,
+        next_review=d, last_review=None,
     ))
     db.session.commit()
-    return jsonify(success=True, message='Added')
+
+    # 返回创建结果 —— 前端需要 _id 才能立刻进入详情/编辑
+    return jsonify(success=True, message='Added', chunk=chunk.to_dict())
 
 
 @bp.route('/api/chunks', methods=['GET'])
 def get_list():
-    tag = request.args.get('tag', 'all')
+    status = request.args.get('status', 'all') or 'all'
+    if status not in STATUSES:
+        status = 'all'
+
     try:
-        limit = min(int(request.args.get('limit', 50)), MAX_LIMIT)
+        limit = min(int(request.args.get('limit', 100)), MAX_LIMIT)
         skip = max(int(request.args.get('skip', 0)), 0)
     except ValueError:
         return jsonify(success=False, message='Invalid limit/skip')
 
     q = db.session.query(Chunk).filter_by(openid=g.openid)
-    if tag and tag != 'all':
-        q = q.filter_by(tag=tag)
 
-    rows = q.order_by(Chunk.created_at.desc()).offset(skip).limit(limit).all()
+    if status != 'all':
+        q = q.filter(Chunk.mastery_status == status)
+
+    tag = request.args.get('tag')
+    if tag and tag != 'all':
+        q = q.filter(Chunk.tag == tag)
+
+    keyword = (request.args.get('q') or '').strip()
+    if keyword:
+        like = '%' + keyword + '%'
+        # 需求：搜索英文表达和中文释义
+        q = q.filter(or_(Chunk.phrase.like(like), Chunk.meaning.like(like)))
+
+    rows = q.order_by(Chunk.created_at.desc(), Chunk.id.desc()) \
+        .offset(skip).limit(limit).all()
     return jsonify(success=True, list=[r.to_dict() for r in rows])
 
 
-@bp.route('/api/chunks/stats', methods=['GET'])
-def stats():
-    d = today()
-    week_start = d - timedelta(days=(d.weekday() + 1) % 7)   # 周日为一周开始，同 JS
+@bp.route('/api/chunks/detail', methods=['GET'])
+def detail():
+    chunk = _own_chunk(request.args.get('id'))
+    if chunk is None:
+        return jsonify(success=False, message='Not found')
 
-    base = db.session.query(Chunk).filter_by(openid=g.openid)
-    today_count = base.filter(Chunk.date == d).count()
-    week_count = base.filter(Chunk.date >= week_start).count()
-    total_count = base.count()
-
-    return jsonify(success=True, todayCount=today_count,
-                   weekCount=week_count, totalCount=total_count)
+    card = _own_card(chunk.id)
+    return jsonify(success=True, chunk=chunk.to_dict(),
+                   card=card.to_dict() if card else None)
 
 
 @bp.route('/api/chunks/update', methods=['POST'])
@@ -98,34 +150,19 @@ def update():
     if chunk is None:
         return jsonify(success=False, message='Not found')
 
-    phrase = str(body.get('phrase') or '').strip()
-    meaning = str(body.get('meaning') or '').strip()
-    source = str(body.get('source') or '').strip()
-    tag = body.get('tag') or chunk.tag
+    err = _apply(body, chunk)
+    if err is not None:
+        return err
 
-    if not phrase:
-        return jsonify(success=False, message='Phrase required')
-    if len(phrase) > 255:
-        return jsonify(success=False, message='Phrase too long')
-    if tag not in TAGS:
-        tag = chunk.tag
-
-    state = check_text('\n'.join(x for x in (phrase, meaning, source) if x), g.openid)
-    if state != 'ok':
-        return jsonify(failure(state))
-
-    chunk.phrase = phrase
-    chunk.meaning = meaning[:512]
-    chunk.source = source[:255]
-    chunk.tag = tag
+    chunk.updated_at = now_local()
 
     # 卡片里冗余存了 phrase/meaning，要跟着更新
     (db.session.query(ReviewCard)
      .filter_by(chunk_id=chunk.id, openid=g.openid)
-     .update({'phrase': phrase, 'meaning': meaning[:512]}))
+     .update({'phrase': chunk.phrase, 'meaning': chunk.meaning}))
 
     db.session.commit()
-    return jsonify(success=True, message='Updated')
+    return jsonify(success=True, message='Updated', chunk=chunk.to_dict())
 
 
 @bp.route('/api/chunks/delete', methods=['POST'])
@@ -135,7 +172,18 @@ def delete():
     if chunk is None:
         return jsonify(success=False, message='Not found')
 
+    # 显式清掉关联数据（SQLite 不强制外键，不能只靠 CASCADE）
+    db.session.query(ReviewRecord).filter_by(chunk_id=chunk.id, openid=g.openid).delete()
     db.session.query(ReviewCard).filter_by(chunk_id=chunk.id, openid=g.openid).delete()
     db.session.delete(chunk)
     db.session.commit()
     return jsonify(success=True, message='Deleted')
+
+
+@bp.route('/api/chunks/stats', methods=['GET'])
+def stats():
+    base = db.session.query(Chunk).filter_by(openid=g.openid)
+    total = base.count()
+    mastered = base.filter(Chunk.mastery_status == MASTERY_MASTERED).count()
+    return jsonify(success=True, totalCount=total, masteredCount=mastered,
+                   learningCount=total - mastered)
