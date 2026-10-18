@@ -4,11 +4,21 @@
 作 wx:key 和 data-id，沿用这个字段名可以让所有模板一行都不用改。
 """
 
+import random
+
 from sqlalchemy import (BigInteger, Boolean, Date, DateTime, ForeignKey, Index,
                         Integer, Numeric, String, Text, UniqueConstraint)
 
 from .dates import fmt, now_local
 from .extensions import db
+
+# 用户头像的默认形象，必须与前端 images/animal/ 下的文件名一致。
+# 建号时随机分配一次，之后固定。用户自己上传头像后，这个只作兜底。
+ANIMALS = ('bird', 'cat', 'dog', 'sheep', 'turtle', 'whale')
+
+
+def random_animal():
+    return random.choice(ANIMALS)
 
 # 生产是 MySQL 的 BIGINT AUTO_INCREMENT。但 SQLite 只有 INTEGER PRIMARY KEY
 # 才自增（BIGINT 会直接 NULL 报错），本地开发用 sqlite，所以给它一个变体。
@@ -23,8 +33,12 @@ def get_or_create_user(openid):
     """返回 (user, is_new)。调用方负责处理异常和 rollback。"""
     user = db.session.query(User).filter_by(openid=openid).one_or_none()
     if user is not None:
+        # 老账号（animal 字段是后加的）第一次访问时补一个
+        if not user.animal:
+            user.animal = random_animal()
+            db.session.commit()
         return user, False
-    user = User(openid=openid)
+    user = User(openid=openid, animal=random_animal())
     db.session.add(user)
     db.session.commit()
     return user, True
@@ -37,6 +51,7 @@ class User(db.Model):
     openid = db.Column(String(64), nullable=False)
     nickname = db.Column(String(64), nullable=False, default='')
     avatar = db.Column(String(1024), nullable=False, default='')
+    animal = db.Column(String(16), nullable=False, default='')
     checkin_reminder = db.Column(Boolean, nullable=False, default=False)
     reminder_time = db.Column(String(5), nullable=False, default='21:00')
     review_reminder = db.Column(Boolean, nullable=False, default=False)
@@ -50,6 +65,7 @@ class User(db.Model):
             '_id': str(self.id),
             'nickname': self.nickname or '',
             'avatar': self.avatar or '',
+            'animal': self.animal or '',
             'checkin_reminder': bool(self.checkin_reminder),
             'reminder_time': self.reminder_time or '21:00',
             'review_reminder': bool(self.review_reminder),

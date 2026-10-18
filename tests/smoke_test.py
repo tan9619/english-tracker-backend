@@ -69,8 +69,13 @@ def main():
     check('login 返回 success+openid', r.get('success') is True and r.get('openid') == 'test-openid-1', r)
     check('login 返回 userInfo', isinstance(r.get('userInfo'), dict), r)
     check('login 首次 isNewUser', r.get('isNewUser') is True, r)
+    check('建号时分配了动物形象',
+          r['userInfo'].get('animal') in ('bird', 'cat', 'dog', 'sheep', 'turtle', 'whale'),
+          r['userInfo'])
+    animal_first = r['userInfo'].get('animal')
     r2 = c.post('/api/login', headers=H).get_json()
     check('login 幂等 isNewUser=false', r2.get('isNewUser') is False, r2)
+    check('动物形象保持稳定', r2['userInfo'].get('animal') == animal_first, r2['userInfo'])
 
     r = c.get('/api/user/profile', headers=H).get_json()
     check('profile 字段齐全',

@@ -1,7 +1,7 @@
 import os
 
 from flask import Flask, jsonify, request
-from sqlalchemy import text
+from sqlalchemy import inspect, text
 
 from .auth import check_openid
 from .config import Config, validate
@@ -64,9 +64,27 @@ def create_app(config_object=Config):
         with app.app_context():
             try:
                 db.create_all()
+                _ensure_columns(app)
             except Exception as e:
                 # 起不来就看不到日志了，所以这里只记不抛 —— 容器照样启动，
                 # /health 会如实报告 db 不通
                 app.logger.error('create_all failed: %s', e)
 
     return app
+
+
+def _ensure_columns(app):
+    """给已存在的表补新增的列。
+
+    db.create_all() 只建缺失的表，不会改已有表的结构。项目没有引入 Alembic，
+    所以这里做最小的增量迁移 —— 目前只有 users.animal 一列。
+    """
+    insp = inspect(db.engine)
+    if 'users' not in insp.get_table_names():
+        return
+    cols = {c['name'] for c in insp.get_columns('users')}
+    if 'animal' not in cols:
+        db.session.execute(text(
+            "ALTER TABLE users ADD COLUMN animal VARCHAR(16) NOT NULL DEFAULT ''"))
+        db.session.commit()
+        app.logger.info('schema: users.animal 列已补齐')

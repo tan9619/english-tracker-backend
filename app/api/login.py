@@ -9,7 +9,7 @@
 from flask import Blueprint, g, jsonify
 
 from ..extensions import db
-from ..models import User
+from ..models import get_or_create_user
 
 bp = Blueprint('login', __name__)
 
@@ -19,12 +19,9 @@ def login():
     openid = g.openid
 
     try:
-        user = db.session.query(User).filter_by(openid=openid).one_or_none()
-        is_new = user is None
-        if is_new:
-            user = User(openid=openid)
-            db.session.add(user)
-            db.session.commit()
+        # 统一走 get_or_create_user：建号时随机分配动物形象，
+        # 老账号（没有 animal）也会在这里补上
+        user, is_new = get_or_create_user(openid)
     except Exception as e:
         db.session.rollback()
         return jsonify(success=False, openid=openid,
