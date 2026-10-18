@@ -13,13 +13,15 @@
 from flask import Blueprint, current_app, g, jsonify
 
 from ..extensions import db
-from ..models import (Checkin, Chunk, Diary, Recording, ReviewCard,
-                      ReviewRecord, User)
+from ..models import (Checkin, Chunk, ChunkCategory, Diary, Recording,
+                      ReviewCard, ReviewRecord, User)
 from ..storage import delete_cloud_files
 
 bp = Blueprint('account', __name__)
 
-BUSINESS_MODELS = [Checkin, Diary, Chunk, ReviewCard, ReviewRecord, Recording]
+# 固定分类的 openid 是空串，按 openid 过滤时不会被误删
+BUSINESS_MODELS = [Checkin, Diary, Chunk, ChunkCategory, ReviewCard,
+                   ReviewRecord, Recording]
 
 
 def _collect_file_ids(openid, action):

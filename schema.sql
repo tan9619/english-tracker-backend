@@ -15,10 +15,33 @@ CREATE TABLE IF NOT EXISTS users (
   checkin_reminder TINYINT(1)   NOT NULL DEFAULT 0,
   reminder_time    VARCHAR(5)   NOT NULL DEFAULT '21:00',
   review_reminder  TINYINT(1)   NOT NULL DEFAULT 0,
+  -- 每日复习目标（个），1-100
+  daily_review_goal INT         NOT NULL DEFAULT 10,
   created_at       DATETIME     NOT NULL,
   updated_at       DATETIME     NOT NULL,
   PRIMARY KEY (id),
   UNIQUE KEY uq_users_openid (openid)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- 固定分类的 openid 是空串（全局一份）；自定义分类按用户隔离
+CREATE TABLE IF NOT EXISTS chunk_categories (
+  id         BIGINT      NOT NULL AUTO_INCREMENT,
+  openid     VARCHAR(64) NOT NULL DEFAULT '',
+  name       VARCHAR(32) NOT NULL,
+  kind       VARCHAR(16) NOT NULL DEFAULT 'custom',   -- fixed | custom
+  sort_order INT         NOT NULL DEFAULT 0,
+  created_at DATETIME    NOT NULL,
+  updated_at DATETIME    NULL,
+  PRIMARY KEY (id),
+  UNIQUE KEY uq_cat_openid_name (openid, name),
+  KEY ix_cat_openid_kind (openid, kind)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- 一次性数据迁移的标记
+CREATE TABLE IF NOT EXISTS schema_migrations (
+  key        VARCHAR(64) NOT NULL,
+  applied_at DATETIME    NOT NULL,
+  PRIMARY KEY (key)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 CREATE TABLE IF NOT EXISTS checkins (
@@ -55,10 +78,17 @@ CREATE TABLE IF NOT EXISTS chunks (
   openid           VARCHAR(64)  NOT NULL,
   phrase           VARCHAR(255) NOT NULL,
   meaning          VARCHAR(512) NOT NULL DEFAULT '',
+  -- 旧字段：迁移前的自由文本使用场景，已搬进 chunk_categories，只读保留
   scenario         VARCHAR(128) NOT NULL DEFAULT '',
   example_sentence TEXT         NULL,
   note             TEXT         NULL,
+  -- 来源详情（书名/文章名/课程名…）
   source           VARCHAR(255) NOT NULL DEFAULT '',
+  -- manual | ai | article | video | course | other | unknown
+  source_type      VARCHAR(16)  NOT NULL DEFAULT 'unknown',
+  source_url       VARCHAR(512) NOT NULL DEFAULT '',
+  -- NULL = 未分类
+  category_id      BIGINT       NULL,
   tag              VARCHAR(16)  NOT NULL DEFAULT 'phrasal',
   -- 掌握状态：learning 待复习 / mastered 已掌握，由复习流程更新
   mastery_status   VARCHAR(16)  NOT NULL DEFAULT 'learning',
@@ -69,7 +99,9 @@ CREATE TABLE IF NOT EXISTS chunks (
   KEY ix_chunks_openid_created (openid, created_at),
   KEY ix_chunks_openid_date (openid, date),
   KEY ix_chunks_openid_tag (openid, tag),
-  KEY ix_chunks_openid_mastery (openid, mastery_status)
+  KEY ix_chunks_openid_mastery (openid, mastery_status),
+  KEY ix_chunks_openid_category (openid, category_id),
+  KEY ix_chunks_openid_source (openid, source_type)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 CREATE TABLE IF NOT EXISTS review_cards (

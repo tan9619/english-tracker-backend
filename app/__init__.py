@@ -68,6 +68,7 @@ def create_app(config_object=Config):
                 _ensure_diary_schema(app)
                 _ensure_chunk_schema(app)
                 _ensure_recording_schema(app)
+                _ensure_chunk_v2_schema(app)
             except Exception as e:
                 # 起不来就看不到日志了，所以这里只记不抛 —— 容器照样启动，
                 # /health 会如实报告 db 不通
@@ -96,6 +97,11 @@ def _ensure_columns(app):
             'ALTER TABLE users ADD COLUMN presets_seeded BOOLEAN NOT NULL DEFAULT 0'))
         db.session.commit()
         app.logger.info('schema: users.presets_seeded 列已补齐')
+    if 'daily_review_goal' not in cols:
+        db.session.execute(text(
+            'ALTER TABLE users ADD COLUMN daily_review_goal INT NOT NULL DEFAULT 10'))
+        db.session.commit()
+        app.logger.info('schema: users.daily_review_goal 列已补齐')
 
 
 def _ensure_diary_schema(app):
@@ -241,3 +247,141 @@ def _ensure_recording_schema(app):
     except Exception as e:
         db.session.rollback()
         app.logger.error('schema: 录音索引创建失败 %s', e)
+
+
+def _ensure_chunk_v2_schema(app):
+    """语块分类 / 来源类型 / 简体化。
+
+    两件事：
+      1) 结构：chunks 补 category_id/source_type/source_url，固定分类建行。
+      2) 数据（只跑一次，用 schema_migrations 标记）：
+         历史中文转简体；来源类型回填；老的 scenario 自由文本变成自定义分类。
+
+    数据迁移是批量的，失败就回滚并留着标记为空，下次启动重试。
+    """
+    from .models import (FIXED_CATEGORIES, FIXED_CATEGORY_OPENID, KIND_CUSTOM,
+                         KIND_FIXED, SOURCE_MANUAL, SOURCE_PRESET,
+                         SOURCE_UNKNOWN, Chunk, ChunkCategory, SchemaMigration)
+    from .dates import now_local
+    from .presets import PRESET_SOURCE
+
+    insp = inspect(db.engine)
+    if 'chunks' not in insp.get_table_names():
+        return
+
+    cols = {c['name'] for c in insp.get_columns('chunks')}
+    additions = [
+        ('category_id', 'BIGINT NULL'),
+        ('source_type', "VARCHAR(16) NOT NULL DEFAULT 'unknown'"),
+        ('source_url', "VARCHAR(512) NOT NULL DEFAULT ''"),
+    ]
+    try:
+        for name, ddl in additions:
+            if name not in cols:
+                db.session.execute(text(
+                    'ALTER TABLE chunks ADD COLUMN %s %s' % (name, ddl)))
+                app.logger.info('schema: chunks.%s 已补齐', name)
+        db.session.commit()
+    except Exception as e:
+        db.session.rollback()
+        app.logger.error('schema: 语块字段迁移失败 %s', e)
+
+    try:
+        insp = inspect(db.engine)
+        have = {i['name'] for i in insp.get_indexes('chunks')}
+        if 'ix_chunks_openid_category' not in have:
+            db.session.execute(text(
+                'CREATE INDEX ix_chunks_openid_category ON chunks (openid, category_id)'))
+        if 'ix_chunks_openid_source' not in have:
+            db.session.execute(text(
+                'CREATE INDEX ix_chunks_openid_source ON chunks (openid, source_type)'))
+        db.session.commit()
+    except Exception as e:
+        db.session.rollback()
+        app.logger.error('schema: 语块索引创建失败 %s', e)
+
+    # 固定分类：全局一份，按名字幂等
+    try:
+        existing = {
+            c.name for c in db.session.query(ChunkCategory)
+            .filter_by(openid=FIXED_CATEGORY_OPENID).all()
+        }
+        changed = False
+        for i, name in enumerate(FIXED_CATEGORIES):
+            if name not in existing:
+                db.session.add(ChunkCategory(
+                    openid=FIXED_CATEGORY_OPENID, name=name, kind=KIND_FIXED,
+                    sort_order=i, created_at=now_local()))
+                changed = True
+        if changed:
+            db.session.commit()
+            app.logger.info('schema: 固定分类已补齐')
+    except Exception as e:
+        db.session.rollback()
+        app.logger.error('schema: 固定分类初始化失败 %s', e)
+
+    from .chinese import to_simplified
+
+    try:
+        done = (db.session.query(SchemaMigration)
+                .filter_by(key='chunk_v2').one_or_none())
+        if done is not None:
+            return
+
+        app.logger.info('schema: 开始 chunk_v2 数据迁移')
+        fixed = {
+            c.name: c.id for c in db.session.query(ChunkCategory)
+            .filter_by(openid=FIXED_CATEGORY_OPENID).all()
+        }
+        custom = {
+            (c.openid, c.name): c for c in db.session.query(ChunkCategory)
+            .filter(ChunkCategory.openid != FIXED_CATEGORY_OPENID).all()
+        }
+        chunks = db.session.query(Chunk).all()
+
+        # 1) 中文统一简体
+        for c in chunks:
+            c.meaning = to_simplified(c.meaning or '')[:512]
+            c.scenario = to_simplified(c.scenario or '')[:128]
+            if c.note:
+                c.note = to_simplified(c.note)
+            if c.example_sentence:
+                c.example_sentence = to_simplified(c.example_sentence)
+            c.source = to_simplified(c.source or '')[:255]
+
+        # 2) 来源类型回填
+        for c in chunks:
+            if c.source_type and c.source_type != SOURCE_UNKNOWN:
+                continue
+            if (c.source or '') == PRESET_SOURCE:
+                c.source_type = SOURCE_PRESET
+            elif c.source:
+                c.source_type = SOURCE_MANUAL
+            else:
+                c.source_type = SOURCE_UNKNOWN
+
+        # 3) scenario -> 分类
+        for c in chunks:
+            name = (c.scenario or '').strip()[:32]
+            if not name:
+                c.category_id = None
+                continue
+            if name in fixed:
+                c.category_id = fixed[name]
+                continue
+            key = (c.openid, name)
+            cat = custom.get(key)
+            if cat is None:
+                cat = ChunkCategory(openid=c.openid, name=name, kind=KIND_CUSTOM,
+                                    created_at=now_local())
+                db.session.add(cat)
+                db.session.flush()
+                custom[key] = cat
+            c.category_id = cat.id
+
+        db.session.add(SchemaMigration(key='chunk_v2', applied_at=now_local()))
+        db.session.commit()
+        app.logger.info('schema: chunk_v2 迁移完成，处理语块 %d 条', len(chunks))
+    except Exception as e:
+        db.session.rollback()
+        app.logger.error('schema: chunk_v2 数据迁移失败 %s', e)

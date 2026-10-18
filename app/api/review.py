@@ -14,7 +14,7 @@ from sqlalchemy import func
 from ..dates import parse_date, today
 from ..extensions import db
 from ..models import (MASTERY_LEARNING, MASTERY_MASTERED, Chunk, ReviewCard,
-                      ReviewRecord)
+                      ReviewRecord, User)
 from ..sm2 import sm2
 
 bp = Blueprint('review', __name__)
@@ -22,6 +22,8 @@ bp = Blueprint('review', __name__)
 RESULT_AGAIN = 'again'
 RESULT_MASTERED = 'mastered'
 QUALITY = {RESULT_AGAIN: 2, RESULT_MASTERED: 5}
+
+DEFAULT_GOAL = 10
 
 
 def _own_chunk(chunk_id):
@@ -58,12 +60,34 @@ def _today_reviewed(d):
                     ReviewRecord.review_date == d).scalar() or 0)
 
 
+def _goal_stats(reviewed):
+    """返回 (goal, remaining, completion, goalReached)。
+
+    remaining 是「距离今日目标还差几个」，不是全部待复习数量。
+    目标异常（<=0）时按 0 处理，绝不除零。
+    """
+    user = db.session.query(User).filter_by(openid=g.openid).one_or_none()
+    goal = int(user.daily_review_goal or DEFAULT_GOAL) if user else DEFAULT_GOAL
+    if goal <= 0:
+        return 0, 0, 0, False
+    return (goal,
+            max(goal - reviewed, 0),
+            min(int(round(reviewed * 100.0 / goal)), 100),
+            reviewed >= goal)
+
+
 @bp.route('/api/review/overview', methods=['GET'])
 def overview():
     d = today()
+    reviewed = int(_today_reviewed(d))
+    goal, remaining, completion, goal_reached = _goal_stats(reviewed)
     return jsonify(success=True,
                    dueCount=_due_query(d).count(),
-                   todayReviewed=_today_reviewed(d))
+                   todayReviewed=reviewed,
+                   dailyGoal=goal,
+                   remaining=remaining,
+                   completion=completion,
+                   goalReached=goal_reached)
 
 
 @bp.route('/api/review/due', methods=['GET'])

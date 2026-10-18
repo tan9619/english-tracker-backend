@@ -7,3 +7,5 @@ cryptography==43.0.3
 requests==2.32.3
 cos-python-sdk-v5==1.9.29
 gunicorn==23.0.0
+# 繁體 -> 简体（OpenCC 词典，纯 Python，不需要编译）
+opencc-python-reimplemented==0.1.7

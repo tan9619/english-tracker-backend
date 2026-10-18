@@ -78,20 +78,44 @@ def seed_presets(user):
         return 0
     user = locked
 
+    from .chinese import to_simplified
     from .dates import today
     from .presets import PRESET_SOURCE, load_presets
 
     d = today()
+    cat_cache = {}
+
+    def category_for(name):
+        """预置语料的场景 -> 该用户的自定义分类（同名固定分类优先复用）。"""
+        if not name:
+            return None
+        if name in cat_cache:
+            return cat_cache[name]
+        fixed = (db.session.query(ChunkCategory)
+                 .filter_by(openid=FIXED_CATEGORY_OPENID, name=name).one_or_none())
+        if fixed is not None:
+            cat_cache[name] = fixed
+            return fixed
+        cat = ChunkCategory(openid=user.openid, name=name, kind=KIND_CUSTOM)
+        db.session.add(cat)
+        db.session.flush()
+        cat_cache[name] = cat
+        return cat
+
     chunks = []
     for item in load_presets():
+        scenario = to_simplified(item.get('scenario') or '')[:128]
+        cat = category_for(scenario)
         chunks.append(Chunk(
             openid=user.openid,
             phrase=item['phrase'][:255],
-            meaning=item['meaning'][:512],
-            scenario=(item.get('scenario') or '')[:128],
+            meaning=to_simplified(item['meaning'])[:512],
             example_sentence='',
             note='',
             source=PRESET_SOURCE[:255],
+            source_type=SOURCE_PRESET,
+            source_url='',
+            category_id=cat.id if cat is not None else None,
             tag=item.get('tag') or 'sentence',
             mastery_status=MASTERY_LEARNING,
             date=d,
@@ -128,6 +152,8 @@ class User(db.Model):
     checkin_reminder = db.Column(Boolean, nullable=False, default=False)
     reminder_time = db.Column(String(5), nullable=False, default='21:00')
     review_reminder = db.Column(Boolean, nullable=False, default=False)
+    # 每日复习目标（个），1-100，默认 10
+    daily_review_goal = db.Column(Integer, nullable=False, default=10)
     created_at = db.Column(DateTime, nullable=False, default=now_local)
     updated_at = db.Column(DateTime, nullable=False, default=now_local, onupdate=now_local)
 
@@ -142,6 +168,7 @@ class User(db.Model):
             'checkin_reminder': bool(self.checkin_reminder),
             'reminder_time': self.reminder_time or '21:00',
             'review_reminder': bool(self.review_reminder),
+            'daily_review_goal': int(self.daily_review_goal or 10),
         }
 
 
@@ -208,6 +235,59 @@ class Diary(db.Model):
 MASTERY_LEARNING = 'learning'
 MASTERY_MASTERED = 'mastered'
 
+# 来源类型。unknown 给历史数据兜底，manual 是新增语块的默认值。
+SOURCE_TYPES = ('manual', 'ai', 'article', 'video', 'course', 'other', 'unknown')
+SOURCE_UNKNOWN = 'unknown'
+SOURCE_MANUAL = 'manual'
+SOURCE_PRESET = 'other'          # 内置语料：书籍/其他
+
+# 固定分类由系统维护，openid 为空串、所有用户共享。
+FIXED_CATEGORY_OPENID = ''
+FIXED_CATEGORIES = ('工作', '日常生活', '社交沟通', '学习', '旅行', '其他')
+KIND_FIXED = 'fixed'
+KIND_CUSTOM = 'custom'
+UNCATEGORIZED_NAME = '未分类'
+
+
+class ChunkCategory(db.Model):
+    """语块分类。
+
+    固定分类的 openid 是空串（全局一份）；自定义分类按用户隔离。
+    「未分类」不建行 —— chunks.category_id 为 NULL 就是未分类。
+    """
+    __tablename__ = 'chunk_categories'
+
+    id = db.Column(BigIntPK, primary_key=True, autoincrement=True)
+    openid = db.Column(String(64), nullable=False, default=FIXED_CATEGORY_OPENID)
+    name = db.Column(String(32), nullable=False)
+    kind = db.Column(String(16), nullable=False, default=KIND_CUSTOM)
+    sort_order = db.Column(Integer, nullable=False, default=0)
+    created_at = db.Column(DateTime, nullable=False, default=now_local)
+    updated_at = db.Column(DateTime, nullable=True)
+
+    __table_args__ = (
+        UniqueConstraint('openid', 'name', name='uq_cat_openid_name'),
+        Index('ix_cat_openid_kind', 'openid', 'kind'),
+        MYSQL_OPTS,
+    )
+
+    def to_dict(self, count=0):
+        return {
+            '_id': str(self.id),
+            'name': self.name,
+            'kind': self.kind,
+            'sort_order': self.sort_order or 0,
+            'count': int(count or 0),
+        }
+
+
+class SchemaMigration(db.Model):
+    """一次性数据迁移的标记。create_all 会自动建表。"""
+    __tablename__ = 'schema_migrations'
+
+    key = db.Column(String(64), primary_key=True)
+    applied_at = db.Column(DateTime, nullable=False, default=now_local)
+
 
 class Chunk(db.Model):
     __tablename__ = 'chunks'
@@ -216,10 +296,15 @@ class Chunk(db.Model):
     openid = db.Column(String(64), nullable=False)
     phrase = db.Column(String(255), nullable=False)
     meaning = db.Column(String(512), nullable=False, default='')
-    scenario = db.Column(String(128), nullable=False, default='')   # 使用场景
+    # 旧字段：迁移前的自由文本使用场景。已整体搬进 chunk_categories，
+    # 这里只保留原值，不再写入也不再展示。
+    scenario = db.Column(String(128), nullable=False, default='')
     example_sentence = db.Column(Text, nullable=True)               # 示例句
     note = db.Column(Text, nullable=True)                           # 个人备注
-    source = db.Column(String(255), nullable=False, default='')
+    source = db.Column(String(255), nullable=False, default='')     # 来源详情
+    source_type = db.Column(String(16), nullable=False, default=SOURCE_UNKNOWN)
+    source_url = db.Column(String(512), nullable=False, default='')
+    category_id = db.Column(BigIntPK, nullable=True)                # NULL = 未分类
     tag = db.Column(String(16), nullable=False, default='phrasal')
     mastery_status = db.Column(String(16), nullable=False, default=MASTERY_LEARNING)
     date = db.Column(Date, nullable=False)
@@ -231,10 +316,12 @@ class Chunk(db.Model):
         Index('ix_chunks_openid_date', 'openid', 'date'),
         Index('ix_chunks_openid_tag', 'openid', 'tag'),
         Index('ix_chunks_openid_mastery', 'openid', 'mastery_status'),
+        Index('ix_chunks_openid_category', 'openid', 'category_id'),
+        Index('ix_chunks_openid_source', 'openid', 'source_type'),
         MYSQL_OPTS,
     )
 
-    def to_dict(self):
+    def to_dict(self, category_name=None):
         return {
             '_id': str(self.id),
             'phrase': self.phrase,
@@ -243,6 +330,10 @@ class Chunk(db.Model):
             'example_sentence': self.example_sentence or '',
             'note': self.note or '',
             'source': self.source or '',
+            'source_type': self.source_type or SOURCE_UNKNOWN,
+            'source_url': self.source_url or '',
+            'category_id': str(self.category_id) if self.category_id else '',
+            'category_name': category_name or '',
             'tag': self.tag,
             'mastery_status': self.mastery_status or MASTERY_LEARNING,
             'date': fmt(self.date),

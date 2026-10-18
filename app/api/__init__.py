@@ -1,5 +1,5 @@
-from . import (account, checkin, chunks, diary, login, recordings, review,
-               user)
+from . import (account, categories, checkin, chunks, diary, login,
+               recordings, review, user)
 
 # create_app 会遍历这个列表给每个蓝图挂 require_openid
 BLUEPRINTS = [
@@ -8,6 +8,7 @@ BLUEPRINTS = [
     checkin.bp,
     diary.bp,
     chunks.bp,
+    categories.bp,
     review.bp,
     recordings.bp,
     account.bp,

@@ -13,7 +13,12 @@ import json
 import os
 from functools import lru_cache
 
-PRESET_SOURCE = '英文聽力高頻句小綠書'
+from .chinese import to_simplified
+
+# JSON 里保留原书繁體；入库时才转简体。
+# 这个常量必须和入库值完全一致 —— checkin 用它排除预置语块。
+PRESET_SOURCE_ORIGINAL = '英文聽力高頻句小綠書'
+PRESET_SOURCE = to_simplified(PRESET_SOURCE_ORIGINAL)
 
 _DATA = os.path.join(os.path.dirname(os.path.abspath(__file__)),
                      'data', 'chunk_presets.json')

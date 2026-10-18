@@ -55,6 +55,18 @@ def patch_settings():
         if not TIME_RE.match(t):
             return jsonify(success=False, message='Invalid reminder_time')
         user.reminder_time = t
+    if 'daily_review_goal' in body:
+        raw = body['daily_review_goal']
+        # bool 是 int 的子类，要单独挡掉
+        if isinstance(raw, bool):
+            return jsonify(success=False, message='Invalid daily_review_goal')
+        try:
+            goal = int(raw)
+        except (TypeError, ValueError):
+            return jsonify(success=False, message='Invalid daily_review_goal')
+        if goal < 1 or goal > 100:
+            return jsonify(success=False, message='Invalid daily_review_goal')
+        user.daily_review_goal = goal
 
     db.session.commit()
     return jsonify(success=True, userInfo=user.to_dict())
