@@ -16,7 +16,8 @@ from ..models import MASTERY_LEARNING, MASTERY_MASTERED, Chunk, ReviewCard, Revi
 
 bp = Blueprint('chunks', __name__)
 
-MAX_LIMIT = 200
+# 内置语块有 472 条，列表一次要能拉全（约 200KB，远低于云托管 1MB 响应上限）
+MAX_LIMIT = 500
 TAGS = {'phrasal', 'collocation', 'sentence', 'slang'}
 STATUSES = {'all', 'learning', 'mastered'}
 

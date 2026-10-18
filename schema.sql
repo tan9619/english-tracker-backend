@@ -10,6 +10,8 @@ CREATE TABLE IF NOT EXISTS users (
   avatar           VARCHAR(1024) NOT NULL DEFAULT '',
   -- 默认形象（bird/cat/dog/sheep/turtle/whale），建号时随机分配
   animal           VARCHAR(16)  NOT NULL DEFAULT '',
+  -- 内置语块是否已复制到该用户名下
+  presets_seeded   TINYINT(1)   NOT NULL DEFAULT 0,
   checkin_reminder TINYINT(1)   NOT NULL DEFAULT 0,
   reminder_time    VARCHAR(5)   NOT NULL DEFAULT '21:00',
   review_reminder  TINYINT(1)   NOT NULL DEFAULT 0,
@@ -103,16 +105,21 @@ CREATE TABLE IF NOT EXISTS review_records (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 CREATE TABLE IF NOT EXISTS recordings (
-  id         BIGINT       NOT NULL AUTO_INCREMENT,
-  openid     VARCHAR(64)  NOT NULL,
-  name       VARCHAR(128) NOT NULL DEFAULT '',
-  file_id    VARCHAR(512) NOT NULL,
-  duration   INT          NOT NULL DEFAULT 0,
-  category   VARCHAR(16)  NOT NULL DEFAULT 'other',
-  listened   TINYINT(1)   NOT NULL DEFAULT 0,
-  date       DATE         NOT NULL,
-  created_at DATETIME     NOT NULL,
+  id            BIGINT       NOT NULL AUTO_INCREMENT,
+  openid        VARCHAR(64)  NOT NULL,
+  title         VARCHAR(128) NOT NULL DEFAULT '',
+  practice_type VARCHAR(16)  NOT NULL DEFAULT 'free',   -- free | topic
+  topic         VARCHAR(64)  NOT NULL DEFAULT '',
+  file_id       VARCHAR(512) NOT NULL,
+  duration      INT          NOT NULL DEFAULT 0,
+  listened      TINYINT(1)   NOT NULL DEFAULT 0,
+  date          DATE         NOT NULL,                   -- recording_date，统计口径
+  created_at    DATETIME     NOT NULL,
+  updated_at    DATETIME     NULL,
+  -- 旧字段，只读兼容
+  name          VARCHAR(128) NOT NULL DEFAULT '',
+  category      VARCHAR(16)  NOT NULL DEFAULT 'other',
   PRIMARY KEY (id),
   KEY ix_rec_openid_created (openid, created_at),
-  KEY ix_rec_openid_category (openid, category)
+  KEY ix_rec_openid_date (openid, date)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;

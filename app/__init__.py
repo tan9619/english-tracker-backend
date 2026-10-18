@@ -67,6 +67,7 @@ def create_app(config_object=Config):
                 _ensure_columns(app)
                 _ensure_diary_schema(app)
                 _ensure_chunk_schema(app)
+                _ensure_recording_schema(app)
             except Exception as e:
                 # 起不来就看不到日志了，所以这里只记不抛 —— 容器照样启动，
                 # /health 会如实报告 db 不通
@@ -90,6 +91,11 @@ def _ensure_columns(app):
             "ALTER TABLE users ADD COLUMN animal VARCHAR(16) NOT NULL DEFAULT ''"))
         db.session.commit()
         app.logger.info('schema: users.animal 列已补齐')
+    if 'presets_seeded' not in cols:
+        db.session.execute(text(
+            'ALTER TABLE users ADD COLUMN presets_seeded BOOLEAN NOT NULL DEFAULT 0'))
+        db.session.commit()
+        app.logger.info('schema: users.presets_seeded 列已补齐')
 
 
 def _ensure_diary_schema(app):
@@ -186,3 +192,52 @@ def _ensure_chunk_schema(app):
     except Exception as e:
         db.session.rollback()
         app.logger.error('schema: 语块索引创建失败 %s', e)
+
+
+def _ensure_recording_schema(app):
+    """录音模块重做新增的字段。
+
+    旧 recordings 只有 name/category。新结构用 title/practice_type/topic，
+    老数据把 name 回填成 title，避免升级后列表标题全空。
+    """
+    insp = inspect(db.engine)
+    if 'recordings' not in insp.get_table_names():
+        return
+
+    cols = {c['name'] for c in insp.get_columns('recordings')}
+    additions = [
+        ('title', "VARCHAR(128) NOT NULL DEFAULT ''"),
+        ('practice_type', "VARCHAR(16) NOT NULL DEFAULT 'free'"),
+        ('topic', "VARCHAR(64) NOT NULL DEFAULT ''"),
+        ('updated_at', 'DATETIME NULL'),
+    ]
+    try:
+        for name, ddl in additions:
+            if name not in cols:
+                db.session.execute(text(
+                    'ALTER TABLE recordings ADD COLUMN %s %s' % (name, ddl)))
+                app.logger.info('schema: recordings.%s 已补齐', name)
+        db.session.commit()
+    except Exception as e:
+        db.session.rollback()
+        app.logger.error('schema: 录音字段迁移失败 %s', e)
+
+    try:
+        db.session.execute(text(
+            "UPDATE recordings SET title = name "
+            "WHERE (title IS NULL OR title = '') AND name IS NOT NULL AND name <> ''"))
+        db.session.commit()
+    except Exception as e:
+        db.session.rollback()
+        app.logger.error('schema: 录音标题回填失败 %s', e)
+
+    try:
+        insp = inspect(db.engine)
+        have = {i['name'] for i in insp.get_indexes('recordings')}
+        if 'ix_rec_openid_date' not in have:
+            db.session.execute(text(
+                'CREATE INDEX ix_rec_openid_date ON recordings (openid, date)'))
+            db.session.commit()
+    except Exception as e:
+        db.session.rollback()
+        app.logger.error('schema: 录音索引创建失败 %s', e)

@@ -9,6 +9,7 @@ from sqlalchemy.exc import IntegrityError
 from ..dates import calc_streak, fmt, month_range, parse_date, today
 from ..extensions import db
 from ..models import Checkin, Chunk, Diary, Recording, ReviewRecord
+from ..presets import PRESET_SOURCE
 
 bp = Blueprint('checkin', __name__)
 
@@ -96,7 +97,10 @@ def day_detail():
                    .filter(Diary.openid == g.openid,
                            Diary.created_at >= day_start,
                            Diary.created_at < day_end).count())
-    chunk_count = db.session.query(Chunk).filter_by(openid=g.openid, date=d).count()
+    # 内置语块是建号时批量写入的，不能算成用户当天添加的学习内容
+    chunk_count = (db.session.query(Chunk)
+                   .filter(Chunk.openid == g.openid, Chunk.date == d,
+                           Chunk.source != PRESET_SOURCE).count())
     # 按「不同语块」去重：同一语块当天复习多次只算一个
     review_count = (db.session.query(func.count(func.distinct(ReviewRecord.chunk_id)))
                     .filter(ReviewRecord.openid == g.openid,

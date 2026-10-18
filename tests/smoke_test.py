@@ -16,12 +16,14 @@ os.environ.setdefault('DATABASE_URL', 'sqlite:///:memory:')
 os.environ.setdefault('MODERATION_MODE', 'off')
 os.environ.setdefault('DEV_OPENID', 'dev-user-001')
 os.environ.setdefault('AUTO_CREATE_TABLES', '1')
+# 预置语块会往每个新用户里塞 472 条，先关掉，最后单独测
+os.environ.setdefault('SEED_PRESETS', '0')
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from app import create_app          # noqa: E402
 from app.config import Config       # noqa: E402
-from app.dates import calc_streak, js_round  # noqa: E402
+from app.dates import calc_streak, fmt, js_round, today  # noqa: E402
 
 PASS, FAIL = [], []
 
@@ -282,20 +284,70 @@ def main():
 
     print('\n--- recordings ---')
     r = c.post('/api/recordings', headers=H,
-               json={'fileId': 'cloud://env/recordings/a.aac', 'duration': 5,
-                     'name': 'Recording', 'category': 'other'}).get_json()
+               json={'title': 'Morning practice',
+                     'fileId': 'cloud://env/recordings/a.aac', 'duration': 5,
+                     'practiceType': 'free'}).get_json()
     check('录音保存', r.get('success') is True, r)
+    rid = r['record']['_id']
+    check('保存返回记录 id', bool(rid), r)
+    check('标题/练习方式/话题落库',
+          r['record']['title'] == 'Morning practice'
+          and r['record']['practice_type'] == 'free'
+          and r['record']['topic'] == '', r['record'])
+    check('录音日期=服务器当天', r['record']['date'] == fmt(today()), r['record'])
 
     r = c.post('/api/recordings', headers=H, json={}).get_json()
+    check('缺标题被拒', r.get('success') is False, r)
+    r = c.post('/api/recordings', headers=H,
+               json={'title': 'x', 'duration': 5}).get_json()
     check('缺 fileId 被拒', r.get('success') is False, r)
+    r = c.post('/api/recordings', headers=H,
+               json={'title': 'x', 'fileId': 'cloud://env/x.aac', 'duration': 0}).get_json()
+    check('时长为 0 被拒', r.get('success') is False, r)
+
+    r = c.post('/api/recordings', headers=H,
+               json={'title': 'My Goals', 'fileId': 'cloud://env/recordings/b.aac',
+                     'duration': 7, 'practiceType': 'topic', 'topic': 'My Goals'}).get_json()
+    check('话题练习保存', r.get('success') is True
+          and r['record']['practice_type'] == 'topic'
+          and r['record']['topic'] == 'My Goals', r)
+    rid2 = r['record']['_id']
 
     r = c.get('/api/recordings', headers=H).get_json()
-    check('录音列表', len(r.get('list', [])) == 1, r)
-    rid = r['list'][0]['_id']
-    check('file_id 原样返回', r['list'][0]['file_id'] == 'cloud://env/recordings/a.aac', r)
+    check('录音列表', len(r.get('list', [])) == 2, r)
+    check('按录音时间倒序', r['list'][0]['_id'] == rid2, r)
+    check('file_id 原样返回',
+          r['list'][1]['file_id'] == 'cloud://env/recordings/a.aac', r)
+
+    r = c.get('/api/recordings/detail?id=%s' % rid, headers=H).get_json()
+    check('录音详情', r.get('success') is True
+          and r['record']['title'] == 'Morning practice', r)
+
+    r = c.post('/api/recordings/rename', headers=H,
+               json={'id': rid, 'title': 'Evening practice'}).get_json()
+    check('改标题', r.get('success') is True
+          and r['record']['title'] == 'Evening practice'
+          and r['record']['updated_at'], r)
+    r = c.post('/api/recordings/rename', headers=H,
+               json={'id': rid, 'title': '  '}).get_json()
+    check('空标题被拒', r.get('success') is False, r)
+
+    r = c.get('/api/recordings/stats', headers=H).get_json()
+    check('统计：今日 2 条 12 秒',
+          r.get('todayCount') == 2 and r.get('todayDuration') == 12, r)
+    check('统计：累计 2 条 12 秒',
+          r.get('totalCount') == 2 and r.get('totalDuration') == 12, r)
 
     r = c.post('/api/recordings/listened', headers=H, json={'id': rid}).get_json()
     check('标记已听', r.get('success') is True, r)
+
+    r = c.post('/api/recordings/delete', headers=H, json={'id': rid2}).get_json()
+    check('删除录音', r.get('success') is True, r)
+    r = c.get('/api/recordings/stats', headers=H).get_json()
+    check('删除后统计同步减少',
+          r.get('todayCount') == 1 and r.get('todayDuration') == 5, r)
+    r = c.get('/api/recordings', headers=H).get_json()
+    check('删除后列表同步', len(r.get('list', [])) == 1, r)
 
     print('\n--- 每日汇总（打卡页用） ---')
     r = c.get('/api/checkin/day?date=%s' % d, headers=H).get_json()
@@ -343,6 +395,14 @@ def main():
     check('不能删别人的日记', r.get('success') is False, r)
     r = c.post('/api/recordings/delete', headers=H2, json={'id': rid}).get_json()
     check('不能删别人的录音', r.get('success') is False, r)
+    r = c.get('/api/recordings/detail?id=%s' % rid, headers=H2).get_json()
+    check('不能看别人的录音详情', r.get('success') is False, r)
+    r = c.post('/api/recordings/rename', headers=H2,
+               json={'id': rid, 'title': 'hacked'}).get_json()
+    check('不能改别人的录音标题', r.get('success') is False, r)
+    r = c.get('/api/recordings/stats', headers=H2).get_json()
+    check('另一个用户的录音统计为 0',
+          r.get('todayCount') == 0 and r.get('totalCount') == 0, r)
     r = c.get('/api/user/profile', headers=H2).get_json()
     check('两个用户是两行', r['userInfo']['_id'] != cid, r)
 
@@ -415,6 +475,53 @@ def main():
     finally:
         mod.requests.post = original_post
         app.config['MODERATION_MODE'] = saved_mode
+
+    print('\n--- 预置语块（小綠書） ---')
+    class PresetConfig(Config):
+        SEED_PRESETS = True
+
+    app2 = create_app(PresetConfig)
+    c2 = app2.test_client()
+    HP = {'X-WX-OPENID': 'preset-user-1'}
+
+    r = c2.post('/api/login', headers=HP).get_json()
+    check('新用户登录成功', r.get('success') is True and r.get('isNewUser') is True, r)
+
+    r = c2.get('/api/chunks/stats', headers=HP).get_json()
+    check('预置语块已写入（472 条）', r.get('totalCount') == 472, r)
+    check('预置语块都是待复习',
+          r.get('learningCount') == 472 and r.get('masteredCount') == 0, r)
+
+    r = c2.get('/api/review/overview', headers=HP).get_json()
+    check('预置复习卡全部到期', r.get('dueCount') == 472, r)
+
+    r = c2.get('/api/checkin/day?date=%s' % fmt(today()), headers=HP).get_json()
+    check('预置语块不算用户当天添加的语块',
+          r.get('learning', {}).get('chunks') == 0, r.get('learning'))
+
+    r = c2.get('/api/chunks?limit=1', headers=HP).get_json()
+    first = (r.get('list') or [{}])[0]
+    check('预置语块字段完整',
+          bool(first.get('phrase')) and bool(first.get('meaning'))
+          and bool(first.get('scenario'))
+          and first.get('source') == '英文聽力高頻句小綠書'
+          and first.get('tag') in ('sentence', 'phrasal'), first)
+
+    # 再次登录不能重复写
+    c2.post('/api/login', headers=HP)
+    r = c2.get('/api/chunks/stats', headers=HP).get_json()
+    check('重复登录不会重复写入', r.get('totalCount') == 472, r)
+
+    # 用户删掉后不再补回来（直接删库，避免 472 次 HTTP 调用）
+    from app.extensions import db as _db
+    from app.models import Chunk as _Chunk, ReviewCard as _Card
+    with app2.app_context():
+        _db.session.query(_Card).filter_by(openid='preset-user-1').delete()
+        _db.session.query(_Chunk).filter_by(openid='preset-user-1').delete()
+        _db.session.commit()
+    c2.post('/api/login', headers=HP)
+    r = c2.get('/api/chunks/stats', headers=HP).get_json()
+    check('删掉的预置语块不会被重新写入', r.get('totalCount') == 0, r)
 
     print('\n' + '=' * 52)
     print('通过 %d / 失败 %d' % (len(PASS), len(FAIL)))

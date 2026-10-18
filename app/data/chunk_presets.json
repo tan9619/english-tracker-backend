@@ -1,0 +1,2834 @@
+[
+ {
+  "phrase": "You’re coming to the party later tonight, right?",
+  "meaning": "今晚你會來派對吧？",
+  "scenario": "認識新朋友",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Start getting ready.",
+  "meaning": "開始準備（出門）。",
+  "scenario": "認識新朋友",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I literally just landed and got no fancy outfit.",
+  "meaning": "我剛下飛機，根本沒有帶正式的衣服。",
+  "scenario": "認識新朋友",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "No worries./ No biggies./ Don’t worry about it./ It’s okay.",
+  "meaning": "別擔心。",
+  "scenario": "認識新朋友",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Nice meeting you./Nice to meet you.",
+  "meaning": "很高興認識你。",
+  "scenario": "認識新朋友",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "My family lives 2 hours away.",
+  "meaning": "我家人住在離這裡兩小時的地方。",
+  "scenario": "認識新朋友",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "We moved here 10 years ago from Virginia.",
+  "meaning": "我們十年前從維吉尼亞州搬到這裡。",
+  "scenario": "認識新朋友",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I’ve never been there.",
+  "meaning": "我從沒去過那裡。",
+  "scenario": "認識新朋友",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I would like to visit one day.",
+  "meaning": "我希望有一天能去那裡。",
+  "scenario": "認識新朋友",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "There are a lot of museums and historical sites to visit.",
+  "meaning": "那裡有很多博物館和歷史景點可以參觀。",
+  "scenario": "認識新朋友",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I’d imagine.",
+  "meaning": "我想也是。",
+  "scenario": "認識新朋友",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Considering it’s one of the oldest cities",
+  "meaning": "畢竟那是最古老的城市之一。",
+  "scenario": "認識新朋友",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "What’s your major?",
+  "meaning": "你的主修是什麼？",
+  "scenario": "認識新朋友",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I am in Beasley School of Law.",
+  "meaning": "我就讀於Beasley法學院。",
+  "scenario": "認識新朋友",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "But I’m actually more interested in making music or playing pickleball.",
+  "meaning": "但我其實更喜歡製作音樂或玩匹克球。",
+  "scenario": "認識新朋友",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I’ve always wanted to try pickleball.",
+  "meaning": "我一直想打打看匹克球。",
+  "scenario": "認識新朋友",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "It varies./It depends.",
+  "meaning": "看情況/不一定。",
+  "scenario": "認識新朋友",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I make mostly country and jazz music.",
+  "meaning": "我主要是做鄉村音樂和爵士樂。",
+  "scenario": "認識新朋友",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "What brought you back to business school?",
+  "meaning": "你怎麼會想回商學院？",
+  "scenario": "認識新朋友",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Mostly I want to be an independent musician.",
+  "meaning": "主要是因為我想當獨立音樂人。",
+  "scenario": "認識新朋友",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "My father encouraged me to come back to school.",
+  "meaning": "我父親鼓勵我回到學校。",
+  "scenario": "認識新朋友",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "You have a wise dad.",
+  "meaning": "妳有一位很有智慧的爸爸。",
+  "scenario": "認識新朋友",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I assume/suppose you are gonna practice law?",
+  "meaning": "我猜你將來會當執業律師吧？",
+  "scenario": "認識新朋友",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I don’t think that’s gonna/going to happen.",
+  "meaning": "我覺得應該不會。",
+  "scenario": "認識新朋友",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "You should pursue/go after it.",
+  "meaning": "你應該追求那個目標。",
+  "scenario": "認識新朋友",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Whatever it is that is true to your heart!",
+  "meaning": "做妳真正熱愛的事情！",
+  "scenario": "認識新朋友",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Go grab some sliders and alcohol.",
+  "meaning": "去拿點小漢堡和酒。",
+  "scenario": "認識新朋友",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I’ll see you on the rooftop for the countdown later.",
+  "meaning": "等會倒數時屋頂見喔！",
+  "scenario": "認識新朋友",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "How’s your day been/How are you today?",
+  "meaning": "你今天過得怎麼樣？",
+  "scenario": "家庭對話",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I’m a bit under the weather/unwell. / I’m not feeling well/too great.",
+  "meaning": "我身體有點不太舒服。",
+  "scenario": "家庭對話",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I’m just gonna/going to take some Theraflu.",
+  "meaning": "我打算服用一些感冒藥水。",
+  "scenario": "家庭對話",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I have some Theraflu left in the kitchen cabinets.",
+  "meaning": "我廚房櫃子裡還有一些感冒藥水。",
+  "scenario": "家庭對話",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I went to the (running) track with Mia earlier.",
+  "meaning": "我剛剛跟Mia去操場跑步。",
+  "scenario": "家庭對話",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "One second/One moment/Hold on/Hold up/Wait.",
+  "meaning": "等一下。",
+  "scenario": "家庭對話",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I met up with Charles at the lab.",
+  "meaning": "我在實驗室跟Charles碰面。",
+  "scenario": "家庭對話",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "We studied for the final (exam).",
+  "meaning": "我們有一起讀書準備期末考。",
+  "scenario": "家庭對話",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "It’s been a long day.",
+  "meaning": "今天真是漫長的一天。（今天發生好多事,所以很疲憊）",
+  "scenario": "家庭對話",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I’ll help with the dirty dishes while you make dinner!",
+  "meaning": "我來幫忙洗碗，妳來做飯！",
+  "scenario": "家庭對話",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Who is on trash duty?",
+  "meaning": "今天是誰負責倒垃圾？",
+  "scenario": "家庭對話",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Let’s just divide up the chores.",
+  "meaning": "但我們可以分配一下家務。",
+  "scenario": "家庭對話",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Take out the trash.",
+  "meaning": "倒垃圾。",
+  "scenario": "家庭對話",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I’ll make us some spinach omelette.",
+  "meaning": "我來做菠菜歐姆蛋。",
+  "scenario": "家庭對話",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "We’ll have a pregame in the living room.",
+  "meaning": "我們星期五出去前可以在客廳來場小酌。",
+  "scenario": "家庭對話",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I was planning to switch up my room.",
+  "meaning": "我打算那時候重新佈置房間。",
+  "scenario": "家庭對話",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "No biggies/No worries.",
+  "meaning": "沒什麼大不了的。",
+  "scenario": "家庭對話",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "You do you.",
+  "meaning": "做自己。",
+  "scenario": "家庭對話",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "The faucet’s been acting up lately.",
+  "meaning": "那水龍頭最近又出狀況了。",
+  "scenario": "家庭對話",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Is it leaking again?",
+  "meaning": "又漏水了嗎？",
+  "scenario": "家庭對話",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Call the plumber.",
+  "meaning": "打電話叫水電工。",
+  "scenario": "家庭對話",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Adulting is hard.",
+  "meaning": "長大了真的不容易。",
+  "scenario": "家庭對話",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I feel you/I get you.",
+  "meaning": "我懂你。",
+  "scenario": "家庭對話",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "On the bright side.",
+  "meaning": "往好的方面想。",
+  "scenario": "家庭對話",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Have a blast!",
+  "meaning": "玩得開心！",
+  "scenario": "家庭對話",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "What can I get started for you today?",
+  "meaning": "今天想要吃什麼？",
+  "scenario": "餐廳點餐",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Can I get a bowl?",
+  "meaning": "我要一份碗裝的餐點。",
+  "scenario": "餐廳點餐",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "You got it.",
+  "meaning": "好的馬上做。",
+  "scenario": "餐廳點餐",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "What kind of rice/beans/protein?",
+  "meaning": "你要什麼飯/豆子/蛋白質？",
+  "scenario": "餐廳點餐",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "There’s chicken, steak, carnitas, sofritas, and grilled veggies.",
+  "meaning": "我們有雞肉、牛排、燉豬肉、素肉和烤蔬菜。",
+  "scenario": "餐廳點餐",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Can you do chicken and veggies, half and half?",
+  "meaning": "可以雞肉和烤蔬菜各一半嗎？",
+  "scenario": "餐廳點餐",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Any salsa? Mild, medium, or hot?",
+  "meaning": "要哪種莎莎醬？溫和、中辣還是辣？",
+  "scenario": "餐廳點餐",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Guac is extra.",
+  "meaning": "酪梨醬需要額外收費。",
+  "scenario": "餐廳點餐",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Any chips and guac?",
+  "meaning": "要加玉米片和酪梨醬嗎？",
+  "scenario": "餐廳點餐",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Cash or card?",
+  "meaning": "付現金還是刷卡？",
+  "scenario": "餐廳點餐",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "You’re all set.",
+  "meaning": "完成囉！",
+  "scenario": "餐廳點餐",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Have a good one/day!",
+  "meaning": "祝你今天愉快！",
+  "scenario": "餐廳點餐",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "You as well!",
+  "meaning": "你也是！",
+  "scenario": "餐廳點餐",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Which flavor is the most popular?",
+  "meaning": "哪一個口味最受歡迎？",
+  "scenario": "餐廳點餐",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Chocolate peanut butter cup and triple chocolate.",
+  "meaning": "巧克力花生醬杯和三重巧克力。",
+  "scenario": "餐廳點餐",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Can I get a box of six?",
+  "meaning": "我可以要六個裝一盒的嗎？",
+  "scenario": "餐廳點餐",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Let me get those packed for you.",
+  "meaning": "我幫你打包。",
+  "scenario": "餐廳點餐",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Alrighty/Alright.",
+  "meaning": "好的。",
+  "scenario": "餐廳點餐",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Did you need the receipt printed?",
+  "meaning": "需要列印收據嗎？",
+  "scenario": "餐廳點餐",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Be out in just a second.",
+  "meaning": "馬上為你送上！",
+  "scenario": "餐廳點餐",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Are you looking for anything specific/particular today?",
+  "meaning": "你今天有特別想找什麼嗎？",
+  "scenario": "購物與結帳",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Just browsing/looking.",
+  "meaning": "只是隨便看看。",
+  "scenario": "購物與結帳",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Let me know if you need help with anything.",
+  "meaning": "如果需要幫忙隨時告訴我。",
+  "scenario": "購物與結帳",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Where is the fitting room?",
+  "meaning": "請問試衣間在哪裡？",
+  "scenario": "購物與結帳",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Straight down the hallway to the right.",
+  "meaning": "沿著走廊直走，在右邊。",
+  "scenario": "購物與結帳",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I’ll go try it on.",
+  "meaning": "我去試穿看看。",
+  "scenario": "購物與結帳",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I was hoping it comes in beige.",
+  "meaning": "我真希望有米色的款式。",
+  "scenario": "購物與結帳",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Do you have this dress in a different color? OR Does this dress come in a different color?",
+  "meaning": "這件洋裝有其他顏色嗎？",
+  "scenario": "購物與結帳",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I can help you with that.",
+  "meaning": "我可以幫你看看。",
+  "scenario": "購物與結帳",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "It is available online and in store.",
+  "meaning": "這款線上和門市都可以買到。",
+  "scenario": "購物與結帳",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "It comes in these colors.",
+  "meaning": "有這些顏色。",
+  "scenario": "購物與結帳",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Are you looking for a going out dress or a (more) casual dress?",
+  "meaning": "妳是想找正式外出穿的洋裝還是比較休閒的洋裝？",
+  "scenario": "購物與結帳",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Do you want a maxi dress like this one or midi or mini?",
+  "meaning": "你想要像這樣的長裙，還是中長裙或短裙？",
+  "scenario": "購物與結帳",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Sleeveless, shortsleeves, longsleeves, strapless, or no preference?",
+  "meaning": "（袖子要）無袖、短袖、長袖、平肩還是沒特別偏好？",
+  "scenario": "購物與結帳",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "One is a sleeveless denim maxi with the buttons, another one is a midi crew neck black and white striped knit dress.",
+  "meaning": "第一件是無袖的牛仔長裙，帶有釦子的設計；第二件是黑白條紋的圓領中長針織裙。",
+  "scenario": "購物與結帳",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Where is the register? OR Where do I check out/pay?",
+  "meaning": "收銀台在哪裡？",
+  "scenario": "購物與結帳",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Are you a member with us?",
+  "meaning": "您是我們的會員嗎？",
+  "scenario": "購物與結帳",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Your total’s gonna be $87.63 today.",
+  "meaning": "今天的總金額是87.63美金。",
+  "scenario": "購物與結帳",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Cash or card?",
+  "meaning": "你要支付現金還是刷卡？",
+  "scenario": "購物與結帳",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "When you’re ready, it’ll ask you a question on the screen.",
+  "meaning": "等您準備好後，螢幕上會有問題讓您回答。",
+  "scenario": "購物與結帳",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Did you need a bag?",
+  "meaning": "需要袋子嗎？",
+  "scenario": "購物與結帳",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Do you want a copy of your receipt?/Would you like a receipt?",
+  "meaning": "需要收據嗎？",
+  "scenario": "購物與結帳",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I’m calling because my AC is not working.",
+  "meaning": "我打電話來是因為我的冷氣壞了。",
+  "scenario": "住家維修",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I was wondering when you guys can come out and check it.",
+  "meaning": "我想詢問你們什麼時候能來檢查一下？",
+  "scenario": "住家維修",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "It hasn’t turned on since yesterday.",
+  "meaning": "它從昨天開始就沒有再啟動。",
+  "scenario": "住家維修",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "We’ll send him in/out on Monday.",
+  "meaning": "我們會安排他週一過去。",
+  "scenario": "住家維修",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "The (AC) unit is out here in the backyard.",
+  "meaning": "（冷氣）設備在後院這邊。",
+  "scenario": "住家維修",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "The compressor blew out and you are also low on refrigerant.",
+  "meaning": "壓縮機壞掉了，而且你的冷媒也快不足了。",
+  "scenario": "住家維修",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "The total before taxes is gonna be $5,325.25.",
+  "meaning": "稅前價格總共是5,325.25美金。",
+  "scenario": "住家維修",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I listed all these problems out on an itemized estimate/statement.",
+  "meaning": "我把所有問題都列在一份有細項的估價單上了。",
+  "scenario": "住家維修",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Holy moly!",
+  "meaning": "天啊！",
+  "scenario": "住家維修",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "It’s gonna run into a lot of problems.",
+  "meaning": "未來可能會有很多問題。",
+  "scenario": "住家維修",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I would recommend possibly looking at replacing your (AC) unit .",
+  "meaning": "我建議你考慮更換（冷氣）設備。",
+  "scenario": "住家維修",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "In the long run.",
+  "meaning": "從長遠來看",
+  "scenario": "住家維修",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I will send you this estimate for repairing your current (AC) unit.",
+  "meaning": "我會把修理目前（冷氣）設備的估價單傳給你。",
+  "scenario": "住家維修",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I also noticed the thermostat seems off.",
+  "meaning": "我也發現恆溫器好像不正常。",
+  "scenario": "住家維修",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "It’s not reading the temperature correctly.",
+  "meaning": "因為它沒有顯示正確的溫度。",
+  "scenario": "住家維修",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Thanks for stopping by!",
+  "meaning": "謝謝你過來一趟！",
+  "scenario": "住家維修",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Anytime/You’re welcome!",
+  "meaning": "不客氣！",
+  "scenario": "住家維修",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "What are you here for?",
+  "meaning": "你來這裡的目的是什麼？",
+  "scenario": "旅行與住宿",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I’m here for a vacation.",
+  "meaning": "我來這裡渡假。",
+  "scenario": "旅行與住宿",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Where are you staying?",
+  "meaning": "你要住在哪裡？",
+  "scenario": "旅行與住宿",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I’m staying at a hotel for two nights then staying with my old coworker.",
+  "meaning": "我會先住兩晚飯店，然後住在我的老同事家。",
+  "scenario": "旅行與住宿",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "The address of the hotel is 216 Los Angeles Blvd.",
+  "meaning": "飯店的地址是洛杉磯大道216號。",
+  "scenario": "旅行與住宿",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "How long do you plan to stay here?",
+  "meaning": "你預計在這裡待多久？",
+  "scenario": "旅行與住宿",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "In total 32 days. The first 2 days at the hotel and the rest with my old coworker.",
+  "meaning": "總共32天，前兩天住飯店，之後都住在我老同事家。",
+  "scenario": "旅行與住宿",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "How much money are you bringing in cash?",
+  "meaning": "你帶了多少現金？",
+  "scenario": "旅行與住宿",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "A little under $2,000.",
+  "meaning": "不到2,000美金。",
+  "scenario": "旅行與住宿",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "No need to declare it.",
+  "meaning": "不需要申報。",
+  "scenario": "旅行與住宿",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "What is your profession?",
+  "meaning": "你的職業是什麼？",
+  "scenario": "旅行與住宿",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I am a marketing manager for a tech company.",
+  "meaning": "我是科技公司的行銷主管。",
+  "scenario": "旅行與住宿",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "You’re all set!",
+  "meaning": "都好了！",
+  "scenario": "旅行與住宿",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Can I see the credit card that you used for your reservation?",
+  "meaning": "我可以看一下您用來預訂的信用卡嗎？",
+  "scenario": "旅行與住宿",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Here you go.",
+  "meaning": "這邊給你。",
+  "scenario": "旅行與住宿",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Are we/you here to celebrate anything?",
+  "meaning": "我們來這是特別慶祝什麼嗎？",
+  "scenario": "旅行與住宿",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I was wondering if you have any suite upgrades available today?",
+  "meaning": "我想問一下今天有套房升級的選項嗎？",
+  "scenario": "旅行與住宿",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "One moment, please.",
+  "meaning": "請稍等一下。",
+  "scenario": "旅行與住宿",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I upgraded you to an ocean view suite on the 33rd floor with a Jacuzzi.",
+  "meaning": "我已經幫您升級到33樓有按摩浴缸的海景套房。",
+  "scenario": "旅行與住宿",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "You’ll also get free high-speed WiFi.",
+  "meaning": "您還可以免費使用高速無線網絡。",
+  "scenario": "旅行與住宿",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Would you like a complimentary breakfast?",
+  "meaning": "您想要免費早餐嗎？",
+  "scenario": "旅行與住宿",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Or extra points for your stay?",
+  "meaning": "還是額外累計點數呢？",
+  "scenario": "旅行與住宿",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "You got it!",
+  "meaning": "好的，沒問題。",
+  "scenario": "旅行與住宿",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "The elevator is all the way across the lobby to the left.",
+  "meaning": "電梯在穿過大廳後的左邊。",
+  "scenario": "旅行與住宿",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Did you need one or two key cards?",
+  "meaning": "你需要一張還是兩張房卡？",
+  "scenario": "旅行與住宿",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Is there a gym here?",
+  "meaning": "這裡有健身房嗎？",
+  "scenario": "旅行與住宿",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "What time does it open and close? (formal term: hours of operation)",
+  "meaning": "它幾點開放和關閉？（營業時間）",
+  "scenario": "旅行與住宿",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I’m gonna go check it out.",
+  "meaning": "我等會去看看。",
+  "scenario": "旅行與住宿",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "There is a $20 per day resort fee .",
+  "meaning": "每天有20美金的度假村費用。",
+  "scenario": "旅行與住宿",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Anything else I can help you with?",
+  "meaning": "還有什麼我可以幫助您的嗎？",
+  "scenario": "旅行與住宿",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "What brings you here today?",
+  "meaning": "今天哪裡不舒服？",
+  "scenario": "健康與醫療",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I think I have a fever.",
+  "meaning": "我覺得我發燒了。",
+  "scenario": "健康與醫療",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I will need your (picture) id.",
+  "meaning": "我需要您的身份證。",
+  "scenario": "健康與醫療",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Date of birth?",
+  "meaning": "出生日期？",
+  "scenario": "健康與醫療",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I also need the insurance card.",
+  "meaning": "我也需要你的醫療保險卡。",
+  "scenario": "健康與醫療",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I have a picture of it.",
+  "meaning": "我有它的照片。",
+  "scenario": "健康與醫療",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Fill out this top portion of the form, sign, and put down the date.",
+  "meaning": "請填寫表格的上半部分，簽名並填上日期。",
+  "scenario": "健康與醫療",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Take a seat there and the doctor will call you.",
+  "meaning": "請在那邊坐一下，醫生會叫您。",
+  "scenario": "健康與醫療",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I’ve been having a fever since yesterday, diarrhea too.",
+  "meaning": "我從昨天開始發燒，還有拉肚子。",
+  "scenario": "健康與醫療",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "At that point, I hadn’t eaten anything for 30 hours.",
+  "meaning": "當時我已經大概30個小時沒吃東西了。",
+  "scenario": "健康與醫療",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I started getting chills.",
+  "meaning": "我開始發冷。",
+  "scenario": "健康與醫療",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Any exposure to someone with a flu?",
+  "meaning": "你是否有接觸有流感的人？",
+  "scenario": "健康與醫療",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "You’re negative for covid, and also negative for the flu.",
+  "meaning": "你的COVID和流感檢測結果都是陰性的。",
+  "scenario": "健康與醫療",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Is it associated with anything that you ate?",
+  "meaning": "會不會是跟你吃的東西有關？",
+  "scenario": "健康與醫療",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "You work from home, right?",
+  "meaning": "你是在家工作，對吧？",
+  "scenario": "健康與醫療",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I just had some leftover pasta from a restaurant.",
+  "meaning": "我只是吃了餐廳的義大利麵剩菜。",
+  "scenario": "健康與醫療",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "You started feeling the symptoms right away?",
+  "meaning": "你馬上就開始感覺到症狀嗎？",
+  "scenario": "健康與醫療",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Are you allergic to any medications?",
+  "meaning": "你有對任何藥物過敏嗎？",
+  "scenario": "健康與醫療",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "No, not that I know of.",
+  "meaning": "據我所知是沒有。",
+  "scenario": "健康與醫療",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "They took your blood pressure and temperature.",
+  "meaning": "他們有測了你的血壓和體溫。",
+  "scenario": "健康與醫療",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Your heart rate is a bit elevated.",
+  "meaning": "你的心率有點偏高。",
+  "scenario": "健康與醫療",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Not so much that we need to worry about.",
+  "meaning": "沒有什麼特別需要擔心的。",
+  "scenario": "健康與醫療",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Give them a stool sample.",
+  "meaning": "給他們送糞便樣本。",
+  "scenario": "健康與醫療",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "We’ll call you to let you know if you need any antibiotics.",
+  "meaning": "我們會打電話通知你是否需要抗生素。",
+  "scenario": "健康與醫療",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Chills and headaches are primarily caused by dehydration.",
+  "meaning": "發冷和頭痛主要是因為脫水造成的。",
+  "scenario": "健康與醫療",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "In the meanwhile, try to stay away from spicy food, greasy food, and dairy.",
+  "meaning": "在此同時，盡量避免辛辣食物、油膩食物和乳製品。",
+  "scenario": "健康與醫療",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "If you want to get something over the counter , electrolyte drinks will help you a lot.",
+  "meaning": "如果你想要買藥房的非處方藥，電解質飲料對你會有很大的幫助。",
+  "scenario": "健康與醫療",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "You might need IV fluids.",
+  "meaning": "你可能會需要打點滴。",
+  "scenario": "健康與醫療",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Feel better!",
+  "meaning": "希望你早日康復！",
+  "scenario": "健康與醫療",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Hello. How can I help you?",
+  "meaning": "喂，請問有什麼可以協助您的？",
+  "scenario": "客訴抱怨",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I’m calling because the tire pressure light has been on.",
+  "meaning": "我打電話是因為輪胎氣壓燈亮了。",
+  "scenario": "客訴抱怨",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I did try to put air in the tires.",
+  "meaning": "我有嘗試幫輪胎打氣。",
+  "scenario": "客訴抱怨",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I didn't want to risk it.",
+  "meaning": "我不想冒險。",
+  "scenario": "客訴抱怨",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "A 2-hour freeway drive.",
+  "meaning": "兩小時的高速公路車程。",
+  "scenario": "客訴抱怨",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Who am I speaking to?",
+  "meaning": "請問怎麼稱呼您？",
+  "scenario": "客訴抱怨",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I apologize for the inconvenience.",
+  "meaning": "很抱歉造成您的不便。",
+  "scenario": "客訴抱怨",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "We will send someone to tow your car away.",
+  "meaning": "我們會派人去拖您的車。",
+  "scenario": "客訴抱怨",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Where are you located?",
+  "meaning": "您的位置在哪裡?",
+  "scenario": "客訴抱怨",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "We are right down the ramp of a freeway.",
+  "meaning": "我們就在高速公路出口匝道的下面。",
+  "scenario": "客訴抱怨",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I see a Mcdonald’s across the street.",
+  "meaning": "我看到對街有一家麥當勞。",
+  "scenario": "客訴抱怨",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "What’s the zip (code)?",
+  "meaning": "郵遞區號是什麼？",
+  "scenario": "客訴抱怨",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "The tow truck is on the way.",
+  "meaning": "拖車已經派遣過去了。",
+  "scenario": "客訴抱怨",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "But will the tow truck also drop off another car?",
+  "meaning": "但拖車會不會也送來另外一輛車？",
+  "scenario": "客訴抱怨",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "They will only pick up the current car.",
+  "meaning": "他們只負責拖走您現有的車。",
+  "scenario": "客訴抱怨",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Our flight is taking off in 4 hours.",
+  "meaning": "我們的航班四個小時後就要起飛了。",
+  "scenario": "客訴抱怨",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "We can send a driver to pick you up.",
+  "meaning": "我們可以派司機來接您。",
+  "scenario": "客訴抱怨",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "That wouldn’t work.",
+  "meaning": "那行不通。",
+  "scenario": "客訴抱怨",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "We were cutting it close.",
+  "meaning": "我們時間已經很緊迫了。",
+  "scenario": "客訴抱怨",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I’m afraid not.",
+  "meaning": "沒辦法。",
+  "scenario": "客訴抱怨",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Will the cost be compensated?",
+  "meaning": "你們會補償費用嗎？",
+  "scenario": "客訴抱怨",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "What would you suggest?",
+  "meaning": "你建議怎麼做？",
+  "scenario": "客訴抱怨",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "We can get you a ride/taxi.",
+  "meaning": "我們可以為你安排計程車。",
+  "scenario": "客訴抱怨",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I will figure that part out.",
+  "meaning": "我會自己解決這部分。",
+  "scenario": "客訴抱怨",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I might have to miss my flight.",
+  "meaning": "我可能會錯過我的航班。",
+  "scenario": "客訴抱怨",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Do you compensate for hotel stays?",
+  "meaning": "你們會補償旅館住宿費用嗎？",
+  "scenario": "客訴抱怨",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "You can talk to the branch manager.",
+  "meaning": "你可以和門市經理聯絡。",
+  "scenario": "客訴抱怨",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Do you know how to use this ticket machine?",
+  "meaning": "你知道怎麼用這個售票機嗎？",
+  "scenario": "交朋友閒聊",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "So it’s your first time here in SF. / So is it your first time here in SF?",
+  "meaning": "所以這是你第一次來舊金山吧？",
+  "scenario": "交朋友閒聊",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "(I’m) just in town for a conference tomorrow.",
+  "meaning": "我來這裡參加一個明天的研討會。",
+  "scenario": "交朋友閒聊",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "What do you do?",
+  "meaning": "你是做什麼工作的？",
+  "scenario": "交朋友閒聊",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "What got you into that?",
+  "meaning": "是什麼讓你開始做這個的？",
+  "scenario": "交朋友閒聊",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I am vegan so I enjoy cooking a lot.",
+  "meaning": "我吃素，所以我很喜歡煮飯。",
+  "scenario": "交朋友閒聊",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I got so hooked on this tea.",
+  "meaning": "我迷上了這種茶。",
+  "scenario": "交朋友閒聊",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "It just went from there.",
+  "meaning": "事情就這樣發展起來了。",
+  "scenario": "交朋友閒聊",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "My stop is next.",
+  "meaning": "我下一站就到了。",
+  "scenario": "交朋友閒聊",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "What a story!",
+  "meaning": "真是個精彩的故事呀！",
+  "scenario": "交朋友閒聊",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I’m gonna meet up with my friends to go rock climbing later.",
+  "meaning": "我待會要和朋友一起去攀岩。",
+  "scenario": "交朋友閒聊",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Do you wanna join us? I’ll text you (the time and location).",
+  "meaning": "你要不要加入我們？我可以等下訊息你（時間地點）。",
+  "scenario": "交朋友閒聊",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "You can take my instagram.",
+  "meaning": "你可以加我的Instagram。",
+  "scenario": "交朋友閒聊",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Cool cool/Cool beans.",
+  "meaning": "好喔好喔。",
+  "scenario": "交朋友閒聊",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "home builder",
+  "meaning": "建築承包商",
+  "scenario": "交朋友閒聊 · 補充閒聊常用單字",
+  "tag": "phrasal"
+ },
+ {
+  "phrase": "construction",
+  "meaning": "建築業",
+  "scenario": "交朋友閒聊 · 補充閒聊常用單字",
+  "tag": "phrasal"
+ },
+ {
+  "phrase": "landscaping",
+  "meaning": "園藝設計",
+  "scenario": "交朋友閒聊 · 補充閒聊常用單字",
+  "tag": "phrasal"
+ },
+ {
+  "phrase": "finance",
+  "meaning": "金融業",
+  "scenario": "交朋友閒聊 · 補充閒聊常用單字",
+  "tag": "phrasal"
+ },
+ {
+  "phrase": "tech",
+  "meaning": "科技業",
+  "scenario": "交朋友閒聊 · 補充閒聊常用單字",
+  "tag": "phrasal"
+ },
+ {
+  "phrase": "import and export",
+  "meaning": "進出口貿易",
+  "scenario": "交朋友閒聊 · 補充閒聊常用單字",
+  "tag": "phrasal"
+ },
+ {
+  "phrase": "property management",
+  "meaning": "物業管理",
+  "scenario": "交朋友閒聊 · 補充閒聊常用單字",
+  "tag": "phrasal"
+ },
+ {
+  "phrase": "consulting",
+  "meaning": "顧問服務",
+  "scenario": "交朋友閒聊 · 補充閒聊常用單字",
+  "tag": "phrasal"
+ },
+ {
+  "phrase": "realtor",
+  "meaning": "房地產經紀人",
+  "scenario": "交朋友閒聊 · 補充閒聊常用單字",
+  "tag": "phrasal"
+ },
+ {
+  "phrase": "legal enforcement (a detective, a judge, a security for jail or a courthouse, a lawyer, a cop, etc.)",
+  "meaning": "法律執行者（偵探,法官,監獄或法院的保全人員,律師,警察等）",
+  "scenario": "交朋友閒聊 · 補充閒聊常用單字",
+  "tag": "phrasal"
+ },
+ {
+  "phrase": "travel nurse",
+  "meaning": "旅行護士",
+  "scenario": "交朋友閒聊 · 補充閒聊常用單字",
+  "tag": "phrasal"
+ },
+ {
+  "phrase": "musician",
+  "meaning": "音樂家",
+  "scenario": "交朋友閒聊 · 補充閒聊常用單字",
+  "tag": "phrasal"
+ },
+ {
+  "phrase": "rock climbing",
+  "meaning": "攀岩",
+  "scenario": "交朋友閒聊 · 聊運動與興趣",
+  "tag": "phrasal"
+ },
+ {
+  "phrase": "pickleball",
+  "meaning": "匹克球",
+  "scenario": "交朋友閒聊 · 聊運動與興趣",
+  "tag": "phrasal"
+ },
+ {
+  "phrase": "softball",
+  "meaning": "壘球",
+  "scenario": "交朋友閒聊 · 聊運動與興趣",
+  "tag": "phrasal"
+ },
+ {
+  "phrase": "bowling",
+  "meaning": "保齡球",
+  "scenario": "交朋友閒聊 · 聊運動與興趣",
+  "tag": "phrasal"
+ },
+ {
+  "phrase": "pool (billiards)",
+  "meaning": "撞球",
+  "scenario": "交朋友閒聊 · 聊運動與興趣",
+  "tag": "phrasal"
+ },
+ {
+  "phrase": "mini golf",
+  "meaning": "迷你高爾夫",
+  "scenario": "交朋友閒聊 · 聊運動與興趣",
+  "tag": "phrasal"
+ },
+ {
+  "phrase": "surfing",
+  "meaning": "衝浪",
+  "scenario": "交朋友閒聊 · 聊運動與興趣",
+  "tag": "phrasal"
+ },
+ {
+  "phrase": "cooking",
+  "meaning": "烹飪",
+  "scenario": "交朋友閒聊 · 聊運動與興趣",
+  "tag": "phrasal"
+ },
+ {
+  "phrase": "shoe collecting (sneakerheads)",
+  "meaning": "收集球鞋（球鞋迷）",
+  "scenario": "交朋友閒聊 · 聊運動與興趣",
+  "tag": "phrasal"
+ },
+ {
+  "phrase": "paint",
+  "meaning": "繪畫",
+  "scenario": "交朋友閒聊 · 聊運動與興趣",
+  "tag": "phrasal"
+ },
+ {
+  "phrase": "Netflix",
+  "meaning": "線上影片串流平台Netflix",
+  "scenario": "交朋友閒聊 · 聊運動與興趣",
+  "tag": "phrasal"
+ },
+ {
+  "phrase": "foodie",
+  "meaning": "美食愛好者",
+  "scenario": "交朋友閒聊 · 聊運動與興趣",
+  "tag": "phrasal"
+ },
+ {
+  "phrase": "gardening",
+  "meaning": "園藝",
+  "scenario": "交朋友閒聊 · 聊運動與興趣",
+  "tag": "phrasal"
+ },
+ {
+  "phrase": "book club",
+  "meaning": "讀書會",
+  "scenario": "交朋友閒聊 · 聊運動與興趣",
+  "tag": "phrasal"
+ },
+ {
+  "phrase": "pet",
+  "meaning": "寵物",
+  "scenario": "交朋友閒聊 · 聊運動與興趣",
+  "tag": "phrasal"
+ },
+ {
+  "phrase": "biking",
+  "meaning": "騎腳踏車",
+  "scenario": "交朋友閒聊 · 聊運動與興趣",
+  "tag": "phrasal"
+ },
+ {
+  "phrase": "marathon",
+  "meaning": "馬拉松",
+  "scenario": "交朋友閒聊 · 聊運動與興趣",
+  "tag": "phrasal"
+ },
+ {
+  "phrase": "triathlon",
+  "meaning": "鐵人三項",
+  "scenario": "交朋友閒聊 · 聊運動與興趣",
+  "tag": "phrasal"
+ },
+ {
+  "phrase": "religious",
+  "meaning": "有宗教信仰的",
+  "scenario": "交朋友閒聊 · 聊價值觀",
+  "tag": "phrasal"
+ },
+ {
+  "phrase": "Christian",
+  "meaning": "基督教徒",
+  "scenario": "交朋友閒聊 · 聊價值觀",
+  "tag": "phrasal"
+ },
+ {
+  "phrase": "Catholic",
+  "meaning": "天主教徒",
+  "scenario": "交朋友閒聊 · 聊價值觀",
+  "tag": "phrasal"
+ },
+ {
+  "phrase": "Judaism",
+  "meaning": "猶太教",
+  "scenario": "交朋友閒聊 · 聊價值觀",
+  "tag": "phrasal"
+ },
+ {
+  "phrase": "Islam/Muslim",
+  "meaning": "伊斯蘭教／穆斯林",
+  "scenario": "交朋友閒聊 · 聊價值觀",
+  "tag": "phrasal"
+ },
+ {
+  "phrase": "spiritual",
+  "meaning": "相信有宇宙力量的",
+  "scenario": "交朋友閒聊 · 聊價值觀",
+  "tag": "phrasal"
+ },
+ {
+  "phrase": "atheist",
+  "meaning": "無神論者",
+  "scenario": "交朋友閒聊 · 聊價值觀",
+  "tag": "phrasal"
+ },
+ {
+  "phrase": "vegan",
+  "meaning": "全素主義者",
+  "scenario": "交朋友閒聊 · 聊價值觀",
+  "tag": "phrasal"
+ },
+ {
+  "phrase": "vegetarian",
+  "meaning": "素食主義者",
+  "scenario": "交朋友閒聊 · 聊價值觀",
+  "tag": "phrasal"
+ },
+ {
+  "phrase": "keto",
+  "meaning": "生酮飲食者",
+  "scenario": "交朋友閒聊 · 聊價值觀",
+  "tag": "phrasal"
+ },
+ {
+  "phrase": "active",
+  "meaning": "活躍（於運動活動）的",
+  "scenario": "交朋友閒聊 · 聊個性與個人習慣",
+  "tag": "phrasal"
+ },
+ {
+  "phrase": "outgoing",
+  "meaning": "外向的",
+  "scenario": "交朋友閒聊 · 聊個性與個人習慣",
+  "tag": "phrasal"
+ },
+ {
+  "phrase": "chatty",
+  "meaning": "健談的",
+  "scenario": "交朋友閒聊 · 聊個性與個人習慣",
+  "tag": "phrasal"
+ },
+ {
+  "phrase": "people pleasing",
+  "meaning": "愛討好他人的",
+  "scenario": "交朋友閒聊 · 聊個性與個人習慣",
+  "tag": "phrasal"
+ },
+ {
+  "phrase": "social",
+  "meaning": "善於社交的",
+  "scenario": "交朋友閒聊 · 聊個性與個人習慣",
+  "tag": "phrasal"
+ },
+ {
+  "phrase": "extroverted",
+  "meaning": "外向型",
+  "scenario": "交朋友閒聊 · 聊個性與個人習慣",
+  "tag": "phrasal"
+ },
+ {
+  "phrase": "introverted",
+  "meaning": "內向型",
+  "scenario": "交朋友閒聊 · 聊個性與個人習慣",
+  "tag": "phrasal"
+ },
+ {
+  "phrase": "reserved at first/takes time to open up",
+  "meaning": "慢熱型",
+  "scenario": "交朋友閒聊 · 聊個性與個人習慣",
+  "tag": "phrasal"
+ },
+ {
+  "phrase": "easy-going",
+  "meaning": "隨和的",
+  "scenario": "交朋友閒聊 · 聊個性與個人習慣",
+  "tag": "phrasal"
+ },
+ {
+  "phrase": "night owl",
+  "meaning": "夜貓子",
+  "scenario": "交朋友閒聊 · 聊個性與個人習慣",
+  "tag": "phrasal"
+ },
+ {
+  "phrase": "early bird",
+  "meaning": "早起的人",
+  "scenario": "交朋友閒聊 · 聊個性與個人習慣",
+  "tag": "phrasal"
+ },
+ {
+  "phrase": "artsy",
+  "meaning": "有藝術氣息的",
+  "scenario": "交朋友閒聊 · 聊個性與個人習慣",
+  "tag": "phrasal"
+ },
+ {
+  "phrase": "has a good voice",
+  "meaning": "聲音好聽",
+  "scenario": "交朋友閒聊 · 聊個性與個人習慣",
+  "tag": "phrasal"
+ },
+ {
+  "phrase": "people person",
+  "meaning": "善於與人打交道的人",
+  "scenario": "交朋友閒聊 · 聊個性與個人習慣",
+  "tag": "phrasal"
+ },
+ {
+  "phrase": "sport teams and games",
+  "meaning": "運動隊伍與比賽",
+  "scenario": "交朋友閒聊 · 聊時事",
+  "tag": "phrasal"
+ },
+ {
+  "phrase": "election (the Democrats vs. the Republicans)",
+  "meaning": "選舉（民主黨v.s.共和黨）",
+  "scenario": "交朋友閒聊 · 聊時事",
+  "tag": "phrasal"
+ },
+ {
+  "phrase": "Is everything alright?",
+  "meaning": "一切都還好嗎？",
+  "scenario": "心靈對話",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "My boyfriend and I just broke up.",
+  "meaning": "我和我男朋友剛分手了。",
+  "scenario": "心靈對話",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I’m still processing everything too.",
+  "meaning": "我也還在沈澱這一切。",
+  "scenario": "心靈對話",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I’m sorry to hear that. / I’m sorry. / I’m sorry for your loss.",
+  "meaning": "我很遺憾聽到這個消息/抱歉/節哀順變。",
+  "scenario": "心靈對話",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Take all the time you need.",
+  "meaning": "給自己足夠的時間修復。",
+  "scenario": "心靈對話",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "What happened?",
+  "meaning": "怎麼了？",
+  "scenario": "心靈對話",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I thought you guys just had a great date night out celebrating your anniversary last week.",
+  "meaning": "我還以為你們上週才度過一個很棒的交往紀念日約會。",
+  "scenario": "心靈對話",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "It’s complicated.",
+  "meaning": "有點複雜。",
+  "scenario": "心靈對話",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Did he break up with you or did you dump him?",
+  "meaning": "是他和你分手，還是你跟他提分手的？",
+  "scenario": "心靈對話",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "There is no specific reason.",
+  "meaning": "沒有特別的原因。",
+  "scenario": "心靈對話",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "We were not on the same page.",
+  "meaning": "我們在很多事情上都沒有共同的想法。",
+  "scenario": "心靈對話",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "If you think it was the right thing to do.",
+  "meaning": "如果你認為這是正確的決定。",
+  "scenario": "心靈對話",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "It’s for the better.",
+  "meaning": "這樣對未來比較好。",
+  "scenario": "心靈對話",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Take your time to heal / to grieve.",
+  "meaning": "慢慢療傷/慢慢哀悼。",
+  "scenario": "心靈對話",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "There are plenty of fish in the sea.",
+  "meaning": "天涯何處無芳草。（指感情或機會還有很多）",
+  "scenario": "心靈對話",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Get out and mingle!",
+  "meaning": "出去和人交際吧！",
+  "scenario": "心靈對話",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "The silver lining is that it gives you time to focus on yourself.",
+  "meaning": "好處是這讓你有時間專注在自己身上。",
+  "scenario": "心靈對話",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Sometimes endings are blessings in disguise.",
+  "meaning": "有時候結束其實是化妝的祝福。",
+  "scenario": "心靈對話",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "My aunt just passed away last month.",
+  "meaning": "我阿姨上個月過世了。",
+  "scenario": "心靈對話",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "She is not in the best place.",
+  "meaning": "她現在心情不是很好。",
+  "scenario": "心靈對話",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "My condolences. / You have my condolences.",
+  "meaning": "我深表哀悼/請接受我的慰問。",
+  "scenario": "心靈對話",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "She’ll come out of it.",
+  "meaning": "她會走出來的。（指從困難或悲傷中恢復）",
+  "scenario": "心靈對話",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Is there anything I can do for you?",
+  "meaning": "我可以為你做什麼嗎？",
+  "scenario": "心靈對話",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "You are taller than I imagined.",
+  "meaning": "你比我想像的還要高。",
+  "scenario": "開玩笑幽默",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I’ll take that as a compliment!",
+  "meaning": "我就當這是一個讚美了！",
+  "scenario": "開玩笑幽默",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Speedy. I like you already!",
+  "meaning": "這麼快。我已經喜歡你了！",
+  "scenario": "開玩笑幽默",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Excuse me. We’re ready to order!",
+  "meaning": "不好意思，我們可以點餐了！",
+  "scenario": "開玩笑幽默",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I’ll get some chicken potstickers.",
+  "meaning": "我想先來點雞肉鍋貼。",
+  "scenario": "開玩笑幽默",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I’ll get some ice tea and spring rolls.",
+  "meaning": "我要一杯冰茶和蔬菜捲。",
+  "scenario": "開玩笑幽默",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I am in a neuroscience program.",
+  "meaning": "我在神經科學的學位/課程。",
+  "scenario": "開玩笑幽默",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I hope I’m not too nerdy.",
+  "meaning": "我希望我不會讓你覺得我太書呆子。",
+  "scenario": "開玩笑幽默",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Does that make you an expert mind reader?",
+  "meaning": "那表示你會讀心術嗎?",
+  "scenario": "開玩笑幽默",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "But seriously, what’s your favorite karaoke song?",
+  "meaning": "但說真的，你最愛的KTV歌曲是什麼？",
+  "scenario": "開玩笑幽默",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "This is how I judge people.",
+  "meaning": "這是我判斷人的方式。",
+  "scenario": "開玩笑幽默",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "What about some embarrassing stories you weren’t planning to tell me tonight?",
+  "meaning": "有什麼你今晚原本不打算跟我說的尷尬故事嗎？",
+  "scenario": "開玩笑幽默",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I almost canceled tonight.",
+  "meaning": "我差點取消今晚的約會。",
+  "scenario": "開玩笑幽默",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "My cat really seemed to need emotional support.",
+  "meaning": "我家貓真的看起來很需要我陪。",
+  "scenario": "開玩笑幽默",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "He’s a tuxedo.",
+  "meaning": "他是黑白相間、像穿著禮服的貓。",
+  "scenario": "開玩笑幽默",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Shut up!",
+  "meaning": "別鬧了！/真的假的！",
+  "scenario": "開玩笑幽默",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "They are majestic!",
+  "meaning": "牠們好漂亮啊！",
+  "scenario": "開玩笑幽默",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I was born and raised there.",
+  "meaning": "我是在那裡出生長大的。",
+  "scenario": "開玩笑幽默",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "To impress my ex’s parents.",
+  "meaning": "為了在我前任的爸媽面前留下好印象。",
+  "scenario": "開玩笑幽默",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Do you guys also have to live with your parents even after you’re married?",
+  "meaning": "你們結婚後還是得跟爸媽住嗎？",
+  "scenario": "開玩笑幽默",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I just want to put it out there.",
+  "meaning": "我只是想先提出來/說清楚。",
+  "scenario": "開玩笑幽默",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I am very open-minded.",
+  "meaning": "我是心態很開放的人。",
+  "scenario": "開玩笑幽默",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I had fun!",
+  "meaning": "我玩得很開心！",
+  "scenario": "開玩笑幽默",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I have to meet up with my friends in 30 minutes for a band performance.",
+  "meaning": "我30分鐘後要跟朋友見面看樂團表演。",
+  "scenario": "開玩笑幽默",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "We’ll split the check.",
+  "meaning": "我們帳單分開付。",
+  "scenario": "開玩笑幽默",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "How’s your day been?/ How was work?/ How was school?/ How was the interview?",
+  "meaning": "今天過得怎麼樣？/工作如何？/學校怎麼樣？/面試怎麼樣？",
+  "scenario": "生活分享、社交邀約與拒絕 · 生活分享",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "It was great! / It’s been alright.",
+  "meaning": "很好！/還行。",
+  "scenario": "生活分享、社交邀約與拒絕 · 生活分享",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I had lunch late because I was in a meeting.",
+  "meaning": "我午餐吃得比較晚，因為在開會。",
+  "scenario": "生活分享、社交邀約與拒絕 · 生活分享",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I didn’t get to talk to Sally today because she was on vacation.",
+  "meaning": "我今天沒跟Sally聊到天，因為她去度假了。",
+  "scenario": "生活分享、社交邀約與拒絕 · 生活分享",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I told my manager that I would want to switch to a different project.",
+  "meaning": "我告訴主管我想換到不同的工作項目上。",
+  "scenario": "生活分享、社交邀約與拒絕 · 生活分享",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I got some groceries, put the gas, and dropped off products for return at UPS on the way back home.",
+  "meaning": "回家的路上我買了些超市的東西、加了油，把要退的貨送到了快遞公司UPS。",
+  "scenario": "生活分享、社交邀約與拒絕 · 生活分享",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I called my dad to let him know we’re visiting him next month.",
+  "meaning": "我打了電話給爸爸告訴他我們下個月會去看他。",
+  "scenario": "生活分享、社交邀約與拒絕 · 生活分享",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I took the leftovers to work today and got some Chinese takeout for dinner on the way home.",
+  "meaning": "我今天帶剩菜去公司吃，回家路上外帶了中式餐點當晚餐。",
+  "scenario": "生活分享、社交邀約與拒絕 · 生活分享",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I parked my car far away because there was so much traffic coming back and all the parking spots （on our block) were taken.",
+  "meaning": "我把車停在很遠的地方，因為我回家的路上很塞車，（家裡附近街區的）停車位全滿了。",
+  "scenario": "生活分享、社交邀約與拒絕 · 生活分享",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "The train ran late so it took me extra long to get back.",
+  "meaning": "火車延誤了，所以我花了更長的時間才回來。",
+  "scenario": "生活分享、社交邀約與拒絕 · 生活分享",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I finally handed in my essays and the professor said he’ll meet with me next week to go over them.",
+  "meaning": "我終於交了論文報告，教授說下週會跟我約時間和我一起看過一遍。",
+  "scenario": "生活分享、社交邀約與拒絕 · 生活分享",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I ran out of foundation and conditioner so I went to CVS (a pharmacy in the US) to grab some.",
+  "meaning": "我的粉底和護髮乳用完了，所以去美國的藥妝店CVS買了一些。",
+  "scenario": "生活分享、社交邀約與拒絕 · 生活分享",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "What is your plan for this weekend?",
+  "meaning": "你週末有什麼計劃嗎？",
+  "scenario": "生活分享、社交邀約與拒絕 · 生活分享",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Do you want to join us this Friday to the party?",
+  "meaning": "你想這週五跟我們一起參加派對嗎？",
+  "scenario": "生活分享、社交邀約與拒絕 · 生活分享",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "We’re going on a hike tomorrow. Would you like to come?",
+  "meaning": "我們明天要去爬山。你想一起來嗎？",
+  "scenario": "生活分享、社交邀約與拒絕 · 生活分享",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Tracy is throwing a birthday party this weekend. What time should we meet up to car pool there?",
+  "meaning": "Tracy這週末舉辦生日派對。我們要幾點碰面開車一起過去呢？",
+  "scenario": "生活分享、社交邀約與拒絕 · 生活分享",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Are you available Friday afternoon? We’re going to check out this new cheesesteak place down the street!",
+  "meaning": "你這週五下午有空嗎？我們打算去這條街上的新起司牛排店吃看看！",
+  "scenario": "生活分享、社交邀約與拒絕 · 生活分享",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "My sister is visiting next weekend. Would you want to join us to a play next Sunday?",
+  "meaning": "我姐姐下週末來訪。你想週日跟我們一起去看戲嗎？",
+  "scenario": "生活分享、社交邀約與拒絕 · 生活分享",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "We’re going to the beach tomorrow. If you’re free, you should come hang with us!",
+  "meaning": "我們明天要去海灘。如果你有空，你應該一起加入我們！",
+  "scenario": "生活分享、社交邀約與拒絕 · 生活分享",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "My friend is playing at this jazz bar Saturday night. You should come with me for some music and great food!",
+  "meaning": "我朋友週六晚上會在爵士酒吧演奏音樂。你應該跟我一起去享受音樂和美食！",
+  "scenario": "生活分享、社交邀約與拒絕 · 生活分享",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Thanks for inviting me but I’m going to have to take a rain check this time.",
+  "meaning": "感謝你的邀請，但這次我得改天再跟你約。",
+  "scenario": "生活分享、社交邀約與拒絕 · 拒絕邀約",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I would love to but I have to get this essay turned in tomorrow.",
+  "meaning": "我很想去，但我明天得交這篇論文。",
+  "scenario": "生活分享、社交邀約與拒絕 · 拒絕邀約",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I appreciate the invitation but I have a family gathering this weekend.",
+  "meaning": "感謝你的邀請，但這週末我有個家庭聚會。",
+  "scenario": "生活分享、社交邀約與拒絕 · 拒絕邀約",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I’m so sorry but I won’t be able to make it this time.",
+  "meaning": "非常抱歉，但這次我沒辦法參加。",
+  "scenario": "生活分享、社交邀約與拒絕 · 拒絕邀約",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "This sounds wonderful. But I’ll have to pass this time.",
+  "meaning": "這聽起來很棒，但這次我得放棄了。",
+  "scenario": "生活分享、社交邀約與拒絕 · 拒絕邀約",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I wish I could join but I have to take care of a few things that day.",
+  "meaning": "我真希望能參加，但那天我有些事情需要處理。",
+  "scenario": "生活分享、社交邀約與拒絕 · 拒絕邀約",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Thanks for the invite, but I’ll have to sit this one out.",
+  "meaning": "感謝你的邀請，但這次我得缺席了。",
+  "scenario": "生活分享、社交邀約與拒絕 · 拒絕邀約",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I’m afraid I have to stay in that evening to catch up with some work. Maybe next time!",
+  "meaning": "那天晚上我恐怕得待在家趕些工作，下次再約吧！",
+  "scenario": "生活分享、社交邀約與拒絕 · 拒絕邀約",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I’d love to go, but my schedule won’t allow it this time.",
+  "meaning": "我很想去，但這次我的行程不允許。",
+  "scenario": "生活分享、社交邀約與拒絕 · 拒絕邀約",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Ah, I’ll have to miss out this time. But have fun!",
+  "meaning": "啊，我這次得錯過了。但祝你玩得開心！",
+  "scenario": "生活分享、社交邀約與拒絕 · 拒絕邀約",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "You must be Susan!",
+  "meaning": "你就是蘇珊吧！",
+  "scenario": "工作與面試",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "We’ll learn more about your professional experience.",
+  "meaning": "我們會更深入了解你的專業經驗。",
+  "scenario": "工作與面試",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "We’ll go over the main responsibilities of this position.",
+  "meaning": "我們會介紹這個職位的主要職責。",
+  "scenario": "工作與面試",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "You applied to the marketing representative role.",
+  "meaning": "你應徵了行銷專員的職位。",
+  "scenario": "工作與面試",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Can you briefly tell me more about yourself?",
+  "meaning": "可以簡單介紹一下你自己嗎？",
+  "scenario": "工作與面試",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I have worked as a marketing manager for this electronics company in the past 3 years.",
+  "meaning": "在過去三年裡，我在一家電子公司擔任行銷經理。",
+  "scenario": "工作與面試",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "My main responsibilities include monitoring paid ad campaigns on Amazon.",
+  "meaning": "我的主要工作包括監控亞馬遜上的付費廣告活動。",
+  "scenario": "工作與面試",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "My main responsibilities include reaching out to new distributors overseas.",
+  "meaning": "我的主要工作包括聯繫海外新的經銷商。",
+  "scenario": "工作與面試",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "My main responsibilities include planning for promotion campaigns.",
+  "meaning": "我的主要工作包括規劃促銷活動。",
+  "scenario": "工作與面試",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I worked for 2 other companies also as a marketing rep.",
+  "meaning": "之前我也在兩家公司擔任行銷專員。",
+  "scenario": "工作與面試",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Walk me through your previous experience.",
+  "meaning": "帶我了解一下你過去的經驗。",
+  "scenario": "工作與面試",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Can you share an example of a marketing campaign you worked on?",
+  "meaning": "能分享一個你曾做的行銷活動案例嗎？",
+  "scenario": "工作與面試",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "A Black Friday sales campaign.",
+  "meaning": "一個黑色星期五促銷活動",
+  "scenario": "工作與面試",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Me and my two other colleagues designed the visual of the promotion page.",
+  "meaning": "我和另外兩位同事一起設計了促銷頁面的視覺效果。",
+  "scenario": "工作與面試",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "And we wrote the sales copies.",
+  "meaning": "我們也寫了銷售文案。",
+  "scenario": "工作與面試",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "We hit that target.",
+  "meaning": "我們達成了那個目標。",
+  "scenario": "工作與面試",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "With some help from the influencers we collaborated with!",
+  "meaning": "用了一些跟我們合作的網紅的幫助。",
+  "scenario": "工作與面試",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "What made you want to look for a new job in the manufacturing industry?",
+  "meaning": "是什麼讓你想在製造業尋找新工作呢？",
+  "scenario": "工作與面試",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I’ve always had an interest in manufacturing businesses.",
+  "meaning": "我一直對製造業有興趣。",
+  "scenario": "工作與面試",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I felt stagnant.",
+  "meaning": "我感到停滯不前。",
+  "scenario": "工作與面試",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Bring value to a new company.",
+  "meaning": "為一間新公司帶來價值。",
+  "scenario": "工作與面試",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "How will you add value to our company in the first 90 days if you are hired?",
+  "meaning": "如果你被錄取，在前90天內如何為我們公司帶來價值？",
+  "scenario": "工作與面試",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I looked over your website.",
+  "meaning": "我看了你們的網站。",
+  "scenario": "工作與面試",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I could bring my previous experience of working with influencers.",
+  "meaning": "我認為我可以將我在跟網紅合作方面的經驗帶到貴公司。",
+  "scenario": "工作與面試",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I have emailed you a mock presentation.",
+  "meaning": "我已經將一份簡報發送給你。",
+  "scenario": "工作與面試",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Would you like me to go over it?",
+  "meaning": "你希望我講解一下嗎？",
+  "scenario": "工作與面試",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Leave that to the next meeting.",
+  "meaning": "留到下一次會議再說。",
+  "scenario": "工作與面試",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Vice versa.",
+  "meaning": "反之亦然。",
+  "scenario": "工作與面試",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I would like to have more responsibility with cross-department coordination.",
+  "meaning": "我希望能多一些跨部門協作的責任。",
+  "scenario": "工作與面試",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Resolving a customer’s complaint.",
+  "meaning": "解決顧客的抱怨",
+  "scenario": "工作與面試",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Running short on time.",
+  "meaning": "時間不夠",
+  "scenario": "工作與面試",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Have you ever had a disagreement with your coworker or your manager?",
+  "meaning": "你是否曾經和同事或主管發生過意見不合呢？",
+  "scenario": "工作與面試",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "An in-person event",
+  "meaning": "一個線下活動",
+  "scenario": "工作與面試",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I won’t go into details.",
+  "meaning": "我不會講太多細節。",
+  "scenario": "工作與面試",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Set up our booth at an influencer event",
+  "meaning": "在一場網紅活動中設置一個攤位",
+  "scenario": "工作與面試",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I designed a cardboard for our photobooth.",
+  "meaning": "我設計了一個用於拍照亭的立牌。",
+  "scenario": "工作與面試",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I quickly came to the realization that her idea was better.",
+  "meaning": "我很快地意識到她的想法更好。",
+  "scenario": "工作與面試",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "It aligned with the brand image.",
+  "meaning": "它與品牌形象一致。",
+  "scenario": "工作與面試",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "What are your salary expectations?",
+  "meaning": "你的期待薪資是多少？",
+  "scenario": "工作與面試",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Based on my last job and the responsibilities of this role, I am looking at a salary of $85,000.",
+  "meaning": "根據我上一份工作的薪資以及這個職位的職責，我希望薪資能在85,000美元左右。",
+  "scenario": "工作與面試",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I'm open to discussion.",
+  "meaning": "我是有討論空間的。",
+  "scenario": "工作與面試",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I have 2 other offers on the table right now.",
+  "meaning": "我現在手上還有其他兩個公司的offer。",
+  "scenario": "工作與面試",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I will note that down.",
+  "meaning": "我會把這點記下來。",
+  "scenario": "工作與面試",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I will go over all the benefits and compensation we offer.",
+  "meaning": "我將會和你介紹我們提供的福利和薪資方案。",
+  "scenario": "工作與面試",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Our benefits include 3 insurances.",
+  "meaning": "我們的福利包括三種保險。",
+  "scenario": "工作與面試",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Medical, dental, and eye care.",
+  "meaning": "醫療、牙科和眼部保健（的保險）。",
+  "scenario": "工作與面試",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "We also include 401k and match up the employee contributions up to 3% and life insurance.",
+  "meaning": "我們有福利，並且提供跟員工自付401k額同等金額的付出到至多3%。",
+  "scenario": "工作與面試",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Bonuses are based on how profitable the company was as well as based on the employee performance.",
+  "meaning": "獎金是根據公司盈利情況和員工表現發放的。",
+  "scenario": "工作與面試",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "A full list of all the insurance options",
+  "meaning": "所有保險選項的完整清單。",
+  "scenario": "工作與面試",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "The company provides professional development opportunities.",
+  "meaning": "公司有提供專業進修的機會。",
+  "scenario": "工作與面試",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Every Tuesday, we have Lunch and Learn.",
+  "meaning": "每週二，我們會舉辦「午餐與學習」的活動。",
+  "scenario": "工作與面試",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "An outside presenter or a consultant visits our office to share about the latest industry trends.",
+  "meaning": "外部講師或顧問會來辦公室分享最新的行業趨勢。",
+  "scenario": "工作與面試",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Occasionally, we send key employees to conferences and tradeshows.",
+  "meaning": "有時候，我們也會不定期派遣重要員工參加研討會或展覽。",
+  "scenario": "工作與面試",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Everything sounds good to me.",
+  "meaning": "一切在我聽起來都很不錯。",
+  "scenario": "工作與面試",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "We will be in touch through email.",
+  "meaning": "我們會通過電子郵件與您聯繫。",
+  "scenario": "工作與面試",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Good to see you!",
+  "meaning": "很高興見到你！",
+  "scenario": "工作閒聊",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "How’s your weekend?",
+  "meaning": "你的週末過得怎麼樣？",
+  "scenario": "工作閒聊",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "It’s been alright!",
+  "meaning": "還不錯！",
+  "scenario": "工作閒聊",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Can you believe how cold/ hot it is outside today?",
+  "meaning": "你敢相信今天外面有多冷/多熱嗎？",
+  "scenario": "工作閒聊",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I’m a little under the weather.",
+  "meaning": "我有點小感冒/不舒服。",
+  "scenario": "工作閒聊",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I’ve been staying in over the weekend.",
+  "meaning": "我週末都待在家裡。",
+  "scenario": "工作閒聊",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Oh, I’m sorry to hear that.",
+  "meaning": "哇，我很遺憾聽到這個消息。",
+  "scenario": "工作閒聊",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Did you do anything fun with your kids?",
+  "meaning": "你有跟孩子們做什麼有趣的事嗎？",
+  "scenario": "工作閒聊",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "A pumpkin patch.",
+  "meaning": "一個南瓜田/南瓜園",
+  "scenario": "工作閒聊",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "They were not behaving well.",
+  "meaning": "他們不太聽話/不太乖。",
+  "scenario": "工作閒聊",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "You’re doing your best.",
+  "meaning": "你已經盡力了。",
+  "scenario": "工作閒聊",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I can’t imagine having to keep two little humans with infinite energy quiet.",
+  "meaning": "我無法想像要讓兩個精力無限的小傢伙安靜下來。",
+  "scenario": "工作閒聊",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Did you catch the Dodgers game last night?",
+  "meaning": "你昨晚有看道奇隊的比賽嗎？",
+  "scenario": "工作閒聊",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I’m not a big baseball fan.",
+  "meaning": "我不算是棒球迷。",
+  "scenario": "工作閒聊",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I saw online that they’re making it to the championship!",
+  "meaning": "我看到網上說他們進入總冠軍賽了！",
+  "scenario": "工作閒聊",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Any vacation plans coming up for Christmas?",
+  "meaning": "你聖誕節有什麼休假期間的計畫嗎？",
+  "scenario": "工作閒聊",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I’m saving my vacation days.",
+  "meaning": "我正在累積可休假天數。",
+  "scenario": "工作閒聊",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "How’s your family/kids/wife/husband?",
+  "meaning": "你的家人/孩子/太太/丈夫都還好嗎？",
+  "scenario": "工作閒聊",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "They’re doing well.",
+  "meaning": "他們都很好。",
+  "scenario": "工作閒聊",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "At least from what they told me.",
+  "meaning": "至少他們是這樣說的。",
+  "scenario": "工作閒聊",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Parenting is a blessing even if at times it’s chaotic.",
+  "meaning": "養育孩子是一個祝福，即使有時候會很混亂。",
+  "scenario": "工作閒聊",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I should’ve just gotten another dog.",
+  "meaning": "當初早知道我應該再養一隻狗的。",
+  "scenario": "工作閒聊",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "That’s... something.",
+  "meaning": "這…還真是特別。（帶有驚訝或不確定的語氣）",
+  "scenario": "工作閒聊",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Don’t get me wrong!",
+  "meaning": "不過別誤會！",
+  "scenario": "工作閒聊",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "They don’t talk back to me.",
+  "meaning": "他們不會跟我頂嘴。",
+  "scenario": "工作閒聊",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Call me at work.",
+  "meaning": "在上班時打給我。",
+  "scenario": "工作閒聊",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Just to ask where I put their cereals or Lunchables.",
+  "meaning": "只是為了問我麥片或午餐點心放在哪裡。",
+  "scenario": "工作閒聊",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Before you know it, they’ll be all grown up and out of the house.",
+  "meaning": "轉眼之間，他們就長大然後搬出家裡了。",
+  "scenario": "工作閒聊",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Clearly you’ve never had an adult kid ask for money.",
+  "meaning": "顯然你從來沒有遇過成年的小孩跟你要錢。",
+  "scenario": "工作閒聊",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I suppose not.",
+  "meaning": "我想應該沒有。",
+  "scenario": "工作閒聊",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Enjoy it while you can.",
+  "meaning": "趁還能享受的時候好好享受吧！",
+  "scenario": "工作閒聊",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "No kids, no stress.",
+  "meaning": "沒有小孩，沒有壓力。（通常用來開玩笑）",
+  "scenario": "工作閒聊",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Oh, come on.",
+  "meaning": "噢，別這樣啦！（表示不相信、抱怨或催促）",
+  "scenario": "工作閒聊",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Stuck at home.",
+  "meaning": "困在家裡。（指無法出門，像是生病、疫情期間）",
+  "scenario": "工作閒聊",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Don’t mind me.",
+  "meaning": "別管我/別在意我。",
+  "scenario": "工作閒聊",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "See you later!",
+  "meaning": "等會見下次見！/",
+  "scenario": "工作閒聊",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Just a little down in the dumps.",
+  "meaning": "只是有點情緒低落/心情沮喪。",
+  "scenario": "新聞時事探討",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I do it to myself.",
+  "meaning": "這是我自找的。",
+  "scenario": "新聞時事探討",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "The job market will be so bad that we will be lucky to get poverty wages at best!",
+  "meaning": "就業市場會糟到一個程度是能拿到微薄工資就已經算幸運的了。",
+  "scenario": "新聞時事探討",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Prices have been skyrocketing.",
+  "meaning": "物價一直飆升。",
+  "scenario": "新聞時事探討",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "It used to cost 20 dollars to fill up.",
+  "meaning": "以前加滿油箱只要20美元。",
+  "scenario": "新聞時事探討",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I was looking at the polls.",
+  "meaning": "我剛剛在看民調/調查問卷。",
+  "scenario": "新聞時事探討",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "It will have a negative impact on the economy.",
+  "meaning": "這會對經濟產生負面影響。",
+  "scenario": "新聞時事探討",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I have been feeling so run down.",
+  "meaning": "我最近感到疲憊不堪/精疲力竭。",
+  "scenario": "新聞時事探討",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "We have spoken about this.",
+  "meaning": "我們之前已經討論過這件事了。",
+  "scenario": "新聞時事探討",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Most of it is not even objective news reporting.",
+  "meaning": "大多數根本不是客觀的新聞報導。",
+  "scenario": "新聞時事探討",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "It’s just sensationalism.",
+  "meaning": "只是煽情主義的聳動報導。",
+  "scenario": "新聞時事探討",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "But one thing led to another.",
+  "meaning": "但是一件事接著一件事。",
+  "scenario": "新聞時事探討",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "The forecast said the weather’s gonna be good.",
+  "meaning": "天氣預報說天氣會不錯喔。",
+  "scenario": "新聞時事探討",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Climate change forecast, financial forecast, election forecast.",
+  "meaning": "氣候變遷預測、財經預測、選舉預測",
+  "scenario": "新聞時事探討",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Shame on you!",
+  "meaning": "怎麼這樣呢？/你太丟臉了/你應該感到羞恥！",
+  "scenario": "新聞時事探討",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "You are only bringing yourself down.",
+  "meaning": "你只是讓自己心情低落。",
+  "scenario": "新聞時事探討",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Look at the housing market.",
+  "meaning": "你看看房地產市場。",
+  "scenario": "新聞時事探討",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Caught red-handed.",
+  "meaning": "當場被抓包（做壞事或尷尬行為的時候）",
+  "scenario": "新聞時事探討",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Tell you what.",
+  "meaning": "這樣吧！（用來引出建議或提議）",
+  "scenario": "新聞時事探討",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "It is already behind me.",
+  "meaning": "我已經拋諸腦後了！（表示不再在意過去的事情）",
+  "scenario": "新聞時事探討",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "What has brought this on?",
+  "meaning": "怎麼突然這麼說？",
+  "scenario": "價值觀傳遞",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I am feeling gloomy.",
+  "meaning": "我心情很低落。",
+  "scenario": "價值觀傳遞",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I just lay back.",
+  "meaning": "我就放鬆休息。",
+  "scenario": "價值觀傳遞",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Pretend I am a kid and have not a worry in the world.",
+  "meaning": "假裝自己還是個孩子，沒有任何一點煩惱。",
+  "scenario": "價值觀傳遞",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "When I was a young girl, those movies were my world.",
+  "meaning": "當我還是小女孩時，那些電影曾經是我的全世界（形容某事物對自己極其重要）。",
+  "scenario": "價值觀傳遞",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "This program contains disrespectful depictions of culture.",
+  "meaning": "本節目包含對文化不尊重的描繪。",
+  "scenario": "價值觀傳遞",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "We want the audience to also recognize the negative impact of these opinions.",
+  "meaning": "我們希望觀眾能夠理解到這些觀點的負面影響。",
+  "scenario": "價值觀傳遞",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "This message is added for kid movies that show stereotypes of people.",
+  "meaning": "這種警告是針對某些對特定群體有刻板印象的兒童電影加上的。",
+  "scenario": "價值觀傳遞",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Isn’t that a little bit over the top?",
+  "meaning": "這是不是有點太誇張了？",
+  "scenario": "價值觀傳遞",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "It takes me away from everything.",
+  "meaning": "它讓我暫時逃離所有事情（現實、壓力等）。",
+  "scenario": "價值觀傳遞",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "Where is the fun in that?",
+  "meaning": "這樣有什麼好玩的？",
+  "scenario": "價值觀傳遞",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I think children are too young to understand such concepts.",
+  "meaning": "孩子們根本太小，無法理解這些概念。",
+  "scenario": "價值觀傳遞",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "The very term \"being politically correct\" started in America.",
+  "meaning": "「政治正確」這個概念本來就是從美國開始的。",
+  "scenario": "價值觀傳遞",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "I didn’t know that was a thing.",
+  "meaning": "我不知道這居然是一回事。",
+  "scenario": "價值觀傳遞",
+  "tag": "sentence"
+ },
+ {
+  "phrase": "The world is hiding its head in the sand.",
+  "meaning": "世界卻選擇視而不見、把頭埋在沙裡（指忽略或拒絕思考不愉快的事情）。",
+  "scenario": "價值觀傳遞",
+  "tag": "sentence"
+ }
+]

@@ -58,6 +58,10 @@ class Config:
 
     AUTO_CREATE_TABLES = os.environ.get('AUTO_CREATE_TABLES', '1') == '1'
 
+    # 新用户第一次登录时把内置语块复制一份到他自己名下。
+    # 测试里关掉，否则所有基于计数的断言都会被这 472 条淹没。
+    SEED_PRESETS = os.environ.get('SEED_PRESETS', '1') == '1'
+
     # 本地开发用的假身份。生产环境设了它会在下面直接拒绝启动。
     DEV_OPENID = os.environ.get('DEV_OPENID', '')
 

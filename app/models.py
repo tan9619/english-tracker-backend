@@ -6,6 +6,7 @@
 
 import random
 
+from flask import current_app
 from sqlalchemy import (BigInteger, Boolean, Date, DateTime, ForeignKey, Index,
                         Integer, Numeric, String, Text, UniqueConstraint)
 
@@ -37,11 +38,81 @@ def get_or_create_user(openid):
         if not user.animal:
             user.animal = random_animal()
             db.session.commit()
+        _safe_seed_presets(user)
         return user, False
-    user = User(openid=openid, animal=random_animal())
+    user = User(openid=openid, animal=random_animal(), presets_seeded=False)
     db.session.add(user)
     db.session.commit()
+    _safe_seed_presets(user)
     return user, True
+
+
+def _safe_seed_presets(user):
+    """预置语块写失败不能让人登不进来 —— 记日志、回滚，下次登录再补。"""
+    if not current_app.config.get('SEED_PRESETS', True):
+        return
+    try:
+        seed_presets(user)
+    except Exception as e:
+        db.session.rollback()
+        current_app.logger.error('预置语块写入失败 openid=%s: %s', user.openid, e)
+
+
+def seed_presets(user):
+    """把内置语块连同复习卡复制到用户名下。
+
+    每个用户一份自己的副本，之后编辑/删除/复习互不影响。
+    users.presets_seeded 保证只做一次 —— 用户主动删掉预置语块后不会被重新塞回来。
+    """
+    if user.presets_seeded:
+        return 0
+
+    # 并发登录（两台设备同时冷启动）时用行锁串行化，避免写两份。
+    # SQLite 会忽略 FOR UPDATE，本地开发无影响。
+    locked = (db.session.query(User)
+              .filter_by(id=user.id)
+              .populate_existing()
+              .with_for_update()
+              .one_or_none())
+    if locked is None or locked.presets_seeded:
+        return 0
+    user = locked
+
+    from .dates import today
+    from .presets import PRESET_SOURCE, load_presets
+
+    d = today()
+    chunks = []
+    for item in load_presets():
+        chunks.append(Chunk(
+            openid=user.openid,
+            phrase=item['phrase'][:255],
+            meaning=item['meaning'][:512],
+            scenario=(item.get('scenario') or '')[:128],
+            example_sentence='',
+            note='',
+            source=PRESET_SOURCE[:255],
+            tag=item.get('tag') or 'sentence',
+            mastery_status=MASTERY_LEARNING,
+            date=d,
+            created_at=now_local(),
+        ))
+
+    db.session.add_all(chunks)
+    db.session.flush()          # 需要 chunk.id 才能建复习卡
+
+    for chunk in chunks:
+        db.session.add(ReviewCard(
+            openid=user.openid, chunk_id=chunk.id,
+            phrase=chunk.phrase, meaning=chunk.meaning,
+            repetition=0, interval=1, easiness=2.50,
+            next_review=d, last_review=None,
+        ))
+
+    user.presets_seeded = True
+    db.session.commit()
+    current_app.logger.info('已为用户 %s 写入 %d 条预置语块', user.openid, len(chunks))
+    return len(chunks)
 
 
 class User(db.Model):
@@ -52,6 +123,8 @@ class User(db.Model):
     nickname = db.Column(String(64), nullable=False, default='')
     avatar = db.Column(String(1024), nullable=False, default='')
     animal = db.Column(String(16), nullable=False, default='')
+    # 内置语块是否已复制到该用户名下（只做一次，删了也不再补）
+    presets_seeded = db.Column(Boolean, nullable=False, default=False)
     checkin_reminder = db.Column(Boolean, nullable=False, default=False)
     reminder_time = db.Column(String(5), nullable=False, default='21:00')
     review_reminder = db.Column(Boolean, nullable=False, default=False)
@@ -244,27 +317,40 @@ class Recording(db.Model):
 
     id = db.Column(BigIntPK, primary_key=True, autoincrement=True)
     openid = db.Column(String(64), nullable=False)
-    name = db.Column(String(128), nullable=False, default='')
+    title = db.Column(String(128), nullable=False, default='')
+    practice_type = db.Column(String(16), nullable=False, default='free')
+    topic = db.Column(String(64), nullable=False, default='')
     file_id = db.Column(String(512), nullable=False)
     duration = db.Column(Integer, nullable=False, default=0)
-    category = db.Column(String(16), nullable=False, default='other')
     listened = db.Column(Boolean, nullable=False, default=False)
+    # recording_date —— 统计口径。第一版不允许用户改，保存时取服务器当天。
     date = db.Column(Date, nullable=False)
     created_at = db.Column(DateTime, nullable=False, default=now_local)
+    updated_at = db.Column(DateTime, nullable=True)
+    # 旧字段，只读：老数据的标题和分类。新代码一律写 title/practice_type。
+    name = db.Column(String(128), nullable=False, default='')
+    category = db.Column(String(16), nullable=False, default='other')
 
     __table_args__ = (
         Index('ix_rec_openid_created', 'openid', 'created_at'),
-        Index('ix_rec_openid_category', 'openid', 'category'),
+        Index('ix_rec_openid_date', 'openid', 'date'),
         MYSQL_OPTS,
     )
 
     def to_dict(self):
+        title = self.title or self.name or ''
         return {
             '_id': str(self.id),
-            'name': self.name or '',
+            'title': title,
+            'practice_type': self.practice_type or 'free',
+            'topic': self.topic or '',
             'file_id': self.file_id,
             'duration': self.duration,
-            'category': self.category,
             'listened': bool(self.listened),
             'date': fmt(self.date),
+            'created_at': self.created_at.strftime('%Y-%m-%d %H:%M') if self.created_at else '',
+            'updated_at': self.updated_at.strftime('%Y-%m-%d %H:%M') if self.updated_at else '',
+            # 旧字段别名，让还没升级的客户端不至于把标题显示成空
+            'name': title,
+            'category': self.category or 'other',
         }
