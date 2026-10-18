@@ -40,7 +40,7 @@ def _own_card(chunk_id):
             .filter_by(chunk_id=chunk_id, openid=g.openid).one_or_none())
 
 
-def _due_query(d):
+def _due_base(d):
     """待复习 = 掌握状态为 learning 且已到期的卡。
 
     掌握状态在 chunks 上，所以要 join；不能只查 review_cards。
@@ -51,6 +51,21 @@ def _due_query(d):
                     Chunk.openid == g.openid,
                     Chunk.mastery_status == MASTERY_LEARNING,
                     ReviewCard.next_review <= d))
+
+
+def _source_filter():
+    """复习按来源筛选；none 表示没有填来源。"""
+    source = request.args.get('source', 'all') or 'all'
+    if source == 'all':
+        return None
+    return '' if source == 'none' else source
+
+
+def _due_query(d, source=None):
+    q = _due_base(d)
+    if source is not None:
+        q = q.filter(Chunk.source == source)
+    return q
 
 
 def _today_reviewed(d):
@@ -81,19 +96,29 @@ def overview():
     d = today()
     reviewed = int(_today_reviewed(d))
     goal, remaining, completion, goal_reached = _goal_stats(reviewed)
+
+    # 来源筛选只影响 dueCount；sourceCounts 始终给出全部来源，供筛选条使用
+    src = _source_filter()
+    rows = (_due_base(d)
+            .with_entities(Chunk.source, func.count(ReviewCard.id))
+            .group_by(Chunk.source).all())
+    source_counts = {(s or ''): int(n or 0) for s, n in rows}
+
     return jsonify(success=True,
-                   dueCount=_due_query(d).count(),
+                   dueCount=_due_query(d, src).count(),
                    todayReviewed=reviewed,
                    dailyGoal=goal,
                    remaining=remaining,
                    completion=completion,
-                   goalReached=goal_reached)
+                   goalReached=goal_reached,
+                   sourceCounts=source_counts)
 
 
 @bp.route('/api/review/due', methods=['GET'])
 def due():
     d = today()
-    rows = _due_query(d).order_by(ReviewCard.next_review.asc()).all()
+    rows = (_due_query(d, _source_filter())
+            .order_by(ReviewCard.next_review.asc()).all())
 
     cards = []
     for r in rows:

@@ -25,6 +25,7 @@ from app import create_app          # noqa: E402
 from app.config import Config       # noqa: E402
 from app.dates import calc_streak, fmt, js_round, today  # noqa: E402
 from app.presets import IELTS_SOURCE, PRESET_SOURCE  # noqa: E402
+from urllib.parse import quote  # noqa: E402
 
 PASS, FAIL = [], []
 
@@ -674,11 +675,29 @@ def main():
     r = c.get('/api/review/due', headers=HC).get_json()
     check('删除分类不影响复习数据', r.get('dueCount') == 3, r)
 
-    print('\n--- 来源计数 / 手动切换掌握状态 ---')
+    print('\n--- 来源（统一按文本） / 手动切换掌握状态 ---')
     r = c.get('/api/chunks/stats', headers=HC).get_json()
     sc = r.get('sourceCounts') or {}
-    check('统计返回来源计数',
-          sc.get('article') == 1 and sc.get('manual') == 2, sc)
+    check('统计按来源文本计数',
+          sc.get('CNN 新闻') == 1 and sc.get('') == 2, sc)
+
+    r = c.get('/api/chunks?source=%s' % quote('CNN 新闻'), headers=HC).get_json()
+    check('按来源筛选', len(r.get('list', [])) == 1, r)
+    r = c.get('/api/chunks?source=none', headers=HC).get_json()
+    check('按未知来源筛选', len(r.get('list', [])) == 2, r)
+    check('分页返回 total', r.get('total') == 2, r)
+
+    r = c.get('/api/review/overview', headers=HC).get_json()
+    check('复习概览返回来源计数',
+          (r.get('sourceCounts') or {}).get('CNN 新闻') == 1, r)
+    r = c.get('/api/review/overview?source=%s' % quote('CNN 新闻'),
+              headers=HC).get_json()
+    check('复习概览按来源筛选', r.get('dueCount') == 1, r)
+    r = c.get('/api/review/due?source=%s' % quote('CNN 新闻'),
+              headers=HC).get_json()
+    check('复习队列按来源筛选', r.get('dueCount') == 1, r)
+    r = c.get('/api/review/due?source=none', headers=HC).get_json()
+    check('复习队列未知来源', r.get('dueCount') == 2, r)
 
     r = c.post('/api/chunks/status', headers=HC,
                json={'id': cid1, 'status': 'mastered'}).get_json()

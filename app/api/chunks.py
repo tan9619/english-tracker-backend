@@ -181,6 +181,14 @@ def get_list():
         except ValueError:
             return jsonify(success=False, message='Invalid category')
 
+    # 来源统一按「来源详情」筛选；none 表示没有填来源
+    source = request.args.get('source', 'all') or 'all'
+    if source == 'none':
+        q = q.filter(Chunk.source == '')
+    elif source != 'all':
+        q = q.filter(Chunk.source == source)
+
+    # 旧参数保留兼容
     source_type = request.args.get('sourceType', 'all') or 'all'
     if source_type != 'all' and source_type in SOURCE_TYPES:
         q = q.filter(Chunk.source_type == source_type)
@@ -288,11 +296,11 @@ def stats():
     base = db.session.query(Chunk).filter_by(openid=g.openid)
     total = base.count()
     mastered = base.filter(Chunk.mastery_status == MASTERY_MASTERED).count()
-    # 来源筛选项要显示「有哪些来源、各多少条」
-    rows = (db.session.query(Chunk.source_type, func.count(Chunk.id))
+    # 现在只分「来源」，不再区分类型/详情：按来源文本分组
+    rows = (db.session.query(Chunk.source, func.count(Chunk.id))
             .filter(Chunk.openid == g.openid)
-            .group_by(Chunk.source_type).all())
-    source_counts = {(st or SOURCE_UNKNOWN): int(n or 0) for st, n in rows}
+            .group_by(Chunk.source).all())
+    source_counts = {(s or ''): int(n or 0) for s, n in rows}
     return jsonify(success=True, totalCount=total, masteredCount=mastered,
                    learningCount=total - mastered,
                    sourceCounts=source_counts)
