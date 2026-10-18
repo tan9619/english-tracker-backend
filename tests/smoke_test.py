@@ -194,6 +194,25 @@ def main():
     r = c.post('/api/recordings/listened', headers=H, json={'id': rid}).get_json()
     check('标记已听', r.get('success') is True, r)
 
+    print('\n--- 每日汇总（打卡页用） ---')
+    r = c.get('/api/checkin/day?date=%s' % d, headers=H).get_json()
+    check('当天汇总 success', r.get('success') is True, r)
+    check('当天 checked=true', r.get('checked') is True, r)
+    check('日记计数=1', r['learning']['diary'] == 1, r['learning'])
+    check('语块计数=1', r['learning']['chunks'] == 1, r['learning'])
+    check('复习计数=1', r['learning']['review'] == 1, r['learning'])
+    check('录音条数=1', r['learning']['recordingCount'] == 1, r['learning'])
+    check('录音累计时长=5', r['learning']['recordingDuration'] == 5, r['learning'])
+
+    r = c.get('/api/checkin/day?date=2020-01-01', headers=H).get_json()
+    check('无记录日期 checked=false', r.get('checked') is False, r)
+    check('无记录日期各项为 0',
+          r['learning']['diary'] == 0 and r['learning']['chunks'] == 0
+          and r['learning']['review'] == 0 and r['learning']['recordingCount'] == 0, r['learning'])
+
+    r = c.get('/api/checkin/day?date=not-a-date', headers=H).get_json()
+    check('非法日期被拒', r.get('success') is False, r)
+
     print('\n--- 越权隔离 ---')
     H2 = {'X-WX-OPENID': 'test-openid-2'}
     c.post('/api/login', headers=H2)
