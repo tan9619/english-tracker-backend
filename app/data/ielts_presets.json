@@ -1,0 +1,3502 @@
+[
+ {
+  "phrase": "apply for a job",
+  "meaning": "申请工作",
+  "category": "工作"
+ },
+ {
+  "phrase": "job hunting",
+  "meaning": "找工作、求职",
+  "category": "工作"
+ },
+ {
+  "phrase": "a dead-end job",
+  "meaning": "没有前途的工作",
+  "category": "工作"
+ },
+ {
+  "phrase": "a demanding job",
+  "meaning": "要求很高的工作",
+  "category": "工作"
+ },
+ {
+  "phrase": "a rewarding career",
+  "meaning": "有成就感/回报丰厚的职业",
+  "category": "工作"
+ },
+ {
+  "phrase": "career prospects",
+  "meaning": "职业前景",
+  "category": "工作"
+ },
+ {
+  "phrase": "career advancement",
+  "meaning": "职业晋升",
+  "category": "工作"
+ },
+ {
+  "phrase": "climb the career ladder",
+  "meaning": "在职业阶梯上攀升",
+  "category": "工作"
+ },
+ {
+  "phrase": "land a job",
+  "meaning": "成功获得一份工作",
+  "category": "工作"
+ },
+ {
+  "phrase": "hold down a job",
+  "meaning": "保住工作、胜任工作",
+  "category": "工作"
+ },
+ {
+  "phrase": "quit / resign from one's job",
+  "meaning": "辞职",
+  "category": "工作"
+ },
+ {
+  "phrase": "be laid off",
+  "meaning": "被解雇（因裁员）",
+  "category": "工作"
+ },
+ {
+  "phrase": "be made redundant",
+  "meaning": "被裁员",
+  "category": "工作"
+ },
+ {
+  "phrase": "get fired / be sacked",
+  "meaning": "被开除",
+  "category": "工作"
+ },
+ {
+  "phrase": "hand in one's notice",
+  "meaning": "递交辞呈",
+  "category": "工作"
+ },
+ {
+  "phrase": "take early retirement",
+  "meaning": "提前退休",
+  "category": "工作"
+ },
+ {
+  "phrase": "a nine-to-five job",
+  "meaning": "朝九晚五的工作",
+  "category": "工作"
+ },
+ {
+  "phrase": "work long hours",
+  "meaning": "长时间工作",
+  "category": "工作"
+ },
+ {
+  "phrase": "work overtime",
+  "meaning": "加班",
+  "category": "工作"
+ },
+ {
+  "phrase": "work shifts",
+  "meaning": "轮班工作",
+  "category": "工作"
+ },
+ {
+  "phrase": "night shift",
+  "meaning": "夜班",
+  "category": "工作"
+ },
+ {
+  "phrase": "flexible working hours",
+  "meaning": "弹性工作时间",
+  "category": "工作"
+ },
+ {
+  "phrase": "work from home / telecommute",
+  "meaning": "居家办公/远程办公",
+  "category": "工作"
+ },
+ {
+  "phrase": "freelance work",
+  "meaning": "自由职业",
+  "category": "工作"
+ },
+ {
+  "phrase": "be self-employed",
+  "meaning": "自主创业/自雇",
+  "category": "工作"
+ },
+ {
+  "phrase": "run one's own business",
+  "meaning": "经营自己的生意",
+  "category": "工作"
+ },
+ {
+  "phrase": "start up a business",
+  "meaning": "创业、开办企业",
+  "category": "工作"
+ },
+ {
+  "phrase": "go bankrupt",
+  "meaning": "破产",
+  "category": "工作"
+ },
+ {
+  "phrase": "job satisfaction",
+  "meaning": "工作满意度",
+  "category": "工作"
+ },
+ {
+  "phrase": "job security",
+  "meaning": "工作稳定性",
+  "category": "工作"
+ },
+ {
+  "phrase": "a sense of accomplishment",
+  "meaning": "成就感",
+  "category": "工作"
+ },
+ {
+  "phrase": "work-life balance",
+  "meaning": "工作与生活的平衡",
+  "category": "工作"
+ },
+ {
+  "phrase": "be snowed under with work",
+  "meaning": "工作忙得不可开交",
+  "category": "工作"
+ },
+ {
+  "phrase": "meet a deadline",
+  "meaning": "赶上截止日期",
+  "category": "工作"
+ },
+ {
+  "phrase": "miss a deadline",
+  "meaning": "错过截止日期",
+  "category": "工作"
+ },
+ {
+  "phrase": "under a lot of pressure",
+  "meaning": "承受很大压力",
+  "category": "工作"
+ },
+ {
+  "phrase": "stressful working environment",
+  "meaning": "压力大的工作环境",
+  "category": "工作"
+ },
+ {
+  "phrase": "burn out",
+  "meaning": "精疲力竭、过劳",
+  "category": "工作"
+ },
+ {
+  "phrase": "team spirit",
+  "meaning": "团队精神",
+  "category": "工作"
+ },
+ {
+  "phrase": "team player",
+  "meaning": "有团队合作精神的人",
+  "category": "工作"
+ },
+ {
+  "phrase": "work closely with colleagues",
+  "meaning": "与同事紧密合作",
+  "category": "工作"
+ },
+ {
+  "phrase": "interpersonal skills",
+  "meaning": "人际交往能力",
+  "category": "工作"
+ },
+ {
+  "phrase": "communication skills",
+  "meaning": "沟通能力",
+  "category": "工作"
+ },
+ {
+  "phrase": "leadership skills",
+  "meaning": "领导能力",
+  "category": "工作"
+ },
+ {
+  "phrase": "problem-solving skills",
+  "meaning": "解决问题的能力",
+  "category": "工作"
+ },
+ {
+  "phrase": "time management",
+  "meaning": "时间管理",
+  "category": "工作"
+ },
+ {
+  "phrase": "multitasking",
+  "meaning": "同时处理多项任务",
+  "category": "工作"
+ },
+ {
+  "phrase": "prioritize tasks",
+  "meaning": "按优先级安排任务",
+  "category": "工作"
+ },
+ {
+  "phrase": "take on responsibilities",
+  "meaning": "承担责任",
+  "category": "工作"
+ },
+ {
+  "phrase": "shoulder the responsibility",
+  "meaning": "肩负责任",
+  "category": "工作"
+ },
+ {
+  "phrase": "be in charge of",
+  "meaning": "负责、主管",
+  "category": "工作"
+ },
+ {
+  "phrase": "report to somebody",
+  "meaning": "向某人汇报工作",
+  "category": "工作"
+ },
+ {
+  "phrase": "supervise staff",
+  "meaning": "监督员工",
+  "category": "工作"
+ },
+ {
+  "phrase": "performance review / appraisal",
+  "meaning": "绩效评估",
+  "category": "工作"
+ },
+ {
+  "phrase": "get promoted",
+  "meaning": "获得晋升",
+  "category": "工作"
+ },
+ {
+  "phrase": "be promoted to manager",
+  "meaning": "晋升为经理",
+  "category": "工作"
+ },
+ {
+  "phrase": "a pay rise / raise",
+  "meaning": "加薪",
+  "category": "工作"
+ },
+ {
+  "phrase": "annual salary",
+  "meaning": "年薪",
+  "category": "工作"
+ },
+ {
+  "phrase": "minimum wage",
+  "meaning": "最低工资",
+  "category": "工作"
+ },
+ {
+  "phrase": "well-paid / highly-paid",
+  "meaning": "薪酬优厚的",
+  "category": "工作"
+ },
+ {
+  "phrase": "badly-paid",
+  "meaning": "薪酬低的",
+  "category": "工作"
+ },
+ {
+  "phrase": "earn a living",
+  "meaning": "谋生",
+  "category": "工作"
+ },
+ {
+  "phrase": "make ends meet",
+  "meaning": "收支相抵、勉强维持生计",
+  "category": "工作"
+ },
+ {
+  "phrase": "fringe benefits",
+  "meaning": "附加福利",
+  "category": "工作"
+ },
+ {
+  "phrase": "perks of the job",
+  "meaning": "工作的额外好处",
+  "category": "工作"
+ },
+ {
+  "phrase": "paid leave",
+  "meaning": "带薪假期",
+  "category": "工作"
+ },
+ {
+  "phrase": "sick leave",
+  "meaning": "病假",
+  "category": "工作"
+ },
+ {
+  "phrase": "maternity / paternity leave",
+  "meaning": "产假 / 陪产假",
+  "category": "工作"
+ },
+ {
+  "phrase": "annual leave",
+  "meaning": "年假",
+  "category": "工作"
+ },
+ {
+  "phrase": "take a day off",
+  "meaning": "请一天假",
+  "category": "工作"
+ },
+ {
+  "phrase": "on-the-job training",
+  "meaning": "在职培训",
+  "category": "工作"
+ },
+ {
+  "phrase": "professional development",
+  "meaning": "职业发展/专业进修",
+  "category": "工作"
+ },
+ {
+  "phrase": "acquire new skills",
+  "meaning": "习得新技能",
+  "category": "工作"
+ },
+ {
+  "phrase": "brush up on skills",
+  "meaning": "温习、提升技能",
+  "category": "工作"
+ },
+ {
+  "phrase": "hands-on experience",
+  "meaning": "实践经验",
+  "category": "工作"
+ },
+ {
+  "phrase": "gain valuable experience",
+  "meaning": "获得宝贵经验",
+  "category": "工作"
+ },
+ {
+  "phrase": "a steep learning curve",
+  "meaning": "陡峭的学习曲线（上手难）",
+  "category": "工作"
+ },
+ {
+  "phrase": "learn the ropes",
+  "meaning": "熟悉门道、上手",
+  "category": "工作"
+ },
+ {
+  "phrase": "think outside the box",
+  "meaning": "跳出思维定势、创新思考",
+  "category": "工作"
+ },
+ {
+  "phrase": "go the extra mile",
+  "meaning": "付出额外努力",
+  "category": "工作"
+ },
+ {
+  "phrase": "pull one's weight",
+  "meaning": "尽自己的本分",
+  "category": "工作"
+ },
+ {
+  "phrase": "carry the team",
+  "meaning": "撑起整个团队",
+  "category": "工作"
+ },
+ {
+  "phrase": "call the shots",
+  "meaning": "发号施令、说了算",
+  "category": "工作"
+ },
+ {
+  "phrase": "a workaholic",
+  "meaning": "工作狂",
+  "category": "工作"
+ },
+ {
+  "phrase": "rat race",
+  "meaning": "激烈的职场竞争、无休止的奔波",
+  "category": "工作"
+ },
+ {
+  "phrase": "glass ceiling",
+  "meaning": "（晋升的）玻璃天花板",
+  "category": "工作"
+ },
+ {
+  "phrase": "gender pay gap",
+  "meaning": "性别薪酬差距",
+  "category": "工作"
+ },
+ {
+  "phrase": "equal opportunities",
+  "meaning": "平等机会",
+  "category": "工作"
+ },
+ {
+  "phrase": "discrimination in the workplace",
+  "meaning": "职场歧视",
+  "category": "工作"
+ },
+ {
+  "phrase": "office politics",
+  "meaning": "办公室政治",
+  "category": "工作"
+ },
+ {
+  "phrase": "a hostile work environment",
+  "meaning": "恶劣的工作环境",
+  "category": "工作"
+ },
+ {
+  "phrase": "job vacancy / opening",
+  "meaning": "职位空缺",
+  "category": "工作"
+ },
+ {
+  "phrase": "job description",
+  "meaning": "职位描述",
+  "category": "工作"
+ },
+ {
+  "phrase": "cover letter",
+  "meaning": "求职信",
+  "category": "工作"
+ },
+ {
+  "phrase": "résumé / CV",
+  "meaning": "简历",
+  "category": "工作"
+ },
+ {
+  "phrase": "job interview",
+  "meaning": "求职面试",
+  "category": "工作"
+ },
+ {
+  "phrase": "make a good impression",
+  "meaning": "留下好印象",
+  "category": "工作"
+ },
+ {
+  "phrase": "dress code",
+  "meaning": "着装要求",
+  "category": "工作"
+ },
+ {
+  "phrase": "first impressions count",
+  "meaning": "第一印象很重要",
+  "category": "工作"
+ },
+ {
+  "phrase": "probation period",
+  "meaning": "试用期",
+  "category": "工作"
+ },
+ {
+  "phrase": "permanent contract",
+  "meaning": "长期/正式合同",
+  "category": "工作"
+ },
+ {
+  "phrase": "temporary contract",
+  "meaning": "临时合同",
+  "category": "工作"
+ },
+ {
+  "phrase": "full-time / part-time job",
+  "meaning": "全职 / 兼职工作",
+  "category": "工作"
+ },
+ {
+  "phrase": "gig economy",
+  "meaning": "零工经济",
+  "category": "工作"
+ },
+ {
+  "phrase": "side hustle",
+  "meaning": "副业",
+  "category": "工作"
+ },
+ {
+  "phrase": "commute to work",
+  "meaning": "通勤上班",
+  "category": "工作"
+ },
+ {
+  "phrase": "rush hour",
+  "meaning": "交通高峰时段",
+  "category": "工作"
+ },
+ {
+  "phrase": "business trip",
+  "meaning": "出差",
+  "category": "工作"
+ },
+ {
+  "phrase": "attend a meeting",
+  "meaning": "参加会议",
+  "category": "工作"
+ },
+ {
+  "phrase": "chair a meeting",
+  "meaning": "主持会议",
+  "category": "工作"
+ },
+ {
+  "phrase": "give a presentation",
+  "meaning": "做演讲/汇报",
+  "category": "工作"
+ },
+ {
+  "phrase": "meet the targets",
+  "meaning": "完成指标",
+  "category": "工作"
+ },
+ {
+  "phrase": "exceed expectations",
+  "meaning": "超出预期",
+  "category": "工作"
+ },
+ {
+  "phrase": "boost productivity",
+  "meaning": "提高生产力",
+  "category": "工作"
+ },
+ {
+  "phrase": "cut costs",
+  "meaning": "削减成本",
+  "category": "工作"
+ },
+ {
+  "phrase": "maximize profits",
+  "meaning": "利润最大化",
+  "category": "工作"
+ },
+ {
+  "phrase": "customer satisfaction",
+  "meaning": "客户满意度",
+  "category": "工作"
+ },
+ {
+  "phrase": "deal with complaints",
+  "meaning": "处理投诉",
+  "category": "工作"
+ },
+ {
+  "phrase": "work ethic",
+  "meaning": "职业道德、敬业精神",
+  "category": "工作"
+ },
+ {
+  "phrase": "retirement plan / pension scheme",
+  "meaning": "退休计划 / 养老金计划",
+  "category": "工作"
+ },
+ {
+  "phrase": "daily routine",
+  "meaning": "日常作息",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "wake up early",
+  "meaning": "早起",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "be an early bird",
+  "meaning": "习惯早起的人",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "be a night owl",
+  "meaning": "夜猫子",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "hit the snooze button",
+  "meaning": "按掉闹钟再睡一会儿",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "get up on the wrong side of the bed",
+  "meaning": "一大早心情不好",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "do the household chores",
+  "meaning": "做家务",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "do the laundry",
+  "meaning": "洗衣服",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "do the dishes / washing-up",
+  "meaning": "洗碗",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "do the cooking",
+  "meaning": "做饭",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "whip up a meal",
+  "meaning": "快速做一顿饭",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "cook from scratch",
+  "meaning": "从零开始亲手做饭",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "ready meal / convenience food",
+  "meaning": "即食餐/方便食品",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "eat out",
+  "meaning": "外出就餐",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "order takeaway / takeout",
+  "meaning": "点外卖",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "have a balanced diet",
+  "meaning": "均衡饮食",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "junk food",
+  "meaning": "垃圾食品",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "cut down on sugar",
+  "meaning": "减少糖分摄入",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "be on a diet",
+  "meaning": "节食、控制饮食",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "grab a bite",
+  "meaning": "随便吃点东西",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "skip breakfast",
+  "meaning": "不吃早餐",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "a hearty meal",
+  "meaning": "丰盛的一餐",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "grocery shopping",
+  "meaning": "购买食品杂货",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "do the weekly shop",
+  "meaning": "每周大采购",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "shop around",
+  "meaning": "货比三家",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "a bargain",
+  "meaning": "便宜货、划算的交易",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "on sale / at a discount",
+  "meaning": "打折促销",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "value for money",
+  "meaning": "物有所值",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "rip-off",
+  "meaning": "宰客、漫天要价的东西",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "pay in cash / by card",
+  "meaning": "现金 / 刷卡支付",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "contactless payment",
+  "meaning": "非接触式支付",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "online shopping",
+  "meaning": "网购",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "impulse buying",
+  "meaning": "冲动消费",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "window shopping",
+  "meaning": "只逛不买",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "keep track of expenses",
+  "meaning": "记录开销",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "save up for something",
+  "meaning": "为某物存钱",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "tighten one's belt",
+  "meaning": "勒紧裤腰带、节衣缩食",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "live within one's means",
+  "meaning": "量入为出",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "household budget",
+  "meaning": "家庭预算",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "utility bills",
+  "meaning": "水电燃气账单",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "pay the rent",
+  "meaning": "付房租",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "landlord / landlady",
+  "meaning": "房东（男/女）",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "rent a flat / apartment",
+  "meaning": "租公寓",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "move house / move in / move out",
+  "meaning": "搬家 / 搬入 / 搬出",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "do up / renovate a house",
+  "meaning": "装修房子",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "spring cleaning",
+  "meaning": "大扫除",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "tidy up the room",
+  "meaning": "整理房间",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "declutter",
+  "meaning": "清理杂物",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "take out the rubbish / trash",
+  "meaning": "倒垃圾",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "sort out the recycling",
+  "meaning": "分类回收",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "mow the lawn",
+  "meaning": "修剪草坪",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "walk the dog",
+  "meaning": "遛狗",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "feed the pet",
+  "meaning": "喂宠物",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "run errands",
+  "meaning": "跑腿办事",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "queue up / stand in line",
+  "meaning": "排队",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "book an appointment",
+  "meaning": "预约",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "see a doctor / GP",
+  "meaning": "看医生",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "catch a cold",
+  "meaning": "感冒",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "come down with the flu",
+  "meaning": "染上流感",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "feel under the weather",
+  "meaning": "身体不舒服",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "as fit as a fiddle",
+  "meaning": "身体非常健康",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "recover from an illness",
+  "meaning": "从疾病中康复",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "prescribe medicine",
+  "meaning": "开药方",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "a balanced lifestyle",
+  "meaning": "平衡的生活方式",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "keep fit / stay in shape",
+  "meaning": "保持健康/身材",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "work out at the gym",
+  "meaning": "在健身房锻炼",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "go for a jog / run",
+  "meaning": "去慢跑",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "a sedentary lifestyle",
+  "meaning": "久坐的生活方式",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "get enough sleep",
+  "meaning": "保证充足睡眠",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "sleep in / have a lie-in",
+  "meaning": "睡懒觉",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "stay up late",
+  "meaning": "熬夜",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "have a nap / doze off",
+  "meaning": "小睡 / 打盹",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "insomnia",
+  "meaning": "失眠",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "kill time",
+  "meaning": "打发时间",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "spare time / free time",
+  "meaning": "业余时间",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "take up a hobby",
+  "meaning": "培养一项爱好",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "unwind / wind down",
+  "meaning": "放松",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "binge-watch a TV series",
+  "meaning": "一口气刷剧",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "scroll through social media",
+  "meaning": "刷社交媒体",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "be glued to the screen",
+  "meaning": "盯着屏幕不放",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "digital detox",
+  "meaning": "数字排毒（远离电子设备）",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "catch up on the news",
+  "meaning": "补看新闻",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "charge the phone",
+  "meaning": "给手机充电",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "run out of battery",
+  "meaning": "手机没电",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "a cup of tea / coffee break",
+  "meaning": "茶歇/咖啡时间",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "comfort food",
+  "meaning": "治愈系食物",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "have a sweet tooth",
+  "meaning": "爱吃甜食",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "picky eater",
+  "meaning": "挑食的人",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "home-cooked meal",
+  "meaning": "家常菜",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "do the gardening",
+  "meaning": "打理花园",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "water the plants",
+  "meaning": "浇花",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "fix / mend something",
+  "meaning": "修理东西",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "a leaking tap",
+  "meaning": "漏水的水龙头",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "power cut / blackout",
+  "meaning": "停电",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "check the weather forecast",
+  "meaning": "查看天气预报",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "drizzle / pour with rain",
+  "meaning": "下毛毛雨 / 倾盆大雨",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "dress warmly",
+  "meaning": "穿暖和些",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "at the crack of dawn",
+  "meaning": "黎明时分",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "call it a day",
+  "meaning": "收工、到此为止",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "hit the hay / sack",
+  "meaning": "上床睡觉",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "family gathering",
+  "meaning": "家庭聚会",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "quality time with family",
+  "meaning": "与家人的优质时光",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "look after / take care of",
+  "meaning": "照顾",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "bring up / raise children",
+  "meaning": "抚养孩子",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "childcare",
+  "meaning": "儿童看护",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "extended family / nuclear family",
+  "meaning": "大家庭 / 核心小家庭",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "generation gap",
+  "meaning": "代沟",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "get along with somebody",
+  "meaning": "与某人相处融洽",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "keep in touch with relatives",
+  "meaning": "与亲戚保持联系",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "day-to-day life",
+  "meaning": "日常生活",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "the hustle and bustle",
+  "meaning": "喧嚣繁忙",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "slow pace of life",
+  "meaning": "慢节奏生活",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "cost of living",
+  "meaning": "生活成本",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "standard of living",
+  "meaning": "生活水平",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "sense of community",
+  "meaning": "社区归属感",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "good neighbour",
+  "meaning": "好邻居",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "lend a hand",
+  "meaning": "帮个忙",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "home sweet home",
+  "meaning": "温馨的家",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "make oneself at home",
+  "meaning": "别拘束、像在自己家一样",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "creature comforts",
+  "meaning": "物质享受、生活舒适设施",
+  "category": "日常生活"
+ },
+ {
+  "phrase": "strike up a conversation",
+  "meaning": "主动开启交谈",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "break the ice",
+  "meaning": "打破僵局、破冰",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "small talk",
+  "meaning": "寒暄、闲聊",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "engage in conversation",
+  "meaning": "参与交谈",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "keep the conversation going",
+  "meaning": "让谈话继续下去",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "a heart-to-heart talk",
+  "meaning": "推心置腹的谈话",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "have a word with somebody",
+  "meaning": "与某人谈一下",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "drop somebody a line",
+  "meaning": "给某人写封短信/发个消息",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "get in touch",
+  "meaning": "取得联系",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "lose touch",
+  "meaning": "失去联系",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "stay in touch / keep in contact",
+  "meaning": "保持联系",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "catch up with old friends",
+  "meaning": "与老朋友叙旧",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "long time no see",
+  "meaning": "好久不见",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "make friends with somebody",
+  "meaning": "与某人交朋友",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "circle of friends",
+  "meaning": "朋友圈",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "a close / bosom friend",
+  "meaning": "密友、挚友",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "fair-weather friend",
+  "meaning": "酒肉朋友（不能共患难）",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "a friend in need is a friend indeed",
+  "meaning": "患难见真情",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "hit it off",
+  "meaning": "一见如故、合得来",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "get on well with",
+  "meaning": "与……相处融洽",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "fall out with somebody",
+  "meaning": "与某人闹翻",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "make up with somebody",
+  "meaning": "与某人和好",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "patch things up",
+  "meaning": "修补关系",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "drift apart",
+  "meaning": "渐渐疏远",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "see eye to eye",
+  "meaning": "看法一致",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "agree to disagree",
+  "meaning": "求同存异",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "have something in common",
+  "meaning": "有共同之处",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "common ground",
+  "meaning": "共同点、共识",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "on the same wavelength",
+  "meaning": "志趣相投、想法一致",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "birds of a feather flock together",
+  "meaning": "物以类聚",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "social butterfly",
+  "meaning": "交际花、善于社交的人",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "people person",
+  "meaning": "喜欢与人交往的人",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "a people skills",
+  "meaning": "与人打交道的能力",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "socialise / mingle",
+  "meaning": "社交、交际",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "networking",
+  "meaning": "建立人脉",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "expand one's network",
+  "meaning": "拓展人脉",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "make new connections",
+  "meaning": "建立新的关系",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "keep somebody company",
+  "meaning": "陪伴某人",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "enjoy someone's company",
+  "meaning": "喜欢与某人相处",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "a shoulder to cry on",
+  "meaning": "可以倾诉依靠的人",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "pour one's heart out",
+  "meaning": "倾诉心声",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "open up to somebody",
+  "meaning": "向某人敞开心扉",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "bottle up one's feelings",
+  "meaning": "压抑感情",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "read between the lines",
+  "meaning": "领会言外之意",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "take something the wrong way",
+  "meaning": "误解某事",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "get the wrong end of the stick",
+  "meaning": "完全误解",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "clear up a misunderstanding",
+  "meaning": "消除误会",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "beat around the bush",
+  "meaning": "拐弯抹角",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "get straight to the point",
+  "meaning": "直入正题",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "cut to the chase",
+  "meaning": "开门见山",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "speak one's mind",
+  "meaning": "直言不讳",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "blurt out",
+  "meaning": "脱口而出",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "put one's foot in it",
+  "meaning": "说错话、失言",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "take back what one said",
+  "meaning": "收回说过的话",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "word of mouth",
+  "meaning": "口口相传",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "spread the word",
+  "meaning": "传播消息",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "hear it on the grapevine",
+  "meaning": "小道消息听说",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "gossip",
+  "meaning": "八卦、闲聊是非",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "behind someone's back",
+  "meaning": "背着某人",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "give somebody the cold shoulder",
+  "meaning": "冷落某人",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "turn a deaf ear",
+  "meaning": "置若罔闻",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "talk behind closed doors",
+  "meaning": "私下商谈",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "have a big mouth",
+  "meaning": "嘴不严、多嘴",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "let the cat out of the bag",
+  "meaning": "泄露秘密",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "keep a secret",
+  "meaning": "保守秘密",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "spill the beans",
+  "meaning": "泄露秘密、说漏嘴",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "be all ears",
+  "meaning": "洗耳恭听",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "lend an ear",
+  "meaning": "倾听",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "talk someone's ear off",
+  "meaning": "喋喋不休地说个不停",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "put in a good word for somebody",
+  "meaning": "为某人说好话",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "speak highly of somebody",
+  "meaning": "高度评价某人",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "pay somebody a compliment",
+  "meaning": "赞美某人",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "flattery will get you nowhere",
+  "meaning": "奉承没用",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "break the news to somebody",
+  "meaning": "把消息告诉某人（尤指坏消息）",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "a blessing in disguise",
+  "meaning": "因祸得福",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "white lie",
+  "meaning": "善意的谎言",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "be honest with somebody",
+  "meaning": "对某人坦诚",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "to tell the truth",
+  "meaning": "说实话",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "frankly speaking",
+  "meaning": "坦率地说",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "off the record",
+  "meaning": "非正式地、不对外公开地说",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "body language",
+  "meaning": "肢体语言",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "make eye contact",
+  "meaning": "眼神交流",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "read someone's mind",
+  "meaning": "看穿某人的心思",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "actions speak louder than words",
+  "meaning": "行动胜于言辞",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "first-hand experience",
+  "meaning": "第一手经验",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "common courtesy",
+  "meaning": "基本礼貌",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "mind one's manners",
+  "meaning": "注意举止礼貌",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "it's the thought that counts",
+  "meaning": "心意最重要",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "go Dutch",
+  "meaning": "AA 制",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "my treat / it's on me",
+  "meaning": "我请客",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "throw a party",
+  "meaning": "举办聚会",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "the more the merrier",
+  "meaning": "人越多越热闹",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "party animal",
+  "meaning": "派对达人",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "party pooper",
+  "meaning": "扫兴的人",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "show up / turn up",
+  "meaning": "出现、到场",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "stand somebody up",
+  "meaning": "放某人鸽子",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "rain check",
+  "meaning": "改天再约",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "give somebody a lift",
+  "meaning": "载某人一程",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "pick up the phone",
+  "meaning": "接电话",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "hang up",
+  "meaning": "挂断电话",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "put somebody on hold",
+  "meaning": "让某人电话等待",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "return a call",
+  "meaning": "回电话",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "text / message back",
+  "meaning": "回信息",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "keep somebody posted",
+  "meaning": "随时告知某人最新情况",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "drop by / come over",
+  "meaning": "顺道来访、过来坐坐",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "hang out with friends",
+  "meaning": "与朋友闲逛聚会",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "quality time",
+  "meaning": "优质相处时光",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "a social gathering",
+  "meaning": "社交聚会",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "warm welcome",
+  "meaning": "热烈欢迎",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "feel at ease",
+  "meaning": "感到自在",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "out of one's comfort zone",
+  "meaning": "走出舒适区",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "build rapport",
+  "meaning": "建立融洽关系",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "mutual understanding",
+  "meaning": "相互理解",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "trust somebody blindly",
+  "meaning": "盲目信任某人",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "stab somebody in the back",
+  "meaning": "背后捅刀子、背叛",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "bury the hatchet",
+  "meaning": "和解、言归于好",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "turn over a new leaf",
+  "meaning": "改过自新、重新开始",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "forgive and forget",
+  "meaning": "既往不咎",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "bridge the gap",
+  "meaning": "弥合差距/隔阂",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "social media influencer",
+  "meaning": "社交媒体网红/意见领袖",
+  "category": "社交沟通"
+ },
+ {
+  "phrase": "pursue higher education",
+  "meaning": "接受高等教育",
+  "category": "学习"
+ },
+ {
+  "phrase": "enroll in a course",
+  "meaning": "注册一门课程",
+  "category": "学习"
+ },
+ {
+  "phrase": "sign up for a class",
+  "meaning": "报名上课",
+  "category": "学习"
+ },
+ {
+  "phrase": "attend lectures",
+  "meaning": "听讲座/上课",
+  "category": "学习"
+ },
+ {
+  "phrase": "skip / cut class",
+  "meaning": "逃课",
+  "category": "学习"
+ },
+ {
+  "phrase": "take notes",
+  "meaning": "记笔记",
+  "category": "学习"
+ },
+ {
+  "phrase": "jot down",
+  "meaning": "匆匆记下",
+  "category": "学习"
+ },
+ {
+  "phrase": "highlight key points",
+  "meaning": "标出重点",
+  "category": "学习"
+ },
+ {
+  "phrase": "revise / review for an exam",
+  "meaning": "复习备考",
+  "category": "学习"
+ },
+ {
+  "phrase": "cram for an exam",
+  "meaning": "考前突击、临时抱佛脚",
+  "category": "学习"
+ },
+ {
+  "phrase": "burn the midnight oil",
+  "meaning": "开夜车、熬夜学习",
+  "category": "学习"
+ },
+ {
+  "phrase": "hit the books",
+  "meaning": "用功读书",
+  "category": "学习"
+ },
+ {
+  "phrase": "bury oneself in books",
+  "meaning": "埋头苦读",
+  "category": "学习"
+ },
+ {
+  "phrase": "study around the clock",
+  "meaning": "夜以继日地学习",
+  "category": "学习"
+ },
+ {
+  "phrase": "sit an exam",
+  "meaning": "参加考试",
+  "category": "学习"
+ },
+ {
+  "phrase": "pass with flying colours",
+  "meaning": "以优异成绩通过",
+  "category": "学习"
+ },
+ {
+  "phrase": "scrape through",
+  "meaning": "勉强通过",
+  "category": "学习"
+ },
+ {
+  "phrase": "fail an exam",
+  "meaning": "考试不及格",
+  "category": "学习"
+ },
+ {
+  "phrase": "retake / resit an exam",
+  "meaning": "补考、重考",
+  "category": "学习"
+ },
+ {
+  "phrase": "exam results / grades",
+  "meaning": "考试成绩",
+  "category": "学习"
+ },
+ {
+  "phrase": "get straight A's",
+  "meaning": "各科全优",
+  "category": "学习"
+ },
+ {
+  "phrase": "top of the class",
+  "meaning": "全班第一",
+  "category": "学习"
+ },
+ {
+  "phrase": "bottom of the class",
+  "meaning": "全班垫底",
+  "category": "学习"
+ },
+ {
+  "phrase": "academic performance",
+  "meaning": "学业表现",
+  "category": "学习"
+ },
+ {
+  "phrase": "grade point average (GPA)",
+  "meaning": "平均绩点",
+  "category": "学习"
+ },
+ {
+  "phrase": "transcript",
+  "meaning": "成绩单",
+  "category": "学习"
+ },
+ {
+  "phrase": "bachelor's / master's degree",
+  "meaning": "学士 / 硕士学位",
+  "category": "学习"
+ },
+ {
+  "phrase": "doctoral degree / PhD",
+  "meaning": "博士学位",
+  "category": "学习"
+ },
+ {
+  "phrase": "graduate with honours",
+  "meaning": "以荣誉学位毕业",
+  "category": "学习"
+ },
+ {
+  "phrase": "drop out of school",
+  "meaning": "辍学",
+  "category": "学习"
+ },
+ {
+  "phrase": "tuition fees",
+  "meaning": "学费",
+  "category": "学习"
+ },
+ {
+  "phrase": "apply for a scholarship",
+  "meaning": "申请奖学金",
+  "category": "学习"
+ },
+ {
+  "phrase": "student loan",
+  "meaning": "助学贷款",
+  "category": "学习"
+ },
+ {
+  "phrase": "financial aid",
+  "meaning": "经济资助",
+  "category": "学习"
+ },
+ {
+  "phrase": "student debt",
+  "meaning": "学生债务",
+  "category": "学习"
+ },
+ {
+  "phrase": "exchange programme",
+  "meaning": "交换生项目",
+  "category": "学习"
+ },
+ {
+  "phrase": "study abroad",
+  "meaning": "出国留学",
+  "category": "学习"
+ },
+ {
+  "phrase": "language barrier",
+  "meaning": "语言障碍",
+  "category": "学习"
+ },
+ {
+  "phrase": "immerse oneself in",
+  "meaning": "沉浸于、潜心于",
+  "category": "学习"
+ },
+ {
+  "phrase": "pick up a language",
+  "meaning": "（无意中）学会一门语言",
+  "category": "学习"
+ },
+ {
+  "phrase": "master a skill",
+  "meaning": "掌握一门技能",
+  "category": "学习"
+ },
+ {
+  "phrase": "learn something by heart",
+  "meaning": "背熟、记住",
+  "category": "学习"
+ },
+ {
+  "phrase": "rote learning",
+  "meaning": "死记硬背",
+  "category": "学习"
+ },
+ {
+  "phrase": "spoon-feed students",
+  "meaning": "填鸭式教学",
+  "category": "学习"
+ },
+ {
+  "phrase": "critical thinking",
+  "meaning": "批判性思维",
+  "category": "学习"
+ },
+ {
+  "phrase": "analytical skills",
+  "meaning": "分析能力",
+  "category": "学习"
+ },
+ {
+  "phrase": "think logically",
+  "meaning": "有逻辑地思考",
+  "category": "学习"
+ },
+ {
+  "phrase": "broaden one's horizons",
+  "meaning": "开阔眼界",
+  "category": "学习"
+ },
+ {
+  "phrase": "expand one's knowledge",
+  "meaning": "扩展知识面",
+  "category": "学习"
+ },
+ {
+  "phrase": "a thirst for knowledge",
+  "meaning": "求知欲",
+  "category": "学习"
+ },
+ {
+  "phrase": "lifelong learning",
+  "meaning": "终身学习",
+  "category": "学习"
+ },
+ {
+  "phrase": "knowledge is power",
+  "meaning": "知识就是力量",
+  "category": "学习"
+ },
+ {
+  "phrase": "practice makes perfect",
+  "meaning": "熟能生巧",
+  "category": "学习"
+ },
+ {
+  "phrase": "learn from one's mistakes",
+  "meaning": "从错误中学习",
+  "category": "学习"
+ },
+ {
+  "phrase": "trial and error",
+  "meaning": "反复试错",
+  "category": "学习"
+ },
+ {
+  "phrase": "hands-on learning",
+  "meaning": "实践式学习",
+  "category": "学习"
+ },
+ {
+  "phrase": "distance learning",
+  "meaning": "远程教育",
+  "category": "学习"
+ },
+ {
+  "phrase": "online course / e-learning",
+  "meaning": "网络课程 / 在线学习",
+  "category": "学习"
+ },
+ {
+  "phrase": "self-study / self-taught",
+  "meaning": "自学 / 自学的",
+  "category": "学习"
+ },
+ {
+  "phrase": "brush up on one's English",
+  "meaning": "温习提高英语",
+  "category": "学习"
+ },
+ {
+  "phrase": "polish one's skills",
+  "meaning": "打磨技能",
+  "category": "学习"
+ },
+ {
+  "phrase": "hone one's craft",
+  "meaning": "精进技艺",
+  "category": "学习"
+ },
+ {
+  "phrase": "do research",
+  "meaning": "做研究",
+  "category": "学习"
+ },
+ {
+  "phrase": "conduct an experiment",
+  "meaning": "做实验",
+  "category": "学习"
+ },
+ {
+  "phrase": "carry out a survey",
+  "meaning": "开展调查",
+  "category": "学习"
+ },
+ {
+  "phrase": "gather data",
+  "meaning": "收集数据",
+  "category": "学习"
+ },
+ {
+  "phrase": "analyze the findings",
+  "meaning": "分析研究结果",
+  "category": "学习"
+ },
+ {
+  "phrase": "draw a conclusion",
+  "meaning": "得出结论",
+  "category": "学习"
+ },
+ {
+  "phrase": "write a thesis / dissertation",
+  "meaning": "写论文",
+  "category": "学习"
+ },
+ {
+  "phrase": "cite references",
+  "meaning": "引用参考文献",
+  "category": "学习"
+ },
+ {
+  "phrase": "plagiarism",
+  "meaning": "抄袭、剽窃",
+  "category": "学习"
+ },
+ {
+  "phrase": "academic integrity",
+  "meaning": "学术诚信",
+  "category": "学习"
+ },
+ {
+  "phrase": "peer review",
+  "meaning": "同行评审",
+  "category": "学习"
+ },
+ {
+  "phrase": "publish a paper",
+  "meaning": "发表论文",
+  "category": "学习"
+ },
+ {
+  "phrase": "meet the requirements",
+  "meaning": "达到要求",
+  "category": "学习"
+ },
+ {
+  "phrase": "hand in / submit an assignment",
+  "meaning": "交作业",
+  "category": "学习"
+ },
+ {
+  "phrase": "deadline for submission",
+  "meaning": "提交截止日期",
+  "category": "学习"
+ },
+ {
+  "phrase": "extension",
+  "meaning": "（截止日期的）延期",
+  "category": "学习"
+ },
+ {
+  "phrase": "workload",
+  "meaning": "学业/工作量",
+  "category": "学习"
+ },
+ {
+  "phrase": "under pressure",
+  "meaning": "处于压力之下",
+  "category": "学习"
+ },
+ {
+  "phrase": "cope with stress",
+  "meaning": "应对压力",
+  "category": "学习"
+ },
+ {
+  "phrase": "procrastination",
+  "meaning": "拖延症",
+  "category": "学习"
+ },
+ {
+  "phrase": "put off until tomorrow",
+  "meaning": "拖到明天",
+  "category": "学习"
+ },
+ {
+  "phrase": "manage one's time wisely",
+  "meaning": "合理安排时间",
+  "category": "学习"
+ },
+ {
+  "phrase": "stick to a schedule",
+  "meaning": "遵守时间表",
+  "category": "学习"
+ },
+ {
+  "phrase": "stay focused / concentrate",
+  "meaning": "保持专注",
+  "category": "学习"
+ },
+ {
+  "phrase": "lose concentration",
+  "meaning": "分心",
+  "category": "学习"
+ },
+ {
+  "phrase": "a short attention span",
+  "meaning": "注意力持续时间短",
+  "category": "学习"
+ },
+ {
+  "phrase": "absent-minded",
+  "meaning": "心不在焉的",
+  "category": "学习"
+ },
+ {
+  "phrase": "rack one's brains",
+  "meaning": "绞尽脑汁",
+  "category": "学习"
+ },
+ {
+  "phrase": "ring a bell",
+  "meaning": "听起来耳熟",
+  "category": "学习"
+ },
+ {
+  "phrase": "refresh one's memory",
+  "meaning": "唤起记忆",
+  "category": "学习"
+ },
+ {
+  "phrase": "slip one's mind",
+  "meaning": "一时忘记",
+  "category": "学习"
+ },
+ {
+  "phrase": "a photographic memory",
+  "meaning": "过目不忘的记忆力",
+  "category": "学习"
+ },
+ {
+  "phrase": "have a head for figures",
+  "meaning": "擅长数字",
+  "category": "学习"
+ },
+ {
+  "phrase": "be hopeless at maths",
+  "meaning": "数学一塌糊涂",
+  "category": "学习"
+ },
+ {
+  "phrase": "grasp the basics",
+  "meaning": "掌握基础",
+  "category": "学习"
+ },
+ {
+  "phrase": "go back to basics",
+  "meaning": "回归基础",
+  "category": "学习"
+ },
+ {
+  "phrase": "the learning curve",
+  "meaning": "学习曲线",
+  "category": "学习"
+ },
+ {
+  "phrase": "slow learner / fast learner",
+  "meaning": "学得慢 / 学得快的人",
+  "category": "学习"
+ },
+ {
+  "phrase": "quick on the uptake",
+  "meaning": "领悟得快",
+  "category": "学习"
+ },
+ {
+  "phrase": "a know-it-all",
+  "meaning": "自以为无所不知的人",
+  "category": "学习"
+ },
+ {
+  "phrase": "bookworm",
+  "meaning": "书虫",
+  "category": "学习"
+ },
+ {
+  "phrase": "class clown",
+  "meaning": "班级活宝",
+  "category": "学习"
+ },
+ {
+  "phrase": "teacher's pet",
+  "meaning": "老师的宠儿",
+  "category": "学习"
+ },
+ {
+  "phrase": "with flying colors",
+  "meaning": "出色地、大获成功地",
+  "category": "学习"
+ },
+ {
+  "phrase": "pass the exam with ease",
+  "meaning": "轻松通过考试",
+  "category": "学习"
+ },
+ {
+  "phrase": "a passing grade",
+  "meaning": "及格分数",
+  "category": "学习"
+ },
+ {
+  "phrase": "extra tuition / tutoring",
+  "meaning": "课外辅导",
+  "category": "学习"
+ },
+ {
+  "phrase": "one-on-one coaching",
+  "meaning": "一对一辅导",
+  "category": "学习"
+ },
+ {
+  "phrase": "study group",
+  "meaning": "学习小组",
+  "category": "学习"
+ },
+ {
+  "phrase": "group discussion",
+  "meaning": "小组讨论",
+  "category": "学习"
+ },
+ {
+  "phrase": "brainstorm ideas",
+  "meaning": "头脑风暴",
+  "category": "学习"
+ },
+ {
+  "phrase": "exchange ideas",
+  "meaning": "交流想法",
+  "category": "学习"
+ },
+ {
+  "phrase": "food for thought",
+  "meaning": "引人深思的东西",
+  "category": "学习"
+ },
+ {
+  "phrase": "put theory into practice",
+  "meaning": "把理论付诸实践",
+  "category": "学习"
+ },
+ {
+  "phrase": "live and learn",
+  "meaning": "活到老学到老",
+  "category": "学习"
+ },
+ {
+  "phrase": "you can't teach an old dog new tricks",
+  "meaning": "老狗学不会新把戏（守旧难改）",
+  "category": "学习"
+ },
+ {
+  "phrase": "knowledge gap",
+  "meaning": "知识差距",
+  "category": "学习"
+ },
+ {
+  "phrase": "major in / minor in",
+  "meaning": "主修 / 辅修",
+  "category": "学习"
+ },
+ {
+  "phrase": "go on holiday / vacation",
+  "meaning": "去度假",
+  "category": "旅行"
+ },
+ {
+  "phrase": "take a break / getaway",
+  "meaning": "休假、短途散心",
+  "category": "旅行"
+ },
+ {
+  "phrase": "plan an itinerary",
+  "meaning": "规划行程",
+  "category": "旅行"
+ },
+ {
+  "phrase": "book a flight",
+  "meaning": "订机票",
+  "category": "旅行"
+ },
+ {
+  "phrase": "reserve / book a hotel",
+  "meaning": "预订酒店",
+  "category": "旅行"
+ },
+ {
+  "phrase": "budget travel",
+  "meaning": "穷游、低成本旅行",
+  "category": "旅行"
+ },
+ {
+  "phrase": "package tour",
+  "meaning": "跟团游",
+  "category": "旅行"
+ },
+ {
+  "phrase": "independent travel",
+  "meaning": "自由行",
+  "category": "旅行"
+ },
+ {
+  "phrase": "backpacking",
+  "meaning": "背包旅行",
+  "category": "旅行"
+ },
+ {
+  "phrase": "a gap year",
+  "meaning": "间隔年",
+  "category": "旅行"
+ },
+ {
+  "phrase": "off the beaten track / path",
+  "meaning": "人迹罕至的、小众的",
+  "category": "旅行"
+ },
+ {
+  "phrase": "tourist trap",
+  "meaning": "宰客的旅游景点",
+  "category": "旅行"
+ },
+ {
+  "phrase": "tourist hotspot",
+  "meaning": "热门旅游地",
+  "category": "旅行"
+ },
+ {
+  "phrase": "hidden gem",
+  "meaning": "鲜为人知的宝地",
+  "category": "旅行"
+ },
+ {
+  "phrase": "must-see attraction",
+  "meaning": "必看景点",
+  "category": "旅行"
+ },
+ {
+  "phrase": "sightseeing",
+  "meaning": "观光",
+  "category": "旅行"
+ },
+ {
+  "phrase": "take in the sights",
+  "meaning": "欣赏风景",
+  "category": "旅行"
+ },
+ {
+  "phrase": "breathtaking view",
+  "meaning": "令人惊叹的景色",
+  "category": "旅行"
+ },
+ {
+  "phrase": "picturesque scenery",
+  "meaning": "如画的风景",
+  "category": "旅行"
+ },
+ {
+  "phrase": "scenic route",
+  "meaning": "风景优美的路线",
+  "category": "旅行"
+ },
+ {
+  "phrase": "natural wonder",
+  "meaning": "自然奇观",
+  "category": "旅行"
+ },
+ {
+  "phrase": "historical site",
+  "meaning": "历史遗迹",
+  "category": "旅行"
+ },
+ {
+  "phrase": "cultural heritage",
+  "meaning": "文化遗产",
+  "category": "旅行"
+ },
+ {
+  "phrase": "local customs",
+  "meaning": "当地风俗",
+  "category": "旅行"
+ },
+ {
+  "phrase": "experience the local culture",
+  "meaning": "体验当地文化",
+  "category": "旅行"
+ },
+ {
+  "phrase": "sample local cuisine",
+  "meaning": "品尝当地美食",
+  "category": "旅行"
+ },
+ {
+  "phrase": "a feast for the senses",
+  "meaning": "感官的盛宴",
+  "category": "旅行"
+ },
+ {
+  "phrase": "jet lag",
+  "meaning": "时差反应",
+  "category": "旅行"
+ },
+ {
+  "phrase": "get over jet lag",
+  "meaning": "倒时差",
+  "category": "旅行"
+ },
+ {
+  "phrase": "long-haul flight",
+  "meaning": "长途航班",
+  "category": "旅行"
+ },
+ {
+  "phrase": "red-eye flight",
+  "meaning": "红眼航班（夜间航班）",
+  "category": "旅行"
+ },
+ {
+  "phrase": "direct / connecting flight",
+  "meaning": "直飞 / 中转航班",
+  "category": "旅行"
+ },
+ {
+  "phrase": "flight delay / cancellation",
+  "meaning": "航班延误 / 取消",
+  "category": "旅行"
+ },
+ {
+  "phrase": "boarding pass",
+  "meaning": "登机牌",
+  "category": "旅行"
+ },
+ {
+  "phrase": "go through security / customs",
+  "meaning": "过安检 / 过海关",
+  "category": "旅行"
+ },
+ {
+  "phrase": "declare goods",
+  "meaning": "申报物品",
+  "category": "旅行"
+ },
+ {
+  "phrase": "duty-free shop",
+  "meaning": "免税店",
+  "category": "旅行"
+ },
+ {
+  "phrase": "check in / check out",
+  "meaning": "办理入住 / 退房",
+  "category": "旅行"
+ },
+ {
+  "phrase": "luggage / baggage allowance",
+  "meaning": "行李限额",
+  "category": "旅行"
+ },
+ {
+  "phrase": "pack light",
+  "meaning": "轻装出行",
+  "category": "旅行"
+ },
+ {
+  "phrase": "excess baggage",
+  "meaning": "超重行李",
+  "category": "旅行"
+ },
+ {
+  "phrase": "lost luggage",
+  "meaning": "丢失的行李",
+  "category": "旅行"
+ },
+ {
+  "phrase": "travel insurance",
+  "meaning": "旅游保险",
+  "category": "旅行"
+ },
+ {
+  "phrase": "apply for a visa",
+  "meaning": "申请签证",
+  "category": "旅行"
+ },
+ {
+  "phrase": "valid passport",
+  "meaning": "有效护照",
+  "category": "旅行"
+ },
+ {
+  "phrase": "renew a passport",
+  "meaning": "更新护照",
+  "category": "旅行"
+ },
+ {
+  "phrase": "peak season / off-season",
+  "meaning": "旺季 / 淡季",
+  "category": "旅行"
+ },
+ {
+  "phrase": "high season rates",
+  "meaning": "旺季价格",
+  "category": "旅行"
+ },
+ {
+  "phrase": "book in advance",
+  "meaning": "提前预订",
+  "category": "旅行"
+ },
+ {
+  "phrase": "last-minute deal",
+  "meaning": "最后一刻的优惠",
+  "category": "旅行"
+ },
+ {
+  "phrase": "affordable accommodation",
+  "meaning": "价格合理的住宿",
+  "category": "旅行"
+ },
+ {
+  "phrase": "youth hostel",
+  "meaning": "青年旅舍",
+  "category": "旅行"
+ },
+ {
+  "phrase": "bed and breakfast (B&B)",
+  "meaning": "民宿（含早餐）",
+  "category": "旅行"
+ },
+ {
+  "phrase": "five-star hotel",
+  "meaning": "五星级酒店",
+  "category": "旅行"
+ },
+ {
+  "phrase": "room with a view",
+  "meaning": "景观房",
+  "category": "旅行"
+ },
+ {
+  "phrase": "fully booked",
+  "meaning": "订满了",
+  "category": "旅行"
+ },
+ {
+  "phrase": "cancellation policy",
+  "meaning": "取消政策",
+  "category": "旅行"
+ },
+ {
+  "phrase": "rent a car",
+  "meaning": "租车",
+  "category": "旅行"
+ },
+ {
+  "phrase": "go on a road trip",
+  "meaning": "自驾游",
+  "category": "旅行"
+ },
+ {
+  "phrase": "hit the road",
+  "meaning": "上路、出发",
+  "category": "旅行"
+ },
+ {
+  "phrase": "get lost",
+  "meaning": "迷路",
+  "category": "旅行"
+ },
+ {
+  "phrase": "ask for directions",
+  "meaning": "问路",
+  "category": "旅行"
+ },
+ {
+  "phrase": "a stone's throw away",
+  "meaning": "近在咫尺",
+  "category": "旅行"
+ },
+ {
+  "phrase": "in the middle of nowhere",
+  "meaning": "荒郊野外",
+  "category": "旅行"
+ },
+ {
+  "phrase": "off the grid",
+  "meaning": "远离尘嚣、无网络的",
+  "category": "旅行"
+ },
+ {
+  "phrase": "public transport",
+  "meaning": "公共交通",
+  "category": "旅行"
+ },
+ {
+  "phrase": "hop on / hop off",
+  "meaning": "上车 / 下车",
+  "category": "旅行"
+ },
+ {
+  "phrase": "miss the train / bus",
+  "meaning": "错过火车 / 公交",
+  "category": "旅行"
+ },
+ {
+  "phrase": "catch an early flight",
+  "meaning": "赶早班机",
+  "category": "旅行"
+ },
+ {
+  "phrase": "travel light",
+  "meaning": "轻装旅行",
+  "category": "旅行"
+ },
+ {
+  "phrase": "travel broadens the mind",
+  "meaning": "旅行开阔眼界",
+  "category": "旅行"
+ },
+ {
+  "phrase": "get itchy feet",
+  "meaning": "渴望旅行、坐不住",
+  "category": "旅行"
+ },
+ {
+  "phrase": "wanderlust",
+  "meaning": "旅行癖、漫游欲",
+  "category": "旅行"
+ },
+ {
+  "phrase": "tick off the bucket list",
+  "meaning": "完成心愿清单上的一项",
+  "category": "旅行"
+ },
+ {
+  "phrase": "once-in-a-lifetime experience",
+  "meaning": "一生一次的体验",
+  "category": "旅行"
+ },
+ {
+  "phrase": "make memories",
+  "meaning": "留下美好回忆",
+  "category": "旅行"
+ },
+ {
+  "phrase": "capture the moment",
+  "meaning": "记录美好瞬间",
+  "category": "旅行"
+ },
+ {
+  "phrase": "take lots of photos",
+  "meaning": "拍很多照片",
+  "category": "旅行"
+ },
+ {
+  "phrase": "postcard-perfect",
+  "meaning": "如明信片般完美的",
+  "category": "旅行"
+ },
+ {
+  "phrase": "souvenir shopping",
+  "meaning": "买纪念品",
+  "category": "旅行"
+ },
+ {
+  "phrase": "local handicrafts",
+  "meaning": "当地手工艺品",
+  "category": "旅行"
+ },
+ {
+  "phrase": "haggle / bargain over prices",
+  "meaning": "讨价还价",
+  "category": "旅行"
+ },
+ {
+  "phrase": "tipping culture",
+  "meaning": "小费文化",
+  "category": "旅行"
+ },
+ {
+  "phrase": "currency exchange",
+  "meaning": "货币兑换",
+  "category": "旅行"
+ },
+ {
+  "phrase": "exchange rate",
+  "meaning": "汇率",
+  "category": "旅行"
+ },
+ {
+  "phrase": "travel on a shoestring",
+  "meaning": "极省地旅行",
+  "category": "旅行"
+ },
+ {
+  "phrase": "splurge on",
+  "meaning": "在某物上挥霍",
+  "category": "旅行"
+ },
+ {
+  "phrase": "worth every penny",
+  "meaning": "每一分钱都花得值",
+  "category": "旅行"
+ },
+ {
+  "phrase": "homesick",
+  "meaning": "想家的",
+  "category": "旅行"
+ },
+ {
+  "phrase": "culture shock",
+  "meaning": "文化冲击",
+  "category": "旅行"
+ },
+ {
+  "phrase": "blend in with the locals",
+  "meaning": "融入当地人",
+  "category": "旅行"
+ },
+ {
+  "phrase": "language barrier",
+  "meaning": "语言障碍",
+  "category": "旅行"
+ },
+ {
+  "phrase": "gesture",
+  "meaning": "手势、肢体语言",
+  "category": "旅行"
+ },
+ {
+  "phrase": "get by with basic English",
+  "meaning": "靠基础英语应付",
+  "category": "旅行"
+ },
+ {
+  "phrase": "lost in translation",
+  "meaning": "翻译中词不达意",
+  "category": "旅行"
+ },
+ {
+  "phrase": "eco-tourism",
+  "meaning": "生态旅游",
+  "category": "旅行"
+ },
+ {
+  "phrase": "sustainable tourism",
+  "meaning": "可持续旅游",
+  "category": "旅行"
+ },
+ {
+  "phrase": "over-tourism",
+  "meaning": "过度旅游",
+  "category": "旅行"
+ },
+ {
+  "phrase": "carbon footprint",
+  "meaning": "碳足迹",
+  "category": "旅行"
+ },
+ {
+  "phrase": "responsible traveller",
+  "meaning": "负责任的旅行者",
+  "category": "旅行"
+ },
+ {
+  "phrase": "leave nothing but footprints",
+  "meaning": "除了脚印什么都不留下",
+  "category": "旅行"
+ },
+ {
+  "phrase": "adventure travel",
+  "meaning": "探险旅行",
+  "category": "旅行"
+ },
+ {
+  "phrase": "go hiking / trekking",
+  "meaning": "去远足 / 徒步",
+  "category": "旅行"
+ },
+ {
+  "phrase": "go camping",
+  "meaning": "去露营",
+  "category": "旅行"
+ },
+ {
+  "phrase": "pitch a tent",
+  "meaning": "搭帐篷",
+  "category": "旅行"
+ },
+ {
+  "phrase": "sleep under the stars",
+  "meaning": "露宿星空下",
+  "category": "旅行"
+ },
+ {
+  "phrase": "go backpacking around Europe",
+  "meaning": "背包环游欧洲",
+  "category": "旅行"
+ },
+ {
+  "phrase": "cruise holiday",
+  "meaning": "邮轮假期",
+  "category": "旅行"
+ },
+ {
+  "phrase": "all-inclusive resort",
+  "meaning": "全包式度假村",
+  "category": "旅行"
+ },
+ {
+  "phrase": "travel bug",
+  "meaning": "旅行热、爱旅行的瘾",
+  "category": "旅行"
+ },
+ {
+  "phrase": "a piece of cake",
+  "meaning": "小菜一碟",
+  "category": "其他"
+ },
+ {
+  "phrase": "break a leg",
+  "meaning": "祝好运（尤指演出前）",
+  "category": "其他"
+ },
+ {
+  "phrase": "under the weather",
+  "meaning": "身体不适",
+  "category": "其他"
+ },
+ {
+  "phrase": "once in a blue moon",
+  "meaning": "千载难逢、极为罕见",
+  "category": "其他"
+ },
+ {
+  "phrase": "when pigs fly",
+  "meaning": "绝不可能、太阳从西边出来",
+  "category": "其他"
+ },
+ {
+  "phrase": "it's raining cats and dogs",
+  "meaning": "倾盆大雨",
+  "category": "其他"
+ },
+ {
+  "phrase": "cost an arm and a leg",
+  "meaning": "贵得离谱",
+  "category": "其他"
+ },
+ {
+  "phrase": "hit the nail on the head",
+  "meaning": "一针见血、说到点子上",
+  "category": "其他"
+ },
+ {
+  "phrase": "bark up the wrong tree",
+  "meaning": "找错对象、弄错方向",
+  "category": "其他"
+ },
+ {
+  "phrase": "the ball is in your court",
+  "meaning": "该你采取行动了",
+  "category": "其他"
+ },
+ {
+  "phrase": "by the book",
+  "meaning": "按规矩办事",
+  "category": "其他"
+ },
+ {
+  "phrase": "call it a night",
+  "meaning": "今晚到此为止",
+  "category": "其他"
+ },
+ {
+  "phrase": "cross that bridge when you come to it",
+  "meaning": "船到桥头自然直",
+  "category": "其他"
+ },
+ {
+  "phrase": "cut corners",
+  "meaning": "偷工减料、走捷径",
+  "category": "其他"
+ },
+ {
+  "phrase": "don't judge a book by its cover",
+  "meaning": "不要以貌取人",
+  "category": "其他"
+ },
+ {
+  "phrase": "every cloud has a silver lining",
+  "meaning": "黑暗中总有一线光明",
+  "category": "其他"
+ },
+ {
+  "phrase": "get cold feet",
+  "meaning": "临阵退缩",
+  "category": "其他"
+ },
+ {
+  "phrase": "give the benefit of the doubt",
+  "meaning": "姑且相信、疑罪从无",
+  "category": "其他"
+ },
+ {
+  "phrase": "go back to the drawing board",
+  "meaning": "从头再来",
+  "category": "其他"
+ },
+ {
+  "phrase": "have bigger fish to fry",
+  "meaning": "有更重要的事要做",
+  "category": "其他"
+ },
+ {
+  "phrase": "in the heat of the moment",
+  "meaning": "一时冲动之下",
+  "category": "其他"
+ },
+ {
+  "phrase": "it takes two to tango",
+  "meaning": "一个巴掌拍不响",
+  "category": "其他"
+ },
+ {
+  "phrase": "keep one's chin up",
+  "meaning": "振作起来",
+  "category": "其他"
+ },
+ {
+  "phrase": "kill two birds with one stone",
+  "meaning": "一石二鸟",
+  "category": "其他"
+ },
+ {
+  "phrase": "leave no stone unturned",
+  "meaning": "不遗余力、千方百计",
+  "category": "其他"
+ },
+ {
+  "phrase": "let sleeping dogs lie",
+  "meaning": "别惹是生非",
+  "category": "其他"
+ },
+ {
+  "phrase": "miss the boat",
+  "meaning": "错失良机",
+  "category": "其他"
+ },
+ {
+  "phrase": "no pain, no gain",
+  "meaning": "不劳无获",
+  "category": "其他"
+ },
+ {
+  "phrase": "on the fence",
+  "meaning": "犹豫不决、持观望态度",
+  "category": "其他"
+ },
+ {
+  "phrase": "out of the blue",
+  "meaning": "出乎意料、突如其来",
+  "category": "其他"
+ },
+ {
+  "phrase": "play devil's advocate",
+  "meaning": "故意唱反调（以引发讨论）",
+  "category": "其他"
+ },
+ {
+  "phrase": "pull someone's leg",
+  "meaning": "开某人玩笑",
+  "category": "其他"
+ },
+ {
+  "phrase": "sit on the fence",
+  "meaning": "骑墙、观望",
+  "category": "其他"
+ },
+ {
+  "phrase": "speak of the devil",
+  "meaning": "说曹操曹操到",
+  "category": "其他"
+ },
+ {
+  "phrase": "steal someone's thunder",
+  "meaning": "抢某人的风头",
+  "category": "其他"
+ },
+ {
+  "phrase": "take with a grain of salt",
+  "meaning": "半信半疑、有所保留",
+  "category": "其他"
+ },
+ {
+  "phrase": "the best of both worlds",
+  "meaning": "两全其美",
+  "category": "其他"
+ },
+ {
+  "phrase": "the early bird catches the worm",
+  "meaning": "早起的鸟儿有虫吃",
+  "category": "其他"
+ },
+ {
+  "phrase": "the last straw",
+  "meaning": "压垮骆驼的最后一根稻草",
+  "category": "其他"
+ },
+ {
+  "phrase": "through thick and thin",
+  "meaning": "同甘共苦",
+  "category": "其他"
+ },
+ {
+  "phrase": "to add insult to injury",
+  "meaning": "雪上加霜",
+  "category": "其他"
+ },
+ {
+  "phrase": "to be on cloud nine",
+  "meaning": "欣喜若狂",
+  "category": "其他"
+ },
+ {
+  "phrase": "to bend over backwards",
+  "meaning": "竭尽全力",
+  "category": "其他"
+ },
+ {
+  "phrase": "to bite off more than one can chew",
+  "meaning": "贪多嚼不烂",
+  "category": "其他"
+ },
+ {
+  "phrase": "to burn bridges",
+  "meaning": "自断后路",
+  "category": "其他"
+ },
+ {
+  "phrase": "to face the music",
+  "meaning": "面对现实、承担后果",
+  "category": "其他"
+ },
+ {
+  "phrase": "to get a taste of one's own medicine",
+  "meaning": "自食其果",
+  "category": "其他"
+ },
+ {
+  "phrase": "to give someone the benefit of the doubt",
+  "meaning": "姑且信之",
+  "category": "其他"
+ },
+ {
+  "phrase": "to go with the flow",
+  "meaning": "顺其自然",
+  "category": "其他"
+ },
+ {
+  "phrase": "to have a heart of gold",
+  "meaning": "心地善良",
+  "category": "其他"
+ },
+ {
+  "phrase": "to hit the jackpot",
+  "meaning": "中大奖、走大运",
+  "category": "其他"
+ },
+ {
+  "phrase": "to jump on the bandwagon",
+  "meaning": "赶时髦、随大流",
+  "category": "其他"
+ },
+ {
+  "phrase": "to keep something at bay",
+  "meaning": "遏制、挡住",
+  "category": "其他"
+ },
+ {
+  "phrase": "to let someone off the hook",
+  "meaning": "放过某人",
+  "category": "其他"
+ },
+ {
+  "phrase": "to make a long story short",
+  "meaning": "长话短说",
+  "category": "其他"
+ },
+ {
+  "phrase": "to play it by ear",
+  "meaning": "随机应变",
+  "category": "其他"
+ },
+ {
+  "phrase": "to put all eggs in one basket",
+  "meaning": "孤注一掷",
+  "category": "其他"
+ },
+ {
+  "phrase": "to rain on someone's parade",
+  "meaning": "扫某人的兴",
+  "category": "其他"
+ },
+ {
+  "phrase": "to rock the boat",
+  "meaning": "惹麻烦、破坏现状",
+  "category": "其他"
+ },
+ {
+  "phrase": "to sit tight",
+  "meaning": "耐心等待、按兵不动",
+  "category": "其他"
+ },
+ {
+  "phrase": "to take a rain check",
+  "meaning": "改天再约",
+  "category": "其他"
+ },
+ {
+  "phrase": "to take the plunge",
+  "meaning": "毅然决定、冒险一试",
+  "category": "其他"
+ },
+ {
+  "phrase": "to throw in the towel",
+  "meaning": "认输、放弃",
+  "category": "其他"
+ },
+ {
+  "phrase": "to turn a blind eye",
+  "meaning": "视而不见",
+  "category": "其他"
+ },
+ {
+  "phrase": "to weather the storm",
+  "meaning": "渡过难关",
+  "category": "其他"
+ },
+ {
+  "phrase": "on the spur of the moment",
+  "meaning": "一时兴起",
+  "category": "其他"
+ },
+ {
+  "phrase": "in the long run",
+  "meaning": "从长远看",
+  "category": "其他"
+ },
+ {
+  "phrase": "in the nick of time",
+  "meaning": "在最后一刻、及时",
+  "category": "其他"
+ },
+ {
+  "phrase": "for the time being",
+  "meaning": "暂时、眼下",
+  "category": "其他"
+ },
+ {
+  "phrase": "at the drop of a hat",
+  "meaning": "立即、毫不犹豫",
+  "category": "其他"
+ },
+ {
+  "phrase": "behind the times",
+  "meaning": "落伍、过时",
+  "category": "其他"
+ },
+ {
+  "phrase": "ahead of one's time",
+  "meaning": "超越时代的",
+  "category": "其他"
+ },
+ {
+  "phrase": "a blessing in disguise",
+  "meaning": "塞翁失马，焉知非福",
+  "category": "其他"
+ },
+ {
+  "phrase": "a far cry from",
+  "meaning": "与……大相径庭",
+  "category": "其他"
+ },
+ {
+  "phrase": "a drop in the ocean / bucket",
+  "meaning": "沧海一粟",
+  "category": "其他"
+ },
+ {
+  "phrase": "at a crossroads",
+  "meaning": "处于十字路口（面临抉择）",
+  "category": "其他"
+ },
+ {
+  "phrase": "at the end of the day",
+  "meaning": "归根结底",
+  "category": "其他"
+ },
+ {
+  "phrase": "by and large",
+  "meaning": "大体上、总的来说",
+  "category": "其他"
+ },
+ {
+  "phrase": "every now and then",
+  "meaning": "偶尔、有时",
+  "category": "其他"
+ },
+ {
+  "phrase": "few and far between",
+  "meaning": "稀少、难得",
+  "category": "其他"
+ },
+ {
+  "phrase": "for good",
+  "meaning": "永久地",
+  "category": "其他"
+ },
+ {
+  "phrase": "in a nutshell",
+  "meaning": "简而言之",
+  "category": "其他"
+ },
+ {
+  "phrase": "in full swing",
+  "meaning": "进行得如火如荼",
+  "category": "其他"
+ },
+ {
+  "phrase": "in hot water",
+  "meaning": "陷入麻烦",
+  "category": "其他"
+ },
+ {
+  "phrase": "in the same boat",
+  "meaning": "处境相同",
+  "category": "其他"
+ },
+ {
+  "phrase": "on thin ice",
+  "meaning": "如履薄冰、处境危险",
+  "category": "其他"
+ },
+ {
+  "phrase": "out of the woods",
+  "meaning": "脱离困境",
+  "category": "其他"
+ },
+ {
+  "phrase": "over the moon",
+  "meaning": "欣喜若狂",
+  "category": "其他"
+ },
+ {
+  "phrase": "down to earth",
+  "meaning": "脚踏实地、务实的",
+  "category": "其他"
+ },
+ {
+  "phrase": "full of beans",
+  "meaning": "精力充沛",
+  "category": "其他"
+ },
+ {
+  "phrase": "as cool as a cucumber",
+  "meaning": "镇定自若",
+  "category": "其他"
+ },
+ {
+  "phrase": "as easy as pie",
+  "meaning": "轻而易举",
+  "category": "其他"
+ },
+ {
+  "phrase": "the apple of one's eye",
+  "meaning": "掌上明珠、心肝宝贝",
+  "category": "其他"
+ },
+ {
+  "phrase": "an apple a day keeps the doctor away",
+  "meaning": "一天一苹果，医生远离我",
+  "category": "其他"
+ },
+ {
+  "phrase": "big cheese",
+  "meaning": "大人物、要人",
+  "category": "其他"
+ },
+ {
+  "phrase": "couch potato",
+  "meaning": "电视迷、懒骨头",
+  "category": "其他"
+ },
+ {
+  "phrase": "top banana",
+  "meaning": "头号人物",
+  "category": "其他"
+ },
+ {
+  "phrase": "sour grapes",
+  "meaning": "酸葡萄心理",
+  "category": "其他"
+ },
+ {
+  "phrase": "chew the fat",
+  "meaning": "闲聊、侃大山",
+  "category": "其他"
+ },
+ {
+  "phrase": "spill one's guts",
+  "meaning": "吐露心声、和盘托出",
+  "category": "其他"
+ },
+ {
+  "phrase": "butterflies in one's stomach",
+  "meaning": "紧张得心里七上八下",
+  "category": "其他"
+ },
+ {
+  "phrase": "a lump in one's throat",
+  "meaning": "哽咽、激动得说不出话",
+  "category": "其他"
+ },
+ {
+  "phrase": "get something off one's chest",
+  "meaning": "一吐为快",
+  "category": "其他"
+ },
+ {
+  "phrase": "wear one's heart on one's sleeve",
+  "meaning": "感情外露",
+  "category": "其他"
+ },
+ {
+  "phrase": "pull oneself together",
+  "meaning": "冷静下来、振作",
+  "category": "其他"
+ },
+ {
+  "phrase": "keep a straight face",
+  "meaning": "忍住不笑",
+  "category": "其他"
+ },
+ {
+  "phrase": "laugh one's head off",
+  "meaning": "笑破肚皮",
+  "category": "其他"
+ },
+ {
+  "phrase": "cry one's eyes out",
+  "meaning": "痛哭流涕",
+  "category": "其他"
+ },
+ {
+  "phrase": "tickled pink",
+  "meaning": "非常高兴",
+  "category": "其他"
+ },
+ {
+  "phrase": "time flies",
+  "meaning": "光阴似箭",
+  "category": "其他"
+ }
+]

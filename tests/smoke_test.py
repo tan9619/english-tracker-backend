@@ -24,7 +24,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from app import create_app          # noqa: E402
 from app.config import Config       # noqa: E402
 from app.dates import calc_streak, fmt, js_round, today  # noqa: E402
-from app.presets import PRESET_SOURCE  # noqa: E402
+from app.presets import IELTS_SOURCE, PRESET_SOURCE  # noqa: E402
 
 PASS, FAIL = [], []
 
@@ -498,36 +498,65 @@ def main():
     check('新用户登录成功', r.get('success') is True and r.get('isNewUser') is True, r)
 
     r = c2.get('/api/chunks/stats', headers=HP).get_json()
-    check('预置语块已写入（472 条）', r.get('totalCount') == 472, r)
+    check('预置语块已写入（472 + 700）', r.get('totalCount') == 1172, r)
     check('预置语块都是待复习',
-          r.get('learningCount') == 472 and r.get('masteredCount') == 0, r)
+          r.get('learningCount') == 1172 and r.get('masteredCount') == 0, r)
 
     r = c2.get('/api/review/overview', headers=HP).get_json()
-    check('预置复习卡全部到期', r.get('dueCount') == 472, r)
+    check('预置复习卡全部到期', r.get('dueCount') == 1172, r)
 
     r = c2.get('/api/checkin/day?date=%s' % fmt(today()), headers=HP).get_json()
     check('预置语块不算用户当天添加的语块',
           r.get('learning', {}).get('chunks') == 0, r.get('learning'))
 
-    r = c2.get('/api/chunks?limit=1', headers=HP).get_json()
-    first = (r.get('list') or [{}])[0]
-    check('预置语块字段完整',
-          bool(first.get('phrase')) and bool(first.get('meaning'))
-          and bool(first.get('category_name'))
-          and first.get('source') == PRESET_SOURCE
-          and first.get('source_type') == 'other'
-          and first.get('tag') in ('sentence', 'phrasal'), first)
-    check('预置语料已转简体',
-          '會' not in first.get('meaning', '')
-          and '這' not in first.get('meaning', ''), first.get('meaning'))
-    check('预置语料按场景建了自定义分类',
-          first.get('category_name') in ('认识新朋友', '价值观传递',
-                                         '家庭对话', '餐厅点餐'), first)
+    # 小綠書 472 条
+    r = c2.get('/api/chunks?q=小绿书&limit=1', headers=HP).get_json()
+    book = (r.get('list') or [{}])[0]
+    check('小綠書 472 条', r.get('total') == 472, r.get('total'))
+    check('小綠書字段完整',
+          bool(book.get('phrase')) and bool(book.get('meaning'))
+          and bool(book.get('category_name'))
+          and book.get('source') == PRESET_SOURCE
+          and book.get('source_type') == 'other'
+          and book.get('tag') in ('sentence', 'phrasal'), book)
+    check('小綠書已转简体',
+          '會' not in book.get('meaning', '')
+          and '這' not in book.get('meaning', ''), book.get('meaning'))
+    check('小綠書按场景建了自定义分类',
+          book.get('category_name') in ('认识新朋友', '价值观传递',
+                                        '家庭对话', '餐厅点餐'), book)
+
+    # 雅思 700 条
+    r = c2.get('/api/chunks?q=雅思&limit=1', headers=HP).get_json()
+    ielts = (r.get('list') or [{}])[0]
+    check('雅思 700 条已写入', r.get('total') == 700, r.get('total'))
+    check('雅思字段完整',
+          bool(ielts.get('phrase')) and bool(ielts.get('meaning'))
+          and ielts.get('source') == IELTS_SOURCE
+          and ielts.get('source_type') == 'other'
+          and ielts.get('tag') == 'phrasal'
+          and ielts.get('category_name') in ('工作', '日常生活', '社交沟通',
+                                             '学习', '旅行', '其他'), ielts)
+
+    r = c2.get('/api/chunk-categories', headers=HP).get_json()
+    cats = {x['name']: x['count'] for x in r['list']}
+    check('雅思按固定分类挂载',
+          cats.get('工作', 0) >= 120 and cats.get('旅行', 0) >= 110, cats)
+
+    # 分页
+    r = c2.get('/api/chunks?limit=100', headers=HP).get_json()
+    check('分页第一页',
+          r.get('total') == 1172 and len(r.get('list', [])) == 100,
+          (r.get('total'), len(r.get('list', []))))
+    r = c2.get('/api/chunks?limit=100&skip=1100', headers=HP).get_json()
+    check('分页最后一页',
+          r.get('total') == 1172 and len(r.get('list', [])) == 72,
+          (r.get('total'), len(r.get('list', []))))
 
     # 再次登录不能重复写
     c2.post('/api/login', headers=HP)
     r = c2.get('/api/chunks/stats', headers=HP).get_json()
-    check('重复登录不会重复写入', r.get('totalCount') == 472, r)
+    check('重复登录不会重复写入', r.get('totalCount') == 1172, r)
 
     # 用户删掉后不再补回来（直接删库，避免 472 次 HTTP 调用）
     from app.extensions import db as _db

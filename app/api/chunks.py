@@ -192,10 +192,12 @@ def get_list():
         q = q.filter(or_(Chunk.phrase.like(like), Chunk.meaning.like(like),
                          Chunk.source.like(like)))
 
+    total = q.count()
     rows = q.order_by(Chunk.created_at.desc(), Chunk.id.desc()) \
         .offset(skip).limit(limit).all()
     names = _category_map()
-    return jsonify(success=True, list=[_chunk_dict(r, names) for r in rows])
+    return jsonify(success=True, total=total,
+                   list=[_chunk_dict(r, names) for r in rows])
 
 
 @bp.route('/api/chunks/detail', methods=['GET'])

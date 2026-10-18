@@ -97,6 +97,11 @@ def _ensure_columns(app):
             'ALTER TABLE users ADD COLUMN presets_seeded BOOLEAN NOT NULL DEFAULT 0'))
         db.session.commit()
         app.logger.info('schema: users.presets_seeded 列已补齐')
+    if 'ielts_seeded' not in cols:
+        db.session.execute(text(
+            'ALTER TABLE users ADD COLUMN ielts_seeded BOOLEAN NOT NULL DEFAULT 0'))
+        db.session.commit()
+        app.logger.info('schema: users.ielts_seeded 列已补齐')
     if 'daily_review_goal' not in cols:
         db.session.execute(text(
             'ALTER TABLE users ADD COLUMN daily_review_goal INT NOT NULL DEFAULT 10'))

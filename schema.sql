@@ -10,8 +10,9 @@ CREATE TABLE IF NOT EXISTS users (
   avatar           VARCHAR(1024) NOT NULL DEFAULT '',
   -- 默认形象（bird/cat/dog/sheep/turtle/whale），建号时随机分配
   animal           VARCHAR(16)  NOT NULL DEFAULT '',
-  -- 内置语块是否已复制到该用户名下
+  -- 内置语块是否已复制到该用户名下（小綠書 / 雅思两批分别标记）
   presets_seeded   TINYINT(1)   NOT NULL DEFAULT 0,
+  ielts_seeded     TINYINT(1)   NOT NULL DEFAULT 0,
   checkin_reminder TINYINT(1)   NOT NULL DEFAULT 0,
   reminder_time    VARCHAR(5)   NOT NULL DEFAULT '21:00',
   review_reminder  TINYINT(1)   NOT NULL DEFAULT 0,

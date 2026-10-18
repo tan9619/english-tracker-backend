@@ -39,11 +39,14 @@ def get_or_create_user(openid):
             user.animal = random_animal()
             db.session.commit()
         _safe_seed_presets(user)
+        _safe_seed_ielts(user)
         return user, False
-    user = User(openid=openid, animal=random_animal(), presets_seeded=False)
+    user = User(openid=openid, animal=random_animal(),
+                presets_seeded=False, ielts_seeded=False)
     db.session.add(user)
     db.session.commit()
     _safe_seed_presets(user)
+    _safe_seed_ielts(user)
     return user, True
 
 
@@ -56,6 +59,17 @@ def _safe_seed_presets(user):
     except Exception as e:
         db.session.rollback()
         current_app.logger.error('预置语块写入失败 openid=%s: %s', user.openid, e)
+
+
+def _safe_seed_ielts(user):
+    """雅思 700 条，独立标记 —— 已经拿过小綠書的老用户也能补上。"""
+    if not current_app.config.get('SEED_PRESETS', True):
+        return
+    try:
+        seed_ielts_presets(user)
+    except Exception as e:
+        db.session.rollback()
+        current_app.logger.error('雅思语块写入失败 openid=%s: %s', user.openid, e)
 
 
 def seed_presets(user):
@@ -139,6 +153,69 @@ def seed_presets(user):
     return len(chunks)
 
 
+def seed_ielts_presets(user):
+    """雅思 700 条高频短语，按文档里的 6 个固定分类挂载。
+
+    与 seed_presets 一样每个用户一份；users.ielts_seeded 保证只做一次，
+    这样已经拿过小綠書的老用户也能在下次登录时补上。
+    """
+    if user.ielts_seeded:
+        return 0
+
+    locked = (db.session.query(User)
+              .filter_by(id=user.id)
+              .populate_existing()
+              .with_for_update()
+              .one_or_none())
+    if locked is None or locked.ielts_seeded:
+        return 0
+    user = locked
+
+    from .chinese import to_simplified
+    from .dates import today
+    from .presets import IELTS_SOURCE, load_ielts_presets
+
+    d = today()
+    fixed = {
+        c.name: c.id for c in db.session.query(ChunkCategory)
+        .filter_by(openid=FIXED_CATEGORY_OPENID).all()
+    }
+
+    chunks = []
+    for item in load_ielts_presets():
+        chunks.append(Chunk(
+            openid=user.openid,
+            phrase=item['phrase'][:255],
+            meaning=to_simplified(item['meaning'])[:512],
+            example_sentence='',
+            note='',
+            source=IELTS_SOURCE[:255],
+            source_type=SOURCE_PRESET,
+            source_url='',
+            category_id=fixed.get(item.get('category') or ''),
+            tag='phrasal',
+            mastery_status=MASTERY_LEARNING,
+            date=d,
+            created_at=now_local(),
+        ))
+
+    db.session.add_all(chunks)
+    db.session.flush()
+
+    for chunk in chunks:
+        db.session.add(ReviewCard(
+            openid=user.openid, chunk_id=chunk.id,
+            phrase=chunk.phrase, meaning=chunk.meaning,
+            repetition=0, interval=1, easiness=2.50,
+            next_review=d, last_review=None,
+        ))
+
+    user.ielts_seeded = True
+    db.session.commit()
+    current_app.logger.info('已为用户 %s 写入 %d 条雅思语块', user.openid, len(chunks))
+    return len(chunks)
+
+
 class User(db.Model):
     __tablename__ = 'users'
 
@@ -149,6 +226,8 @@ class User(db.Model):
     animal = db.Column(String(16), nullable=False, default='')
     # 内置语块是否已复制到该用户名下（只做一次，删了也不再补）
     presets_seeded = db.Column(Boolean, nullable=False, default=False)
+    # 雅思 700 条单独标记：老用户已经 presets_seeded=True，靠它补齐第二批
+    ielts_seeded = db.Column(Boolean, nullable=False, default=False)
     checkin_reminder = db.Column(Boolean, nullable=False, default=False)
     reminder_time = db.Column(String(5), nullable=False, default='21:00')
     review_reminder = db.Column(Boolean, nullable=False, default=False)
