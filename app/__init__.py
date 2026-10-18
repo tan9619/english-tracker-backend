@@ -1,3 +1,5 @@
+import os
+
 from flask import Flask, jsonify, request
 from sqlalchemy import text
 
@@ -28,15 +30,35 @@ def create_app(config_object=Config):
             return None
         return check_openid()
 
+    # 启动时把配置问题喊出来，不要等到第一个请求才莫名其妙地失败
+    if not (os.environ.get('DATABASE_URL') or os.environ.get('MYSQL_ADDRESS')):
+        app.logger.error(
+            'MYSQL_ADDRESS / DATABASE_URL 都没有设置 —— 数据库会退化成 localhost 并连接失败。'
+            '云托管的环境变量要在「服务设置」里配置，改完必须重新部署才生效。')
+
     @app.route('/health')
     def health():
         ok = True
+        err = ''
         try:
             db.session.execute(text('SELECT 1'))
         except Exception as e:
             app.logger.error('health: db check failed: %s', e)
             ok = False
-        return jsonify(ok=ok, db=ok)
+            err = str(e).splitlines()[0][:160]
+
+        # 诊断信息：只暴露变量「名字」和解析出的主机，不含任何密码。
+        # 排查「改了环境变量但没生效」这类问题时，这几个字段能直接定论。
+        url = db.engine.url
+        return jsonify(
+            ok=ok,
+            db=ok,
+            db_error=err,
+            db_host=url.host or '',
+            db_name=url.database or '',
+            env_keys=sorted(k for k in os.environ
+                            if 'MYSQL' in k.upper() or 'DATABASE' in k.upper()),
+        )
 
     if app.config.get('AUTO_CREATE_TABLES'):
         with app.app_context():
