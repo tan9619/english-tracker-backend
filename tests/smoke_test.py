@@ -645,11 +645,35 @@ def main():
     r = c.get('/api/review/due', headers=HC).get_json()
     check('删除分类不影响复习数据', r.get('dueCount') == 3, r)
 
-    print('\n--- 来源计数 ---')
+    print('\n--- 来源计数 / 手动切换掌握状态 ---')
     r = c.get('/api/chunks/stats', headers=HC).get_json()
     sc = r.get('sourceCounts') or {}
     check('统计返回来源计数',
           sc.get('article') == 1 and sc.get('manual') == 2, sc)
+
+    r = c.post('/api/chunks/status', headers=HC,
+               json={'id': cid1, 'status': 'mastered'}).get_json()
+    check('手动标记已掌握',
+          r.get('success') is True and r['chunk']['mastery_status'] == 'mastered', r)
+    r = c.get('/api/review/due', headers=HC).get_json()
+    check('已掌握的语块退出复习队列', r.get('dueCount') == 2, r)
+
+    r = c.post('/api/chunks/status', headers=HC,
+               json={'id': cid1, 'status': 'learning'}).get_json()
+    check('改回待复习',
+          r.get('success') is True and r['chunk']['mastery_status'] == 'learning', r)
+    r = c.get('/api/review/due', headers=HC).get_json()
+    check('改回后重新进入复习队列', r.get('dueCount') == 3, r)
+
+    check('非法状态被拒',
+          c.post('/api/chunks/status', headers=HC,
+                 json={'id': cid1, 'status': 'whatever'}).get_json().get('success') is False)
+    check('不能改别人的语块状态',
+          c.post('/api/chunks/status', headers=HC2,
+                 json={'id': cid1, 'status': 'mastered'}).get_json().get('success') is False)
+
+    r = c.get('/api/review/overview', headers=HC).get_json()
+    check('手动切换不计入今日复习', r.get('todayReviewed') == 0, r)
 
     print('\n--- 每日复习目标 ---')
     r = c.get('/api/review/overview', headers=HC).get_json()
