@@ -247,40 +247,6 @@ def delete():
     return jsonify(success=True, message='Deleted')
 
 
-@bp.route('/api/chunks/status', methods=['POST'])
-def set_status():
-    """手动切换待复习 / 已掌握。
-
-    不写 review_records —— 这不是一次复习，不能算进今日完成数。
-    切回待复习时把卡片的 next_review 设为今天，让它重新出现在复习队列里。
-    """
-    body = request.get_json(silent=True) or {}
-    chunk = _own_chunk(body.get('id'))
-    if chunk is None:
-        return jsonify(success=False, message='Not found')
-
-    status = body.get('status')
-    if status not in (MASTERY_LEARNING, MASTERY_MASTERED):
-        return jsonify(success=False, message='Invalid status')
-
-    chunk.mastery_status = status
-    if status == MASTERY_LEARNING:
-        d = today()
-        card = _own_card(chunk.id)
-        if card is None:
-            db.session.add(ReviewCard(
-                openid=g.openid, chunk_id=chunk.id,
-                phrase=chunk.phrase, meaning=chunk.meaning,
-                repetition=0, interval=1, easiness=2.50,
-                next_review=d, last_review=None,
-            ))
-        else:
-            card.next_review = d
-
-    db.session.commit()
-    return jsonify(success=True, chunk=_chunk_dict(chunk, _category_map()))
-
-
 @bp.route('/api/chunks/stats', methods=['GET'])
 def stats():
     base = db.session.query(Chunk).filter_by(openid=g.openid)
