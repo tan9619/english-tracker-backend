@@ -39,6 +39,15 @@ def main():
     c = app.test_client()
 
     print('\n--- 纯函数 ---')
+    from app.chinese import to_simplified
+    check('OpenCC 繁體转简体',
+          to_simplified('台灣頭髮') == '台湾头发', to_simplified('台灣頭髮'))
+    check('補丁处理 妳/牠/著',
+          to_simplified('妳看牠沿著路走') == '你看它沿着路走',
+          to_simplified('妳看牠沿著路走'))
+    check('著不是助词时不误伤',
+          to_simplified('著名著作顯著') == '著名著作显著',
+          to_simplified('著名著作顯著'))
     check('js_round 四舍五入', js_round(2.5) == 3 and js_round(-2.5) == -3 and js_round(2.4) == 2,
           (js_round(2.5), js_round(-2.5), js_round(2.4)))
     check('calc_streak 空集', calc_streak([]) == 0)

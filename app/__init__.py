@@ -325,63 +325,86 @@ def _ensure_chunk_v2_schema(app):
     try:
         done = (db.session.query(SchemaMigration)
                 .filter_by(key='chunk_v2').one_or_none())
-        if done is not None:
-            return
+        if done is None:
+            app.logger.info('schema: 开始 chunk_v2 数据迁移')
+            fixed = {
+                c.name: c.id for c in db.session.query(ChunkCategory)
+                .filter_by(openid=FIXED_CATEGORY_OPENID).all()
+            }
+            custom = {
+                (c.openid, c.name): c for c in db.session.query(ChunkCategory)
+                .filter(ChunkCategory.openid != FIXED_CATEGORY_OPENID).all()
+            }
+            chunks = db.session.query(Chunk).all()
 
-        app.logger.info('schema: 开始 chunk_v2 数据迁移')
-        fixed = {
-            c.name: c.id for c in db.session.query(ChunkCategory)
-            .filter_by(openid=FIXED_CATEGORY_OPENID).all()
-        }
-        custom = {
-            (c.openid, c.name): c for c in db.session.query(ChunkCategory)
-            .filter(ChunkCategory.openid != FIXED_CATEGORY_OPENID).all()
-        }
-        chunks = db.session.query(Chunk).all()
+            # 1) 中文统一简体
+            for c in chunks:
+                c.meaning = to_simplified(c.meaning or '')[:512]
+                c.scenario = to_simplified(c.scenario or '')[:128]
+                if c.note:
+                    c.note = to_simplified(c.note)
+                if c.example_sentence:
+                    c.example_sentence = to_simplified(c.example_sentence)
+                c.source = to_simplified(c.source or '')[:255]
 
-        # 1) 中文统一简体
-        for c in chunks:
-            c.meaning = to_simplified(c.meaning or '')[:512]
-            c.scenario = to_simplified(c.scenario or '')[:128]
-            if c.note:
-                c.note = to_simplified(c.note)
-            if c.example_sentence:
-                c.example_sentence = to_simplified(c.example_sentence)
-            c.source = to_simplified(c.source or '')[:255]
+            # 2) 来源类型回填
+            for c in chunks:
+                if c.source_type and c.source_type != SOURCE_UNKNOWN:
+                    continue
+                if (c.source or '') == PRESET_SOURCE:
+                    c.source_type = SOURCE_PRESET
+                elif c.source:
+                    c.source_type = SOURCE_MANUAL
+                else:
+                    c.source_type = SOURCE_UNKNOWN
 
-        # 2) 来源类型回填
-        for c in chunks:
-            if c.source_type and c.source_type != SOURCE_UNKNOWN:
-                continue
-            if (c.source or '') == PRESET_SOURCE:
-                c.source_type = SOURCE_PRESET
-            elif c.source:
-                c.source_type = SOURCE_MANUAL
-            else:
-                c.source_type = SOURCE_UNKNOWN
+            # 3) scenario -> 分类
+            for c in chunks:
+                name = (c.scenario or '').strip()[:32]
+                if not name:
+                    c.category_id = None
+                    continue
+                if name in fixed:
+                    c.category_id = fixed[name]
+                    continue
+                key = (c.openid, name)
+                cat = custom.get(key)
+                if cat is None:
+                    cat = ChunkCategory(openid=c.openid, name=name, kind=KIND_CUSTOM,
+                                        created_at=now_local())
+                    db.session.add(cat)
+                    db.session.flush()
+                    custom[key] = cat
+                c.category_id = cat.id
 
-        # 3) scenario -> 分类
-        for c in chunks:
-            name = (c.scenario or '').strip()[:32]
-            if not name:
-                c.category_id = None
-                continue
-            if name in fixed:
-                c.category_id = fixed[name]
-                continue
-            key = (c.openid, name)
-            cat = custom.get(key)
-            if cat is None:
-                cat = ChunkCategory(openid=c.openid, name=name, kind=KIND_CUSTOM,
-                                    created_at=now_local())
-                db.session.add(cat)
-                db.session.flush()
-                custom[key] = cat
-            c.category_id = cat.id
+            db.session.add(SchemaMigration(key='chunk_v2', applied_at=now_local()))
+            db.session.commit()
+            app.logger.info('schema: chunk_v2 迁移完成，处理语块 %d 条', len(chunks))
 
-        db.session.add(SchemaMigration(key='chunk_v2', applied_at=now_local()))
-        db.session.commit()
-        app.logger.info('schema: chunk_v2 迁移完成，处理语块 %d 条', len(chunks))
+        # 4) 简体补丁：OpenCC 的 t2s 会保留 妳/牠/著，单独补一轮。
+        #    已跑过 chunk_v2 的库也会在这里被修正一次。
+        done2 = (db.session.query(SchemaMigration)
+                 .filter_by(key='chunk_v2_1').one_or_none())
+        if done2 is None:
+            changed = 0
+            for c in db.session.query(Chunk).all():
+                fields = {
+                    'meaning': (c.meaning or '')[:512],
+                    'scenario': (c.scenario or '')[:128],
+                    'note': c.note,
+                    'example_sentence': c.example_sentence,
+                    'source': (c.source or '')[:255],
+                }
+                for attr, value in fields.items():
+                    if not value:
+                        continue
+                    new = to_simplified(value)
+                    if new != value:
+                        setattr(c, attr, new)
+                        changed += 1
+            db.session.add(SchemaMigration(key='chunk_v2_1', applied_at=now_local()))
+            db.session.commit()
+            app.logger.info('schema: chunk_v2_1 简体补丁修正 %d 处', changed)
     except Exception as e:
         db.session.rollback()
         app.logger.error('schema: chunk_v2 数据迁移失败 %s', e)
