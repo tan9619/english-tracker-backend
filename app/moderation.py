@@ -44,14 +44,42 @@ def check_text(text, openid):
         return ERROR
 
     code = d.get('errcode', d.get('errCode'))
-    if code == 0:
+
+    # v1 风格的"内容违规"
+    if code == 87014:
+        return RISKY
+
+    # 任何非零 errcode 都表示**调用失败**（缺 access_token、权限不足、参数错、
+    # 用户久未访问等），不是"内容违规"。绝不能当成 RISKY —— 否则会把服务配置
+    # 问题报成用户的内容有问题，让人完全查错方向。
+    if code != 0:
+        current_app.logger.error(
+            'msg_sec_check 调用失败 code=%s msg=%s',
+            code, d.get('errmsg') or d.get('errMsg') or d.get('errMsg'))
+        return ERROR
+
+    # v2：errcode=0 只代表调用成功，真正的判定在 result.suggest
+    result = d.get('result') or {}
+    suggest = result.get('suggest')
+
+    if suggest == 'pass':
         return OK
 
-    # 87014 是"内容违规"。其他任何非零码也按 risky 处理以保持与原实现一致，
-    # 但要大声记日志 —— 开放接口服务配错也会落到这里，不记日志会很难查。
-    current_app.logger.warning(
-        'msg_sec_check code=%s msg=%s', code, d.get('errmsg') or d.get('errMsg'))
-    return RISKY
+    if suggest == 'risky':
+        current_app.logger.info('msg_sec_check risky label=%s', result.get('label'))
+        return RISKY
+
+    if suggest == 'review':
+        # 官方定义是"建议人工审核"。本项目没有人工审核流程，记录后放行，
+        # 避免把正常内容误拦。
+        current_app.logger.warning(
+            'msg_sec_check suggest=review label=%s', result.get('label'))
+        return OK
+
+    # 没有 result.suggest，说明响应结构不是 v2 预期的（多半是开放接口服务
+    # 没生效，请求直接打到了微信 API）
+    current_app.logger.error('msg_sec_check 响应缺少 result.suggest: %s', d)
+    return ERROR
 
 
 def failure(code):

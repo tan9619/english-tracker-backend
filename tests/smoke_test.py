@@ -311,6 +311,49 @@ def main():
     r = c.post('/api/login', headers=H).get_json()
     check('注销后重登是全新账号', r.get('isNewUser') is True, r)
 
+    print('\n--- 内容检测的三态判定 ---')
+    import app.moderation as mod
+
+    class FakeResp:
+        def __init__(self, payload):
+            self._p = payload
+
+        def json(self):
+            return self._p
+
+    original_post = mod.requests.post
+    saved_mode = app.config['MODERATION_MODE']
+    app.config['MODERATION_MODE'] = 'on'
+
+    def fake(payload):
+        mod.requests.post = lambda *a, **k: FakeResp(payload)
+
+    try:
+        with app.app_context():
+            fake({'errcode': 0, 'result': {'suggest': 'pass'}})
+            check('suggest=pass -> ok', mod.check_text('hello', 'o') == mod.OK)
+
+            fake({'errcode': 0, 'result': {'suggest': 'risky'}})
+            check('suggest=risky -> risky', mod.check_text('hello', 'o') == mod.RISKY)
+
+            fake({'errcode': 0, 'result': {'suggest': 'review'}})
+            check('suggest=review -> 放行', mod.check_text('hello', 'o') == mod.OK)
+
+            # 关键回归：开放接口服务没配好时返回的错误码，不能被当成内容违规
+            fake({'errcode': 41001, 'errmsg': 'access_token missing'})
+            check('errcode=41001 -> error（不是 risky）',
+                  mod.check_text('hello', 'o') == mod.ERROR)
+
+            fake({'errcode': 87014})
+            check('errcode=87014 -> risky（v1 兼容）',
+                  mod.check_text('hello', 'o') == mod.RISKY)
+
+            fake({})
+            check('响应缺 result -> error', mod.check_text('hello', 'o') == mod.ERROR)
+    finally:
+        mod.requests.post = original_post
+        app.config['MODERATION_MODE'] = saved_mode
+
     print('\n' + '=' * 52)
     print('通过 %d / 失败 %d' % (len(PASS), len(FAIL)))
     if FAIL:
