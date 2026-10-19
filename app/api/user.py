@@ -9,7 +9,7 @@ import re
 from flask import Blueprint, g, jsonify, request
 
 from ..extensions import db
-from ..models import get_or_create_user
+from ..models import ANIMALS, get_or_create_user
 
 bp = Blueprint('user', __name__)
 
@@ -32,10 +32,19 @@ def patch_profile():
     body = request.get_json(silent=True) or {}
     user = _current()
 
+    # 头像是 6 个内置动物之一，前端只传名字；先校验再改，避免半截更新
+    animal = None
+    if 'animal' in body:
+        animal = str(body.get('animal') or '')
+        if animal not in ANIMALS:
+            return jsonify(success=False, message='Invalid animal')
+
     if 'nickname' in body:
         user.nickname = str(body.get('nickname') or '')[:64]
     if 'avatar' in body:
         user.avatar = str(body.get('avatar') or '')[:1024]
+    if animal is not None:
+        user.animal = animal
 
     db.session.commit()
     return jsonify(success=True, userInfo=user.to_dict())

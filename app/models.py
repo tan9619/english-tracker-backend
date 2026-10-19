@@ -9,6 +9,7 @@ import random
 from flask import current_app
 from sqlalchemy import (BigInteger, Boolean, Date, DateTime, ForeignKey, Index,
                         Integer, Numeric, String, Text, UniqueConstraint)
+from sqlalchemy.exc import IntegrityError
 
 from .dates import fmt, now_local
 from .extensions import db
@@ -41,13 +42,31 @@ def get_or_create_user(openid):
         _safe_seed_presets(user)
         _safe_seed_ielts(user)
         return user, False
+    user, is_new = _insert_user(openid)
+
+    # 无论谁建的行，两个请求都会走到这里；seed 内部的 FOR UPDATE +
+    # presets_seeded/ielts_seeded 标记保证只写一份。
+    _safe_seed_presets(user)
+    _safe_seed_ielts(user)
+    return user, is_new
+
+
+def _insert_user(openid):
+    """插入用户行；撞上唯一索引说明另一个请求抢先建了号。"""
     user = User(openid=openid, animal=random_animal(),
                 presets_seeded=False, ielts_seeded=False)
     db.session.add(user)
-    db.session.commit()
-    _safe_seed_presets(user)
-    _safe_seed_ielts(user)
-    return user, True
+    try:
+        db.session.commit()
+        return user, True
+    except IntegrityError:
+        # 并发首次登录：两次请求都没查到用户，另一次抢先插入了同一 openid。
+        # uq_users_openid 挡住了重复行，回滚后按老用户读回来即可。
+        db.session.rollback()
+        user = db.session.query(User).filter_by(openid=openid).one_or_none()
+        if user is None:
+            raise
+        return user, False
 
 
 def _safe_seed_presets(user):

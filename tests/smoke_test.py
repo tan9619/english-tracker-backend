@@ -90,6 +90,14 @@ def main():
     check('login 幂等 isNewUser=false', r2.get('isNewUser') is False, r2)
     check('动物形象保持稳定', r2['userInfo'].get('animal') == animal_first, r2['userInfo'])
 
+    # 并发首次登录：两个请求都查不到用户，另一个抢先插入后，本请求的
+    # INSERT 会撞唯一索引。应回滚后按老用户读回来，而不是把登录打挂。
+    from app.models import _insert_user
+    with app.app_context():
+        u, is_new = _insert_user('test-openid-1')
+        check('并发建号撞唯一索引能恢复', u.openid == 'test-openid-1' and is_new is False,
+              (u and u.openid, is_new))
+
     r = c.get('/api/user/profile', headers=H).get_json()
     check('profile 字段齐全',
           all(k in r['userInfo'] for k in ('_id', 'nickname', 'avatar', 'checkin_reminder',
@@ -98,6 +106,12 @@ def main():
 
     r = c.patch('/api/user/profile', headers=H, json={'nickname': 'Tester'}).get_json()
     check('改昵称', r['userInfo']['nickname'] == 'Tester', r)
+
+    r = c.patch('/api/user/profile', headers=H, json={'animal': 'whale'}).get_json()
+    check('改动物形象', r.get('success') is True and r['userInfo']['animal'] == 'whale', r)
+
+    r = c.patch('/api/user/profile', headers=H, json={'animal': 'dragon'}).get_json()
+    check('非法动物形象被拒', r.get('success') is False, r)
 
     r = c.patch('/api/user/settings', headers=H,
                 json={'checkin_reminder': True, 'reminder_time': '08:00'}).get_json()
